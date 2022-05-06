@@ -2,6 +2,13 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const clickButtonHandler = async  () => {
+    const url = 'https://server-cetim.herokuapp.com/data/'
+    const data = await fetch(url)
+    const res = await data.json()
+    console.log(res)
+    
+  }
   return (
     <div className="App">
       <header className="App-header">
@@ -17,6 +24,7 @@ function App() {
         >
           Learn React
         </a>
+        <button onClick={clickButtonHandler}>Pulsame guapo</button>
       </header>
     </div>
   );
