@@ -1,31 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+
+import { BrowserRouter , Routes, Route} from "react-router-dom";
+import Home  from './routes/Home'
+import HomeCelulosa  from './routes/HomeCelulosa'
+import HomeSilicio  from './routes/HomeSilicio'
+import HomeBaterias  from './routes/HomeBaterias'
+import Consultar from './routes/Consultar'
+import Origen from "./routes/celulosa/Origen";
+import Procesos from "./routes/celulosa/Procesos";
+import ProductoFinal from "./routes/celulosa/ProductoFinal";
 
 function App() {
-  const clickButtonHandler = async  () => {
-    const url = 'https://server-cetim.herokuapp.com/data/'
-    const data = await fetch(url)
-    const res = await data.json()
-    console.log(res)
-    
-  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <button onClick={clickButtonHandler}>Pulsame guapo</button>
-      </header>
+    <div >
+        <BrowserRouter>
+        <Routes>
+          <Route path="/" element = {<Home />} />
+          <Route path="/celulosa" element = {<HomeCelulosa />} />
+          <Route path="/celulosa/origen/*" element = {<Origen />} />
+          <Route path="/celulosa/procesos/*" element = {<Procesos />} />
+          <Route path="/celulosa/producto/*" element = {<ProductoFinal />} />
+          <Route path="/silicio" element = {<HomeSilicio />} />
+          <Route path = "/baterias" element = {<HomeBaterias />} />
+          <Route path = "/consultar" element = {<Consultar />} />
+
+        </Routes>
+        </BrowserRouter>
+  
     </div>
   );
 }
