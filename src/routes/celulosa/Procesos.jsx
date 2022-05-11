@@ -4,6 +4,7 @@ import { useState } from 'react';
 import BackHomeButton from '../../components/BackHomeButton';
 import BackCelButton from '../../components/BackCelButton';
 import { urlCelProceso} from '../../api/endpoints'
+import ShowTxHash from '../../components/ShowTxHash';
 
 const Procesos = () => {
     const [codigo, setCodigo] = useState("")
@@ -11,13 +12,14 @@ const Procesos = () => {
     const [preEnzimatico, setPreEnzimatico] = useState(false)
     const [preQuimico, setPreQuimico] = useState(false)
     const [homogenizacion, setHomogenizacion] = useState(false)
-    
+    const [hash, setHash] = useState("")
+
     const registrarHandler = async () => {
         const url = urlCelProceso
         const urlParameters = `${url}?code=${codigo}&mec=${preMecanico}&enz=${preEnzimatico}&qui=${preQuimico}&homo=${homogenizacion}`
 		const data = await fetch(urlParameters)
 		const res = await data.json()
-		console.log(res)
+        setHash(res.transactionHash)
     }
    
 
@@ -31,6 +33,7 @@ const Procesos = () => {
             <button onClick={registrarHandler}>Registrar</button>
             <BackHomeButton />
             <BackCelButton />
+            { hash !== "" && <ShowTxHash hash={hash}/>}
         </div>
     )
 

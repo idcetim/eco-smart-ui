@@ -3,6 +3,7 @@ import { useState } from 'react';
 import BackHomeButton from '../../components/BackHomeButton';
 import BackCelButton from '../../components/BackCelButton';
 import { urlCelOrigen} from '../../api/endpoints'
+import ShowTxHash from '../../components/ShowTxHash';
 
 const Origen = () => {
     const [codigo, setCodigo] = useState("")
@@ -10,14 +11,16 @@ const Origen = () => {
     const [hemicelulosa, setHemicelulosa] = useState("")
     const [lignina, setLignina] = useState("")
     const [origen, setOrigen] = useState("")
+    const [hash, setHash] = useState("")
     
     const registrarHandler = async () => {
 		const url = urlCelOrigen
 		let urlParameters = `${url}?code=${codigo}&cel=${celulosa}&hemi=${hemicelulosa}&lig=${lignina}&ori=${origen}`
 		const data = await fetch(urlParameters)
 		const res = await data.json()
-		console.log(res)
+        setHash(res.transactionHash)
     }
+    
     return (
         <div>
             <TextInput codigo="Codigo" func={setCodigo} />
@@ -28,6 +31,7 @@ const Origen = () => {
             <button onClick={registrarHandler}>Registrar</button>
             <BackHomeButton />
             <BackCelButton />
+            { hash !== "" && <ShowTxHash hash={hash}/>}
 
         </div>
     )
