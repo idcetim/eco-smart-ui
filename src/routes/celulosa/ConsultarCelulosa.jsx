@@ -20,6 +20,7 @@ const ConsultarCelulosa = () => {
         const urlProcesos = `${urlCelConsultaProcesos}?code=${codigo}`
 		const dataProcesos = await fetch(urlProcesos)
 		const resProcesos = await dataProcesos.json()
+        console.log(resProcesos)
         setProcesosData(resProcesos)
 
         const urlProducto = `${urlCelConsultaProductos}?code=${codigo}`
@@ -28,8 +29,8 @@ const ConsultarCelulosa = () => {
         setProductoData(resProducto)
     }
     console.log("Origen data", origenData)
-    console.log("Procesos data", procesosData)
-    console.log("Producto data", productoData)
+    console.log("Procesos: ", procesosData)
+    console.log("Producto: ", productoData)
     
 return (
     <div>

@@ -16,13 +16,26 @@ const Procesos = () => {
 
     const registrarHandler = async () => {
         const url = urlCelProceso
-        const urlParameters = `${url}?code=${codigo}&mec=${preMecanico}&enz=${preEnzimatico}&qui=${preQuimico}&homo=${homogenizacion}`
+        const arrayData = helperProcesos()
+        const urlParameters = `${url}?code=${codigo}&mec=${arrayData[0]}&enz=${arrayData[1]}&qui=${arrayData[2]}&homo=${arrayData[3]}`
+        console.log(urlParameters)
 		const data = await fetch(urlParameters)
 		const res = await data.json()
         setHash(res.transactionHash)
     }
    
-
+    const helperProcesos = () => {
+        let arrayData = []
+        if(preMecanico)  arrayData.push("1")
+        else arrayData.push("0")
+        if(preEnzimatico)  arrayData.push("1")
+        else arrayData.push("0")
+        if(preQuimico)  arrayData.push("1")
+        else arrayData.push("0")
+        if(homogenizacion)  arrayData.push("1")
+        else arrayData.push("0")
+        return arrayData
+    }
     return (
         <div>
             <TextInput codigo="Codigo" func={setCodigo} />
