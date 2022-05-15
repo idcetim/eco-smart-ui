@@ -17,7 +17,13 @@ const Origen = () => {
     const registrarHandler = async () => {
 		const url = urlCelOrigen
 		let urlParameters = `${url}?code=${codigo}&cel=${celulosa}&hemi=${hemicelulosa}&lig=${lignina}&ori=${origen}`
-		const data = await fetch(urlParameters)
+		const data = await fetch(urlParameters,{
+            method: 'GET',
+            headers: new Headers({
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+            })
+        })
 		const res = await data.json()
         setHash(res.transactionHash)
     }

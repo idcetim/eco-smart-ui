@@ -18,8 +18,13 @@ const Procesos = () => {
         const url = urlCelProceso
         const arrayData = helperProcesos()
         const urlParameters = `${url}?code=${codigo}&mec=${arrayData[0]}&enz=${arrayData[1]}&qui=${arrayData[2]}&homo=${arrayData[3]}`
-        console.log(urlParameters)
-		const data = await fetch(urlParameters)
+		const data = await fetch(urlParameters,{
+            method: 'GET',
+            headers: new Headers({
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+            })
+        })
 		const res = await data.json()
         setHash(res.transactionHash)
     }

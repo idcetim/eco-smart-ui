@@ -18,7 +18,13 @@ const ProductoFinal = () => {
     const registrarHandler = async () => {
         const url = urlCelProducto
         const urlParameters = `${url}?code=${codigo}&susp=${suspension}&cond=${conductividad}&ancho=${anchoMedio}&porce=${porcentajeSusp}`
-		const data = await fetch(urlParameters)
+		const data = await fetch(urlParameters,{
+            method: 'GET',
+            headers: new Headers({
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+            })
+        })
 		const res = await data.json()
         setHash(res.transactionHash)
     }

@@ -13,18 +13,36 @@ const ConsultarCelulosa = () => {
 
     const consultarHandler = async () => {
         const urlOrigen = `${urlCelConsultaOrigen}?code=${codigo}`
-		const dataOrigen = await fetch(urlOrigen)
+		const dataOrigen = await fetch(urlOrigen,{
+            method: 'GET',
+            headers: new Headers({
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+            })
+        })
 		const resOrigen = await dataOrigen.json()
         setOrigenData(resOrigen)
 
         const urlProcesos = `${urlCelConsultaProcesos}?code=${codigo}`
-		const dataProcesos = await fetch(urlProcesos)
+		const dataProcesos = await fetch(urlProcesos,{
+            method: 'GET',
+            headers: new Headers({
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+            })
+        })
 		const resProcesos = await dataProcesos.json()
         console.log(resProcesos)
         setProcesosData(resProcesos)
 
         const urlProducto = `${urlCelConsultaProductos}?code=${codigo}`
-		const dataProducto = await fetch(urlProducto)
+		const dataProducto = await fetch(urlProducto,{
+            method: 'GET',
+            headers: new Headers({
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+            })
+        })
 		const resProducto = await dataProducto.json()
         setProductoData(resProducto)
     }
