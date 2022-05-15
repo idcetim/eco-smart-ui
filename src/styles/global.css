@@ -1,0 +1,48 @@
+.web-wrapper {
+    margin: 40px
+}
+
+.small-separation {
+    margin-top: 10px
+}
+
+.div-button-back {
+    margin-top: 15px;
+}
+
+.button-home {
+    padding: 5px;
+    font-size: 18px;
+    font-weight: 700;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.button-registrar {
+    padding: 5px;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.button-back-home {
+    padding: 5px;
+    font-size: 18px;
+    font-weight: 700;
+    color: red;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+a {
+    font-family: 'Courier New', Courier, monospace;
+    padding: 5px;
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: green;
+    background: white;
+    display: block;
+}
+
+h3 {
+    letter-spacing: 0.1em;
+}

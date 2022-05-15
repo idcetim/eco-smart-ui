@@ -1,11 +1,13 @@
 import { useNavigate } from "react-router-dom"
+
+import "../styles/global.css"
 const BackHomeButton = () => {
     const navigate = useNavigate()
     const backHandler = () => {
         navigate('/')
     }
     return (
-        <button onClick={backHandler}>Volver Inicio</button>
+        <button className="button-back-home" onClick={backHandler}>Volver Inicio</button>
     )
     
 }

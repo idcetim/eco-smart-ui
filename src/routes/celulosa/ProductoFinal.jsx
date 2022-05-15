@@ -7,6 +7,9 @@ import { header} from '../../api/fetchHeader'
 import ShowTxHash from '../../components/ShowTxHash';
 import SelectInput from '../../components/SelectInput';
 
+import "../../styles/global.css"
+import "../../styles/TextInput.css"
+
 const ProductoFinal = () => {
     const [codigo, setCodigo] = useState("")
     const [suspension , setSuspension] = useState("")
@@ -25,16 +28,19 @@ const ProductoFinal = () => {
     }
    
     return (
-        <div>
+        <div className='web-wrapper'>
+            <h3> Registro de caraceterísticas de nanocelulosa </h3> 
             <TextInput codigo="Codigo" func={setCodigo} />
             <TextInput codigo="Conductividad iónica" func={setConductividad} />
             <TextInput codigo="Ancho medio partícula" func={setAnchoMedio} />
             <SelectInput options = {selectOptions} func = {setSuspension} />
             {suspension === selectOptions[2] && <TextInput codigo="Porcentaje suspension" func={setPorcentajeSusp} />}
-            <button onClick={registrarHandler}>Registrar</button>
-            <BackHomeButton />
-            <BackCelButton />
+            <button className='button-registrar' onClick={registrarHandler}>Registrar</button>
             { hash !== "" && <ShowTxHash hash={hash}/>}
+            <div className='div-button-back'>
+                <BackHomeButton />
+                <BackCelButton />
+            </div>
         </div>
     ) 
 }

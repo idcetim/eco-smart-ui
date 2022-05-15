@@ -1,6 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import BackHomeButton from '../components/BackHomeButton';
 
+import "../styles/global.css"
+
 const HomeCelulosa = () => {
     const navigate = useNavigate();
     const origenHandler = () => {navigate('/celulosa/origen/')}
@@ -9,12 +11,17 @@ const HomeCelulosa = () => {
     const consultarHandler = () => {navigate('/celulosa/consulta/')}
 
     return(
-        <div>
-        <button onClick={origenHandler}>Materia primas</button>
-        <button onClick={procesosHandler}>Procesos</button>
-        <button onClick={productoHandler}>Producto final</button>
-        <button onClick={consultarHandler}>Consultar</button>
-        <BackHomeButton />
+        <div className="web-wrapper">
+            <h3> Registro de materia prima</h3>
+            <button className="button-home" onClick={origenHandler}>Materia primas</button>
+            <h3> Registro de procesos</h3>
+            <button className="button-home" onClick={procesosHandler}>Procesos</button>
+            <h3> Registro del producto final</h3>
+            <button className="button-home" onClick={productoHandler}>Producto final</button>
+            <h3> Consultar información sobre lotes de nanocelulosa </h3>
+            <button className="button-home" onClick={consultarHandler}>Consultar</button>
+            
+            <BackHomeButton />
         </div>
     )
   

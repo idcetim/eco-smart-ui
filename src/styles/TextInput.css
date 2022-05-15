@@ -1,0 +1,18 @@
+input {
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: 1px solid rgb(176, 173, 173);
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+    width: 300px;
+}
+
+select {
+    font-weight: 600;
+    width: 315px;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}

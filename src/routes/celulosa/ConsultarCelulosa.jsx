@@ -5,6 +5,8 @@ import BackCelButton from '../../components/BackCelButton';
 import { urlCelConsultaOrigen, urlCelConsultaProcesos, urlCelConsultaProductos } from '../../api/endpoints'
 import { header} from '../../api/fetchHeader'
 
+import "../../styles/global.css"
+import "../../styles/TextInput.css"
 
 const ConsultarCelulosa = () => {
     const [codigo, setCodigo] = useState("")
@@ -33,11 +35,13 @@ const ConsultarCelulosa = () => {
     console.log("Producto: ", productoData)
     
 return (
-    <div>
+    <div className='web-wrapper'>
         <TextInput codigo="Codigo" func={setCodigo}  />
-        <button onClick={consultarHandler}>Consultar</button>
-        <BackHomeButton />
-        <BackCelButton />
+        <button className='button-registrar' onClick={consultarHandler}>Consultar</button>
+        <div className='div-button-back'>
+                <BackHomeButton />
+                <BackCelButton />
+            </div>
     </div>
     
 )
