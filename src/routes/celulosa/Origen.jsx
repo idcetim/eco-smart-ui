@@ -4,6 +4,7 @@ import { useState } from 'react';
 import BackHomeButton from '../../components/BackHomeButton';
 import BackCelButton from '../../components/BackCelButton';
 import { urlCelOrigen} from '../../api/endpoints'
+import { header} from '../../api/fetchHeader'
 import ShowTxHash from '../../components/ShowTxHash';
 
 const Origen = () => {
@@ -17,13 +18,7 @@ const Origen = () => {
     const registrarHandler = async () => {
 		const url = urlCelOrigen
 		let urlParameters = `${url}?code=${codigo}&cel=${celulosa}&hemi=${hemicelulosa}&lig=${lignina}&ori=${origen}`
-		const data = await fetch(urlParameters,{
-            method: 'GET',
-            headers: new Headers({
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*',
-            })
-        })
+		const data = await fetch(urlParameters, header)
 		const res = await data.json()
         setHash(res.transactionHash)
     }
