@@ -8,6 +8,7 @@ import Consultar from './routes/Consultar'
 import Origen from "./routes/celulosa/Origen";
 import Procesos from "./routes/celulosa/Procesos";
 import ProductoFinal from "./routes/celulosa/ProductoFinal";
+import ConsultarCelulosa from "./routes/celulosa/ConsultarCelulosa";
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
           <Route path="/celulosa/origen/*" element = {<Origen />} />
           <Route path="/celulosa/procesos/*" element = {<Procesos />} />
           <Route path="/celulosa/producto/*" element = {<ProductoFinal />} />
+          <Route path="/celulosa/consulta/*" element = {<ConsultarCelulosa />} />
           <Route path="/silicio" element = {<HomeSilicio />} />
           <Route path = "/baterias" element = {<HomeBaterias />} />
           <Route path = "/consultar" element = {<Consultar />} />

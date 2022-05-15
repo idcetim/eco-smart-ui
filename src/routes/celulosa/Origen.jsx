@@ -1,4 +1,5 @@
 import TextInput from '../../components/TextInput'
+import SelectInput from '../../components/SelectInput'
 import { useState } from 'react';
 import BackHomeButton from '../../components/BackHomeButton';
 import BackCelButton from '../../components/BackCelButton';
@@ -20,14 +21,14 @@ const Origen = () => {
 		const res = await data.json()
         setHash(res.transactionHash)
     }
-    
+    const selectOptions = ["Origen", "Abeto", "Pino" , "Eucalipto"]
     return (
         <div>
             <TextInput codigo="Codigo" func={setCodigo} />
             <TextInput codigo="Lignina" func={setLignina} />
             <TextInput codigo="Hemicelulosa" func={setHemicelulosa} />
             <TextInput codigo="Celulosa" func={setCelulosa} />
-            <TextInput codigo="Origen" func={setOrigen} />
+            <SelectInput options = {selectOptions} func = {setOrigen} />
             <button onClick={registrarHandler}>Registrar</button>
             <BackHomeButton />
             <BackCelButton />
