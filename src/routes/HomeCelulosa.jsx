@@ -12,6 +12,7 @@ const HomeCelulosa = () => {
 
     return(
         <div className="web-wrapper">
+            <h1>Nanocelulosa</h1>
             <h3> Registro de materia prima</h3>
             <button className="button-home" onClick={origenHandler}>Materia primas</button>
             <h3> Registro de procesos</h3>
@@ -19,9 +20,11 @@ const HomeCelulosa = () => {
             <h3> Registro del producto final</h3>
             <button className="button-home" onClick={productoHandler}>Producto final</button>
             <h3> Consultar información sobre lotes de nanocelulosa </h3>
-            <button className="button-home" onClick={consultarHandler}>Consultar</button>
-            
+            <button className="button-home" onClick={consultarHandler}>Consultar🔎</button>
+            <div className="div-backhome-button">
             <BackHomeButton />
+            </div>
+            
         </div>
     )
   

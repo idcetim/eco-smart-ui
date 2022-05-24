@@ -1,0 +1,33 @@
+.div-title {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.span-title {
+    font-size: 18px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+.span-title-green {
+    font-size: 18px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    color: green;
+}
+
+table {
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 500px;
+    padding: 10px;
+}
+
+tr,
+th,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 3px;
+}

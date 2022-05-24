@@ -2,6 +2,7 @@ import TextInput from '../../components/TextInput'
 import { useState } from 'react';
 import BackHomeButton from '../../components/BackHomeButton';
 import BackCelButton from '../../components/BackCelButton';
+import ShowCelulosaData from '../../components/ShowCelulosaData';
 import { urlCelConsultaOrigen, urlCelConsultaProcesos, urlCelConsultaProductos } from '../../api/endpoints'
 import { header} from '../../api/fetchHeader'
 
@@ -30,14 +31,14 @@ const ConsultarCelulosa = () => {
 		const resProducto = await dataProducto.json()
         setProductoData(resProducto)
     }
-    console.log("Origen data", origenData)
-    console.log("Procesos: ", procesosData)
-    console.log("Producto: ", productoData)
+   
     
 return (
     <div className='web-wrapper'>
+        <h3>Consultar información sobre celulosa</h3>
         <TextInput codigo="Codigo" func={setCodigo}  />
-        <button className='button-registrar' onClick={consultarHandler}>Consultar</button>
+        <button className='button-registrar' onClick={consultarHandler} disabled={!codigo}>Consultar</button>
+        <ShowCelulosaData origenData={origenData} procesosData={procesosData} productoData={productoData} codigo={codigo}/>
         <div className='div-button-back'>
                 <BackHomeButton />
                 <BackCelButton />

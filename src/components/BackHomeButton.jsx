@@ -7,7 +7,7 @@ const BackHomeButton = () => {
         navigate('/')
     }
     return (
-        <button className="button-back-home" onClick={backHandler}>Volver Inicio</button>
+        <button className="button-back-home" onClick={backHandler}>Inicio🏠</button>
     )
     
 }

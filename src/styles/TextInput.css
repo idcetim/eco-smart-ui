@@ -16,3 +16,19 @@ select {
     margin-top: 5px;
     margin-bottom: 5px;
 }
+
+label {
+    font-weight: 600;
+    width: 315px;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: flex;
+}
+
+.checkbox-design {
+    display: flex;
+    justify-content: left;
+    width: 20px;
+}

@@ -34,7 +34,7 @@ const Origen = () => {
             <TextInput codigo="Hemicelulosa" func={setHemicelulosa} />
             <TextInput codigo="Celulosa" func={setCelulosa} />
             <SelectInput options = {selectOptions} func = {setOrigen} />
-            <button className='button-registrar' onClick={registrarHandler}>Registrar</button>
+            <button className='button-registrar' onClick={registrarHandler} disabled={!codigo}>Registrar</button>
                 { hash !== "" && <ShowTxHash hash={hash}/>}
             <div className='div-button-back'>
                 <BackHomeButton />

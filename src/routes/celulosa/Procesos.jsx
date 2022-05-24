@@ -43,13 +43,14 @@ const Procesos = () => {
         <div className='web-wrapper'>
             <h3> Registro de procesos  </h3> 
             <TextInput codigo="Codigo" func={setCodigo} />
+            <h4>Procesos realizados</h4>
             <div>
                 <CheckBox label={"Pretratamiento mecánico"} value={preMecanico} setChange ={setPreMecanico} />
                 <CheckBox label={"Pretratamiento enzimático"} value={preEnzimatico} setChange ={setPreEnzimatico} />
                 <CheckBox label={"Pretratamiento químico"} value={preQuimico} setChange ={setPreQuimico} />
                 <CheckBox label={"Homogenización"} value={homogenizacion} setChange ={setHomogenizacion} />
             </div>
-            <button className='button-registrar' onClick={registrarHandler}>Registrar</button>
+            <button className='button-registrar' onClick={registrarHandler} disabled={!codigo}>Registrar</button>
             { hash !== "" && <ShowTxHash hash={hash}/>}
 
             <div className='div-button-back'>

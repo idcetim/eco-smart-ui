@@ -1,3 +1,5 @@
+import "../styles/TextInput.css"
+
 const Checkbox = (props) => {
     const label = props.label
     const value = props.value
@@ -8,7 +10,7 @@ const Checkbox = (props) => {
     }
     return (
       <label>
-        <input type="checkbox" checked={value} onChange={() => changeValueHandler()} />
+        <input  className="checkbox-design" type="checkbox" checked={value} onChange={() => changeValueHandler()} />
         {label}
       </label>
     );

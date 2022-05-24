@@ -35,7 +35,7 @@ const ProductoFinal = () => {
             <TextInput codigo="Ancho medio partícula" func={setAnchoMedio} />
             <SelectInput options = {selectOptions} func = {setSuspension} />
             {suspension === selectOptions[2] && <TextInput codigo="Porcentaje suspension" func={setPorcentajeSusp} />}
-            <button className='button-registrar' onClick={registrarHandler}>Registrar</button>
+            <button className='button-registrar' onClick={registrarHandler} disabled={!codigo}>Registrar</button>
             { hash !== "" && <ShowTxHash hash={hash}/>}
             <div className='div-button-back'>
                 <BackHomeButton />

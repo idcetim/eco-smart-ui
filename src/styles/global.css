@@ -12,9 +12,13 @@
 
 .button-home {
     padding: 5px;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 700;
     font-family: 'Courier New', Courier, monospace;
+}
+
+.div-backhome-button {
+    margin-top: 15px;
 }
 
 .button-registrar {
@@ -22,13 +26,23 @@
     font-size: 14px;
     font-weight: 700;
     font-family: 'Courier New', Courier, monospace;
+    margin-top: 18px;
 }
 
 .button-back-home {
     padding: 5px;
     font-size: 18px;
     font-weight: 700;
-    color: red;
+    color: black;
+    font-family: 'Courier New', Courier, monospace;
+    margin-right: 10px;
+}
+
+.button-back-cel {
+    padding: 5px;
+    font-size: 18px;
+    font-weight: 700;
+    color: black;
     font-family: 'Courier New', Courier, monospace;
 }
 
@@ -44,5 +58,9 @@ a {
 }
 
 h3 {
+    letter-spacing: 0.1em;
+}
+
+h4 {
     letter-spacing: 0.1em;
 }

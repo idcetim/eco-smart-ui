@@ -17,7 +17,7 @@ const Home = () => {
             <button className="button-home" onClick={bateriasHandler}>Baterías</button>
             <h3>Consultar información</h3>
             <div className="small-separation">
-                <button className="button-home" onClick={consultarHandler}>Consultar</button>
+                <button className="button-home" onClick={consultarHandler}>Consultar🔎</button>
             </div>
         </div>
     )
