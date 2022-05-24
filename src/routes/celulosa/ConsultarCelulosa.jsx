@@ -35,9 +35,9 @@ const ConsultarCelulosa = () => {
     
 return (
     <div className='web-wrapper'>
-        <h3>Consultar información sobre celulosa</h3>
+        <h3>Consultar información sobre lote de nanocelulosa</h3>
         <TextInput codigo="Codigo" func={setCodigo}  />
-        <button className='button-registrar' onClick={consultarHandler} disabled={!codigo}>Consultar</button>
+        <button className='button-registrar' onClick={consultarHandler} disabled={!codigo}>Consultar🔎</button>
         <ShowCelulosaData origenData={origenData} procesosData={procesosData} productoData={productoData} codigo={codigo}/>
         <div className='div-button-back'>
                 <BackHomeButton />

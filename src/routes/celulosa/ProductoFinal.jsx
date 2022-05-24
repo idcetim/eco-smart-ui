@@ -29,7 +29,7 @@ const ProductoFinal = () => {
    
     return (
         <div className='web-wrapper'>
-            <h3> Registro de caraceterísticas de nanocelulosa </h3> 
+            <h3> Registro de características de nanocelulosa </h3> 
             <TextInput codigo="Codigo" func={setCodigo} />
             <TextInput codigo="Conductividad iónica" func={setConductividad} />
             <TextInput codigo="Ancho medio partícula" func={setAnchoMedio} />
