@@ -1,7 +1,7 @@
 import TextInput from "../components/TextInput";
 import { useState } from 'react';
 import BackHomeButton from '../components/BackHomeButton';
-import { urlCelConsultarTodos } from "../api/endpoints";
+
 
 const Consultar = () => {
     const [codigo, setCodigo] = useState("")
@@ -9,10 +9,9 @@ const Consultar = () => {
     console.log(codigo)
 
     const consultarHandler = async () => {
-		const url = urlCelConsultarTodos
-		const data = await fetch(url)
-		const res = await data.json()
-        setElementos(res)
+		
+	
+        setElementos(["ola"])
     }
     console.log(elementos)
     

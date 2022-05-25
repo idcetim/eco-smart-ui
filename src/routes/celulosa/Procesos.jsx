@@ -42,7 +42,7 @@ const Procesos = () => {
     return (
         <div className='web-wrapper'>
             <h3> Registro de procesos  </h3> 
-            <TextInput codigo="Codigo" func={setCodigo} />
+            <TextInput codigo="Código" func={setCodigo} />
             <h4>Procesos realizados</h4>
             <div>
                 <CheckBox label={"Pretratamiento mecánico"} value={preMecanico} setChange ={setPreMecanico} />
@@ -51,7 +51,7 @@ const Procesos = () => {
                 <CheckBox label={"Homogenización"} value={homogenizacion} setChange ={setHomogenizacion} />
             </div>
             <button className='button-registrar' onClick={registrarHandler} disabled={!codigo}>Registrar</button>
-            { hash !== "" && <ShowTxHash hash={hash}/>}
+            { hash !== "" && <ShowTxHash hash={hash} text={"Ver transacción"}/>}
 
             <div className='div-button-back'>
                 <BackHomeButton />

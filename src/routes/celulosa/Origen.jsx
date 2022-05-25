@@ -29,13 +29,13 @@ const Origen = () => {
     return (
         <div className='web-wrapper'>
             <h3> Registro de materias primas </h3> 
-            <TextInput codigo="Codigo" func={setCodigo} />
+            <TextInput codigo="Código" func={setCodigo} />
             <TextInput codigo="Lignina" func={setLignina} />
             <TextInput codigo="Hemicelulosa" func={setHemicelulosa} />
             <TextInput codigo="Celulosa" func={setCelulosa} />
             <SelectInput options = {selectOptions} func = {setOrigen} />
             <button className='button-registrar' onClick={registrarHandler} disabled={!codigo}>Registrar</button>
-                { hash !== "" && <ShowTxHash hash={hash}/>}
+                { hash !== "" && <ShowTxHash hash={hash} text={"Ver transacción"}/>}
             <div className='div-button-back'>
                 <BackHomeButton />
                 <BackCelButton />

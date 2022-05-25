@@ -1,8 +1,9 @@
-const ShowTxHash = (hash) => {
-    const txHash = hash.hash
+const ShowTxHash = (props) => {
+    const txHash = props.hash
+    const text = props.text
     const fantomExplorer = "https://testnet.ftmscan.com/tx/" + txHash
     return (
-       <a href={fantomExplorer}>Ver transacción</a> 
+       <a href={fantomExplorer}>{text}</a> 
     )
 }
 
