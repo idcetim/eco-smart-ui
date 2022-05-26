@@ -58,13 +58,13 @@ const ConsultarCelulosa = () => {
     
 return (
     <div className='web-wrapper'>
-        <h3>Consultar información sobre lote de nanocelulosa</h3>
+        <h3>Consultar información sobre nanocelulosa</h3>
         <TextInput codigo="Codigo" func={setCodigo}  />
-        <button className='button-registrar' onClick={consultarHandler} disabled={!codigo}>Consultar🔎</button>
+        <button className='button-registrar' onClick={consultarHandler} disabled={!codigo}>Consultar lote {codigo}🔎</button>
         <ShowCelulosaData origenData={origenData} procesosData={procesosData} productoData={productoData} codigo={codigo}/>
-        <ShowTxHash hash={origenHash} text={"Transacción origen"}/>
-        <ShowTxHash hash={procesosHash} text={"Transacción procesos"} />
-        <ShowTxHash hash={productoHash} text={"Transacción producto"} />
+        {origenHash!== "" &&  <ShowTxHash hash={origenHash} text={"Transacción origen"}/> }
+        {procesosHash!== "" && <ShowTxHash hash={procesosHash} text={"Transacción procesos"} /> }
+        {productoHash!== "" && <ShowTxHash hash={productoHash} text={"Transacción producto"} /> }
         <div className='div-button-back'>
                 <BackHomeButton />
                 <BackCelButton />
