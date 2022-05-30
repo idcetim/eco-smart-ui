@@ -30,9 +30,9 @@ const Origen = () => {
         <div className='web-wrapper'>
             <h3> Registro de materias primas </h3> 
             <TextInput codigo="Código" func={setCodigo} />
-            <TextInput codigo="Lignina" func={setLignina} />
-            <TextInput codigo="Hemicelulosa" func={setHemicelulosa} />
-            <TextInput codigo="Celulosa" func={setCelulosa} />
+            <TextInput codigo="Celulosa(%)" func={setCelulosa} />
+            <TextInput codigo="Hemicelulosa(%)" func={setHemicelulosa} />
+            <TextInput codigo="Lignina(%)" func={setLignina} />
             <SelectInput options = {selectOptions} func = {setOrigen} />
             <button className='button-registrar' onClick={registrarHandler} disabled={!codigo}>Registrar</button>
                 { hash !== "" && <ShowTxHash hash={hash} text={"Ver transacción"}/>}

@@ -61,10 +61,17 @@ return (
         <h3>Consultar información sobre nanocelulosa</h3>
         <TextInput codigo="Codigo" func={setCodigo}  />
         <button className='button-registrar' onClick={consultarHandler} disabled={!codigo}>Consultar lote {codigo}🔎</button>
-        <ShowCelulosaData origenData={origenData} procesosData={procesosData} productoData={productoData} codigo={codigo}/>
+        {origenHash.length>0 && procesosHash.length>0 && productoHash.length >0 ? 
+        <ShowCelulosaData origenData={origenData} procesosData={procesosData} productoData={productoData} codigo={codigo}/> :
+        (codigo !== "" && <h4>No hay información disponible para ese lote</h4> )
+    }
+     <div className='div-blockchain-info'>
+        {origenHash!== "" &&  <span className="span-title"> Información blockchain del lote <span className="span-title-green">{codigo}</span></span> }
         {origenHash!== "" &&  <ShowTxHash hash={origenHash} text={"Transacción origen"}/> }
         {procesosHash!== "" && <ShowTxHash hash={procesosHash} text={"Transacción procesos"} /> }
         {productoHash!== "" && <ShowTxHash hash={productoHash} text={"Transacción producto"} /> }
+    </div>
+ 
         <div className='div-button-back'>
                 <BackHomeButton />
                 <BackCelButton />

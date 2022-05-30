@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import BackHomeButton from '../../components/BackHomeButton';
 import BackCelButton from '../../components/BackCelButton';
 import { urlCelConsultaLotes   } from '../../api/endpoints'
@@ -14,19 +14,19 @@ const ConsultarLotesCel = () => {
     const [lotes, setLotes] = useState([])
 
     const consultarHandler = async () => {
-        const urlLotes = `${urlCelConsultaLotes}`
-		const dataLotes = await fetch(urlLotes, header)
+		const dataLotes = await fetch(urlCelConsultaLotes, header)
 		const resLotes = await dataLotes.json()
         setLotes(resLotes)
     }
    console.log(lotes)
     
+    useEffect(()=>{
+        consultarHandler()
+    },[])
 return ( 
     <div className='web-wrapper'>
-        <h3>Consultar información sobre nanocelulosa</h3>
-        <button className='button-registrar' onClick={consultarHandler} >Ver lotes registrados🔎</button>
-        {lotes.length > 0 && <ShowCelulosaLotes lotes={lotes} />}
-       {lotes.length > 0 && <hr/>}  
+       <h3>Lotes registrados</h3>
+        {lotes.length > 0 && <ShowCelulosaLotes lotes={lotes} />} 
         <div className='div-button-back'>
                 <BackHomeButton />
                 <BackCelButton />

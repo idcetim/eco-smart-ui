@@ -1,16 +1,16 @@
-import Origen  from './celulosa/Origen'
-import Procesos  from './celulosa/Procesos'
-import ProductoFinal from './celulosa/ProductoFinal';
+//import { useNavigate } from "react-router-dom";
+import BackHomeButton from '../components/BackHomeButton';
 
-const HomeCelulosa = () => {
+import "../styles/global.css"
+
+const HomeBaterias = () => {
     return(
-        <div>
-            <Origen />
-            <Procesos />
-            <ProductoFinal />
+        <div className="web-wrapper">
+         <h1>Montaje de baterias</h1>
+         <BackHomeButton />
         </div>
     )
   
 }
 
-export default HomeCelulosa;
+export default HomeBaterias;

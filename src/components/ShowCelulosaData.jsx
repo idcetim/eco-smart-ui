@@ -8,32 +8,45 @@ const ShowCelulosaData = (props) => {
  console.log(origenData)
  console.log(procesosData)
  console.log(productoData)
+ let mec, enz, qui, homo;
+ console.log(procesosData)
+ if(procesosData[0] === '1') mec= 'Realizado'
+ else mec = ''
+ if(procesosData[1] === '1') enz= 'Realizado'
+ else enz = ''
+ if(procesosData[2] === '1') qui= 'Realizado'
+ else qui = ''
+ if(procesosData[3] === '1') homo= 'Realizado'
+ else homo = ''
+ 
+
+
     return (
        Object.keys(productoData).length!== 0 && <div>
        <div className="div-title">
-        <span className="span-title">Información sobre el lote <span className="span-title-green">{codigo}</span> </span>
+        <span className="span-title">Información de producto del lote <span className="span-title-green">{codigo}</span> </span>
         </div> 
 
         <table className="table-celulosa">
         <tr>
            
             <th>Características</th>
-            <th>Valores</th>
+            <th>Datos</th>
         </tr>
         <tr>
             
             <td>Celulosa (%)</td>
-            <td>{origenData[0]}</td>
+            {origenData[0] !== "" ? <td>{origenData[0]}%</td>: <td></td> }  
          </tr>
         <tr>
            
             <td>Hemicelulosa (%)</td>
-            <td>{origenData[1]}</td>
+            {origenData[1] !== "" ? <td>{origenData[1]}%</td>: <td></td> }  
         </tr>
         <tr>
             
             <td>Lignina (%)</td>
-            <td>{origenData[2]}</td>
+            {origenData[2] !== "" ? <td>{origenData[2]}%</td>: <td></td> }  
         </tr>
         <tr>
             
@@ -43,22 +56,22 @@ const ShowCelulosaData = (props) => {
         <tr>
             
             <td>Pretratamiento mecánico</td>
-            <td>{procesosData[0]}</td>
+            <td>{mec}</td>
          </tr>
         <tr>
             
             <td>Pretratamiento químico</td>
-            <td>{procesosData[1]}</td>
+            <td>{qui}</td>
         </tr>
         <tr>
             
             <td>Pretratamiento enzimático</td>
-            <td>{procesosData[2]}</td>
+            <td>{enz}</td>
         </tr>
         <tr>
            
             <td>Homogenización</td>
-            <td>{procesosData[3]}</td>
+            <td>{homo}</td>
         </tr>
         <tr>
            
@@ -68,17 +81,17 @@ const ShowCelulosaData = (props) => {
         <tr>
             
             <td>Ancho medio partícula</td>
-            <td>{productoData[1]}</td>
+            <td>{productoData[2]}</td>
         </tr>
         <tr>
           
             <td>Formato nanocelulosa</td>
-            <td>{productoData[2]}</td>
+            <td>{productoData[1]}</td>
         </tr>
         <tr>
         
             <td>Porcensaje en suspensión</td>
-            <td>{productoData[3]}</td>
+           {productoData !== "" ? <td>{productoData[3]}%</td> : <td></td>} 
         </tr>
         </table>
         </div>

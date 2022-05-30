@@ -13,13 +13,14 @@ const HomeCelulosa = () => {
     return(
         <div className="web-wrapper">
             <h1>Nanocelulosa</h1>
-            <h3> Registro de materia prima</h3>
-            <button className="button-home" onClick={origenHandler}>Materia primas🍂</button>
-            <h3> Registro de procesos</h3>
-            <button className="button-home" onClick={procesosHandler}>Procesos🔄</button>
-            <h3> Registro del producto final</h3>
-            <button className="button-home" onClick={productoHandler}>Producto final📂</button>
-            <h3> Consultar información sobre lotes de nanocelulosa </h3>
+            <h3> Registro de información</h3>
+            <div>
+                <button className="button-home" onClick={origenHandler}>Materia primas🍂</button>
+                <button className="button-home" onClick={procesosHandler}>Procesos🔄</button>
+                <button className="button-home" onClick={productoHandler}>Producto final📂</button>
+            </div>
+            
+            <h3>Consulta de información</h3>
             <button className="button-home" onClick={consultarHandler}>Consultar un lote🔎</button>
             <button className="button-home" onClick={consultarTodosHandler}>Consultar todos🔎</button>
             <div className="div-backhome-button">
