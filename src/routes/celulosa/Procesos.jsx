@@ -4,7 +4,7 @@ import { useState } from 'react';
 import BackHomeButton from '../../components/BackHomeButton';
 import BackCelButton from '../../components/BackCelButton';
 import { urlCelProceso} from '../../api/endpoints'
-import { header} from '../../api/fetchHeader'
+import { postHeader} from '../../api/fetchHeader'
 import ShowTxHash from '../../components/ShowTxHash';
 
 import "../../styles/global.css"
@@ -19,12 +19,16 @@ const Procesos = () => {
     const [hash, setHash] = useState("")
 
     const registrarHandler = async () => {
-        const url = urlCelProceso
         const arrayData = helperProcesos()
-        const urlParameters = `${url}?code=${codigo}&mec=${arrayData[0]}&enz=${arrayData[1]}&qui=${arrayData[2]}&homo=${arrayData[3]}`
-		const data = await fetch(urlParameters, header)
-		const res = await data.json()
-        setHash(res.transactionHash)
+        let bodyData = JSON.stringify({
+            "codigo": codigo,
+            "mecanico": arrayData[0],
+            "enzimatico": arrayData[1],
+            "quimico": arrayData[2],
+            "homogenizacion": arrayData[3]
+        })
+		const response = await fetch(urlCelProceso, { method: 'POST', headers: postHeader, body: bodyData, })
+        setHash(await response.json())
     }
    
     const helperProcesos = () => {

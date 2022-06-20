@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { urlCelConsultaOrigen, urlCelConsultaProcesos, urlCelConsultaProductos, urlCelOrigenHash, urlCelProcesosHash, urlCelProductoHash   } from '../api/endpoints'
+import {urlCelOrigen ,  urlCelProceso, urlCelProducto, urlCelOrigenHash, urlCelProcesosHash, urlCelProductoHash   } from '../api/endpoints'
 import "../styles/showLotes.css"
 import { header} from '../api/fetchHeader'
 import ShowCelulosaData from './ShowCelulosaData';
@@ -17,17 +17,17 @@ const ShowCelulosaLotes = (props) => {
 
  const searchLoteInfo = async (lote) => {
      setCurrentCode(lote)
-    const urlOrigen = `${urlCelConsultaOrigen}?code=${lote}`
+    const urlOrigen = `${urlCelOrigen}?code=${lote}`
     const dataOrigen = await fetch(urlOrigen, header)
     const resOrigen = await dataOrigen.json()
     setOrigenData(resOrigen)
 
-    const urlProcesos = `${urlCelConsultaProcesos}?code=${lote}`
+    const urlProcesos = `${urlCelProceso}?code=${lote}`
     const dataProcesos = await fetch(urlProcesos, header)
     const resProcesos = await dataProcesos.json()
     setProcesosData(resProcesos)
 
-    const urlProducto = `${urlCelConsultaProductos}?code=${lote}`
+    const urlProducto = `${urlCelProducto}?code=${lote}`
     const dataProducto = await fetch(urlProducto, header)
     const resProducto = await dataProducto.json()
     setProductoData(resProducto)

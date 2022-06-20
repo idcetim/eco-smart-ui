@@ -3,7 +3,7 @@ import { useState } from 'react';
 import BackHomeButton from '../../components/BackHomeButton';
 import BackCelButton from '../../components/BackCelButton';
 import { urlCelProducto } from '../../api/endpoints';
-import { header} from '../../api/fetchHeader'
+import { postHeader} from '../../api/fetchHeader'
 import ShowTxHash from '../../components/ShowTxHash';
 import SelectInput from '../../components/SelectInput';
 
@@ -20,11 +20,15 @@ const ProductoFinal = () => {
     
     const selectOptions = ["Formato", "Seca", "Suspension"]
     const registrarHandler = async () => {
-        const url = urlCelProducto
-        const urlParameters = `${url}?code=${codigo}&susp=${suspension}&cond=${conductividad}&ancho=${anchoMedio}&porce=${porcentajeSusp}`
-		const data = await fetch(urlParameters, header)
-		const res = await data.json()
-        setHash(res.transactionHash)
+        const bodyData = JSON.stringify({
+            "codigo": codigo,
+            "suspension": suspension,
+            "conductividad": conductividad,
+            "ancho": anchoMedio,
+            "porcentaje": porcentajeSusp
+        })
+		const response = await fetch(urlCelProducto, { method: 'POST', headers: postHeader, body: bodyData, })
+        setHash(await response.json())
     }
    
     return (

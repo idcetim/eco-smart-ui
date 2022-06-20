@@ -4,7 +4,7 @@ import { useState } from 'react';
 import BackHomeButton from '../../components/BackHomeButton';
 import BackCelButton from '../../components/BackCelButton';
 import { urlCelOrigen} from '../../api/endpoints'
-import { header} from '../../api/fetchHeader'
+import { postHeader} from '../../api/fetchHeader'
 import ShowTxHash from '../../components/ShowTxHash';
 
 import "../../styles/global.css"
@@ -19,11 +19,15 @@ const Origen = () => {
     const [hash, setHash] = useState("")
     
     const registrarHandler = async () => {
-		const url = urlCelOrigen
-		let urlParameters = `${url}?code=${codigo}&cel=${celulosa}&hemi=${hemicelulosa}&lig=${lignina}&ori=${origen}`
-		const data = await fetch(urlParameters, header)
-		const res = await data.json()
-        setHash(res.transactionHash)
+        let bodyData = JSON.stringify({
+            "codigo": codigo,
+            "celulosa": celulosa,
+            "hemicelulosa": hemicelulosa,
+            "lignina": lignina,
+            "origen": origen
+        })
+		const response = await fetch(urlCelOrigen, { method: 'POST', headers: postHeader, body: bodyData, })
+        setHash(await response.json())
     }
     const selectOptions = ["Origen", "Abeto", "Pino" , "Eucalipto"]
     return (
@@ -40,9 +44,6 @@ const Origen = () => {
                 <BackHomeButton />
                 <BackCelButton />
             </div>
-            
-            
-
         </div>
     )
 
