@@ -17,3 +17,7 @@ export const urlCelProductoHash = 'https://server-cetim.herokuapp.com/celulosa/h
 export const urlSilLotes = 'https://server-cetim.herokuapp.com/silicio/lotes/'
 
 export const urlSilProducto = 'https://server-cetim.herokuapp.com/silicio/producto/'
+
+export const urlSilLotesHash = 'https://server-cetim.herokuapp.com/silicio/hash/lotes/'
+
+export const urlSilProductoHash = 'https://server-cetim.herokuapp.com/silicio/hash/producto/'
