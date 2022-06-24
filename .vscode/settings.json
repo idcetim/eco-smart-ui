@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/e6bb8a78-43c1-4e0e-be35-0636f35d50d1/microsoft.web/sites/subscriptions/e6bb8a78-43c1-4e0e-be35-0636f35d50d1/resourceGroups/appsvc_linux_centralus_basic/providers/Microsoft.Web/sites/ui-ecosmartbatt",
+    "appService.deploySubpath": "."
+}

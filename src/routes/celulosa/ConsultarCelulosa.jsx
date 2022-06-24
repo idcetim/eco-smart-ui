@@ -23,38 +23,29 @@ const ConsultarCelulosa = () => {
     const consultarHandler = async () => {
         const urlOrigen = `${urlCelOrigen}?code=${codigo}`
 		const dataOrigen = await fetch(urlOrigen, header)
-		const resOrigen = await dataOrigen.json()
-        setOrigenData(resOrigen)
+        setOrigenData(await dataOrigen.json())
 
         const urlProcesos = `${urlCelProceso}?code=${codigo}`
 		const dataProcesos = await fetch(urlProcesos, header)
-		const resProcesos = await dataProcesos.json()
-        setProcesosData(resProcesos)
+        setProcesosData(await dataProcesos.json())
 
         const urlProducto = `${urlCelProducto}?code=${codigo}`
 		const dataProducto = await fetch(urlProducto, header)
-		const resProducto = await dataProducto.json()
-        setProductoData(resProducto)
+        setProductoData(await dataProducto.json())
 
         const urlHashOrigen = `${urlCelOrigenHash}?code=${codigo}`
 		const hashOrigen = await fetch(urlHashOrigen, header)
-		const resHashOrigen = await hashOrigen.json()
-        setOrigenHash(resHashOrigen)
+        setOrigenHash(await hashOrigen.json())
 
         const urlHashProcesos = `${urlCelProcesosHash}?code=${codigo}`
-		const hashProcesos = await fetch(urlHashProcesos, header)
-		const resHashProcesos = await hashProcesos.json()
-        setProcesosHash(resHashProcesos)
+		const hashProcesos = await fetch(urlHashProcesos, header) 
+        setProcesosHash(await hashProcesos.json())
 
         const urlHashProducto = `${urlCelProductoHash}?code=${codigo}`
 		const hashProducto = await fetch(urlHashProducto, header)
-		const resHashProducto = await hashProducto.json()
-        setProductoHash(resHashProducto)
+        setProductoHash(await hashProducto.json())
     }
    
-    console.log(origenHash)
-    console.log(productoHash)
-    console.log(procesosHash)
     
 return (
     <div className='web-wrapper'>

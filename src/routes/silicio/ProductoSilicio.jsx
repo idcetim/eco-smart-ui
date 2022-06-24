@@ -32,7 +32,7 @@ const ProductoSilicio = () => {
         console.log(await response.json())
         setHash(response)
     }
-    const selectOptions = ["Tipo producto final", "0,2 mm - 2 mm", "<0,5 mm"]
+    const selectOptions = ["Tipo producto final", "0.2 mm - 2 mm", "<0.5 mm"]
     return(
         <div className='web-wrapper'>
             <h3> Registro de producto final </h3> 

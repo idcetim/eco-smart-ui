@@ -17,15 +17,12 @@ const ConsultarLoteSilicio = () => {
 
     const consultarHandler = async () => {
         const urlOrigen = `${urlSilLotes}?code=${codigo}`
-		const dataLote = await fetch(urlOrigen, header)
-		const resLote = await dataLote.json()
-        setLoteData(resLote)
+		const dataLote = await fetch(urlOrigen, header) 
+        setLoteData(await dataLote.json())
 
         const urlProducto = `${urlSilProducto}?code=${codigo}`
 		const dataProducto = await fetch(urlProducto, header)
-		const resProducto = await dataProducto.json()
-        console.log(resProducto)
-        setProductoData(resProducto)
+        setProductoData(await dataProducto.json())
 
         const urlHashLote = `${urlSilLotesHash}?code=${codigo}`
 		const hashLote = await fetch(urlHashLote, header)
@@ -34,9 +31,8 @@ const ConsultarLoteSilicio = () => {
         const urlHashProducto = `${urlSilProductoHash}?code=${codigo}`
 		const hashProducto = await fetch(urlHashProducto, header)
         setProductoHash(await hashProducto.json())
-        
-
     }
+    
     return(
         <div className='web-wrapper'>
             <div className='div-button-back'>
