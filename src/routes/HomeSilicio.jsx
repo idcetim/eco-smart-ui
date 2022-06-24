@@ -15,8 +15,8 @@ const HomeSilicio = () => {
           
             <h3> Registro de información</h3>
             <div>
-                <button className="button-home" onClick={origenHandler}>Lotes</button>
-                <button className="button-home" onClick={productoHandler}>Producto final</button>
+                <button className="button-home" onClick={origenHandler}>Lotes 🛄</button>
+                <button className="button-home" onClick={productoHandler}>Producto final 📦</button>
             </div>
             <h3>Consulta de información</h3>
             <button className="button-home" onClick={consultarHandler}>Consultar un lote🔎</button>
