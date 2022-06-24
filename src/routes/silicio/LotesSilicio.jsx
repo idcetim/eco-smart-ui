@@ -3,7 +3,6 @@ import BackSilButton from '../../components/BackSilButton'
 import TextInput from '../../components/TextInput'
 import SelectInput from '../../components/SelectInput'
 import ShowTxHash from '../../components/ShowTxHash';
-import BackHomeButton from '../../components/BackHomeButton';
 import {postHeader} from '../../api/fetchHeader'
 import { urlSilLotes } from '../../api/endpoints';
 
@@ -47,7 +46,6 @@ return (
     <button className='button-registrar' onClick={registrarHandler} disabled={!codigo || !fecha || !origen || !cantidad || !analisis || !calidad}>Registrar</button>
         { hash !== "" && <ShowTxHash hash={hash} text={"Ver transacción"}/>}
     <div className='div-button-back'>
-        <BackHomeButton />
         <BackSilButton />
     </div>
 </div>

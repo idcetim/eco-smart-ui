@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import BackHomeButton from '../../components/BackHomeButton';
 import BackSilButton from '../../components/BackSilButton'
 import TextInput from '../../components/TextInput'
 import SelectInput from '../../components/SelectInput'
@@ -45,7 +44,6 @@ const ProductoSilicio = () => {
             <button className='button-registrar' onClick={registrarHandler} disabled={!codigo || !fecha || !granulometria || !cantidad || !quimico || !tipo}>Registrar</button>
                 { hash !== "" && <ShowTxHash hash={hash} text={"Ver transacción"}/>}
         <div className='div-button-back'>
-            <BackHomeButton />
             <BackSilButton />
         </div>
         </div>

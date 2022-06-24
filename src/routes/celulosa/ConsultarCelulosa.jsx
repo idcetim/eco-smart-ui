@@ -1,6 +1,5 @@
 import TextInput from '../../components/TextInput'
 import { useState } from 'react';
-import BackHomeButton from '../../components/BackHomeButton';
 import BackCelButton from '../../components/BackCelButton';
 import ShowCelulosaData from '../../components/ShowCelulosaData';
 import ShowTxHash from '../../components/ShowTxHash';
@@ -64,7 +63,6 @@ return (
     </div>
  
         <div className='div-button-back'>
-                <BackHomeButton />
                 <BackCelButton />
             </div>
     </div>

@@ -1,6 +1,5 @@
 
 import { useState, useEffect } from 'react';
-import BackHomeButton from '../../components/BackHomeButton';
 import BackCelButton from '../../components/BackCelButton';
 import { urlCelConsultaLotes   } from '../../api/endpoints'
 import { header} from '../../api/fetchHeader'
@@ -28,7 +27,6 @@ return (
        <h3>Lotes registrados</h3>
         {lotes.length > 0 && <ShowCelulosaLotes lotes={lotes} />} 
         <div className='div-button-back'>
-                <BackHomeButton />
                 <BackCelButton />
             </div>
     </div>

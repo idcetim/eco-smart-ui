@@ -6,7 +6,7 @@ const BackSilButton = () => {
         navigate('/silicio/')
     }
     return (
-        <button className="button-back-cel" onClick={backSilHandler}>Volver Silicio</button>
+        <button className="button-back-cel" onClick={backSilHandler}>⇦ Atrás</button>
     )
     
 }

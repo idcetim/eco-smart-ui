@@ -1,6 +1,5 @@
 import TextInput from '../../components/TextInput'
 import { useState } from 'react';
-import BackHomeButton from '../../components/BackHomeButton';
 import BackCelButton from '../../components/BackCelButton';
 import { urlCelProducto } from '../../api/endpoints';
 import { postHeader} from '../../api/fetchHeader'
@@ -42,7 +41,6 @@ const ProductoFinal = () => {
             <button className='button-registrar' onClick={registrarHandler} disabled={!codigo|| !anchoMedio || !suspension || !conductividad}>Registrar</button>
             { hash !== "" && <ShowTxHash hash={hash} text={"Ver transacción"}/>}
             <div className='div-button-back'>
-                <BackHomeButton />
                 <BackCelButton />
             </div>
         </div>

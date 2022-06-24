@@ -1,7 +1,6 @@
 import TextInput from '../../components/TextInput'
 import CheckBox from '../../components/CheckBox'
 import { useState } from 'react';
-import BackHomeButton from '../../components/BackHomeButton';
 import BackCelButton from '../../components/BackCelButton';
 import { urlCelProceso} from '../../api/endpoints'
 import { postHeader} from '../../api/fetchHeader'
@@ -58,7 +57,6 @@ const Procesos = () => {
             { hash !== "" && <ShowTxHash hash={hash} text={"Ver transacción"}/>}
 
             <div className='div-button-back'>
-                <BackHomeButton />
                 <BackCelButton />
             </div>
             
