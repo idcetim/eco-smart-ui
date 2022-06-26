@@ -29,8 +29,7 @@ const LotesSilicio = () => {
             "origen": origen
         })
         const response = await fetch(urlSilLotes, { method: 'POST', headers: postHeader, body: bodyData, })
-        console.log(await response.json())
-        setHash(response)
+        setHash(await response.json())
     }
     const selectOptions = ["Calidad", "2N", "3N" , "4N", "5N", "Reciclado"]
 

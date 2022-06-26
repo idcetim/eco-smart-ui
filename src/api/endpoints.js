@@ -1,4 +1,5 @@
 export const url = 'https://server-ecosmartbatt.azurewebsites.net/'
+    //export const url = "http://localhost:5000/"
 
 export const urlCelOrigen = url + 'celulosa/origen/'
 
