@@ -12,25 +12,23 @@ import ShowCelulosaLotes from '../../components/ShowCelulosaLotes';
 const ConsultarLotesCel = () => {
     const [lotes, setLotes] = useState([])
 
-    const consultarHandler = async () => {
+    const searchAllLotes = async () => {
 		const dataLotes = await fetch(urlCelConsultaLotes, header)
-		const resLotes = await dataLotes.json()
-        setLotes(resLotes)
+        setLotes(await dataLotes.json())
     }
-   console.log(lotes)
-    
+   
     useEffect(()=>{
-        consultarHandler()
+        searchAllLotes()
     },[])
+
 return ( 
     <div className='web-wrapper'>
-       <h3>Lotes registrados</h3>
-        {lotes.length > 0 && <ShowCelulosaLotes lotes={lotes} />} 
         <div className='div-button-back'>
                 <BackCelButton />
-            </div>
+        </div>
+       <h3>Lotes registrados</h3>
+        {lotes.length > 0 && <ShowCelulosaLotes lotes={lotes} />} 
     </div>
-    
 )
 }
 

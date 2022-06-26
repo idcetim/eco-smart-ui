@@ -44,6 +44,9 @@ const Procesos = () => {
     }
     return (
         <div className='web-wrapper'>
+            <div className='div-button-back'>
+                <BackCelButton />
+            </div>
             <h3> Registro de procesos  </h3> 
             <TextInput codigo="Código" func={setCodigo} />
             <h4>Procesos realizados</h4>
@@ -55,11 +58,6 @@ const Procesos = () => {
             </div>
             <button className='button-registrar' onClick={registrarHandler} disabled={!codigo}>Registrar</button>
             { hash !== "" && <ShowTxHash hash={hash} text={"Ver transacción"}/>}
-
-            <div className='div-button-back'>
-                <BackCelButton />
-            </div>
-            
         </div>
     )
 

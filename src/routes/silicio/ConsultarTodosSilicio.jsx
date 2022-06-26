@@ -11,23 +11,23 @@ import "../../styles/showLotes.css"
 
 const ConsultarTodosSilicio = () => {
 
-    const [lotesInicial, setLotesInicial] = useState([])
-    const [lotesFinal, setLotesFinal] = useState([])
+    const [allLotesInicial, setAllLotesInicial] = useState([])
+    const [allLotesFinal, setAllLotesFinal] = useState([])
     const [currentCode, setCurrentCode] = useState("")
     const [loteInicial, setLoteInicial] = useState([])
     const [productoFinal, setProductoFinal] = useState([])
     const [loteInicialHash, setLoteInicialHash] = useState("")
     const [productoHash, setProductoHash] = useState("")
 
-    const consultarTodos = async () => {
+    const searchAllLotes = async () => {
         const dataInicial = await fetch(urlSilVerTodosInicial,header)
-        setLotesInicial(await dataInicial.json())
+        setAllLotesInicial(await dataInicial.json())
         const dataFinal = await fetch(urlSilVerTodosFinal,header)
-        setLotesFinal(await dataFinal.json())
+        setAllLotesFinal(await dataFinal.json())
     }
 
     useEffect(()=> {
-        consultarTodos()
+        searchAllLotes()
     },[])
 
     const searchLoteInfo = async (lote)=> {
@@ -51,20 +51,24 @@ const ConsultarTodosSilicio = () => {
 
     return(
         <div className='web-wrapper'>
+            <div className='div-button-back'>
+                <BackSilButton />
+            </div>
+
             <h3>Lotes iniciales</h3>
-            {lotesInicial.length>0 && lotesInicial.map((lote,i) => 
+            {allLotesInicial.length>0 && allLotesInicial.map((lote,i) => 
                 <button className="bt-lotes" key={i} onClick={()=> searchLoteInfo(lote)}>{lote}</button>)}
+
             <h3>Lotes Finales</h3>
-            {lotesFinal.length>0 && lotesFinal.map((lote,i) =>  
+            {allLotesFinal.length>0 && allLotesFinal.map((lote,i) =>  
             <button className="bt-lotes" key={i} onClick={()=> searchLoteInfo(lote)}>{lote}</button>)}
+
             <ShowSilicioIndividual loteData={loteInicial} productoData={productoFinal} codigo={currentCode} />
+
             <div className='div-blockchain-info'>
                     {loteInicialHash!== "" &&  <span className="span-title"> Información blockchain del lote <span className="span-title-green">{currentCode}</span></span> }
                     {loteInicialHash!== "" &&  <ShowTxHash hash={loteInicialHash} text={"Transacción del lote"}/> }
                     {productoHash!== "" && <ShowTxHash hash={productoHash} text={"Transacción producto"} /> }
-                </div>
-            <div className='div-button-back'>
-                <BackSilButton />
             </div>
         </div>
     )

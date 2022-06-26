@@ -3,7 +3,6 @@ import "../styles/tables.css"
 const ShowSilicioIndividual = (props) => {
  const loteData = props.loteData
  const productoData = props.productoData
- console.log(productoData)
  const codigo = props.codigo
 
     return (
@@ -21,7 +20,7 @@ const ShowSilicioIndividual = (props) => {
         </thead>
         <tbody>
         <tr>
-            <td>Fecha</td>
+            <td>Fecha de llegada</td>
             {loteData[0] !== "" ? <td>{loteData[0]}</td>: <td></td> }  
          </tr>
         <tr>
@@ -50,12 +49,16 @@ const ShowSilicioIndividual = (props) => {
          </tr>
 
         <tr>
-            <td>Fecha</td>
+            <td>Fecha de producción</td>
             <td>{productoData[0]}</td>
         </tr>
         <tr>
             <td>Tipo</td>
             <td>{productoData[1]}</td>
+        </tr>
+        <tr>
+            <td>Cantidad</td>
+            <td>{productoData[4]} kg</td>
         </tr>
         <tr>
             <td>Granulometría</td>
@@ -64,10 +67,6 @@ const ShowSilicioIndividual = (props) => {
         <tr>
             <td>Quimico</td>
             <td>{productoData[3]}</td>
-        </tr>
-        <tr>
-            <td>Cantidad</td>
-            <td>{productoData[4]}</td>
         </tr>
     </tbody>
 </table>

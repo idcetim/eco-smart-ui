@@ -35,6 +35,10 @@ const LotesSilicio = () => {
 
 return (
 <div className='web-wrapper'>
+    <div className='div-button-back'>
+        <BackSilButton />
+    </div>
+
     <h3> Registro de lotes </h3> 
     <TextInput codigo="Código" func={setCodigo} />
     <TextInput codigo="Fecha llegada" func={setFecha} />
@@ -44,12 +48,8 @@ return (
     <SelectInput options = {selectOptions} func = {setCalidad} />
     <button className='button-registrar' onClick={registrarHandler} disabled={!codigo || !fecha || !origen || !cantidad || !analisis || !calidad}>Registrar</button>
         { hash !== "" && <ShowTxHash hash={hash} text={"Ver transacción"}/>}
-    <div className='div-button-back'>
-        <BackSilButton />
-    </div>
 </div>
-)
-
+    )
 }
 
 export default LotesSilicio;

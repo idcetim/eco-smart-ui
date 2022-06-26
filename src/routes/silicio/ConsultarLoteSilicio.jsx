@@ -35,6 +35,9 @@ const ConsultarLoteSilicio = () => {
     
     return(
         <div className='web-wrapper'>
+             <div className='div-button-back'>
+                <BackSilButton />
+            </div>
             <div className='div-button-back'>
                 <h3>Consultar información sobre nanosilicio</h3>
                 <TextInput codigo="Codigo" func={setCodigo}  />
@@ -45,7 +48,6 @@ const ConsultarLoteSilicio = () => {
                     {loteHash!== "" &&  <ShowTxHash hash={loteHash} text={"Transacción del lote"}/> }
                     {productoHash!== "" && <ShowTxHash hash={productoHash} text={"Transacción producto"} /> }
                 </div>
-                <BackSilButton />
             </div>
         </div>
         )

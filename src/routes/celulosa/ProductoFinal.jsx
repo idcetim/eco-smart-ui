@@ -32,6 +32,9 @@ const ProductoFinal = () => {
    
     return (
         <div className='web-wrapper'>
+            <div className='div-button-back'>
+                <BackCelButton />
+            </div>
             <h3> Registro de características de nanocelulosa </h3> 
             <TextInput codigo="Código" func={setCodigo} />
             <TextInput codigo="Conductividad iónica" func={setConductividad} />
@@ -40,9 +43,6 @@ const ProductoFinal = () => {
             {suspension === selectOptions[2] && <TextInput codigo="Porcentaje suspension" func={setPorcentajeSusp} />}
             <button className='button-registrar' onClick={registrarHandler} disabled={!codigo|| !anchoMedio || !suspension || !conductividad}>Registrar</button>
             { hash !== "" && <ShowTxHash hash={hash} text={"Ver transacción"}/>}
-            <div className='div-button-back'>
-                <BackCelButton />
-            </div>
         </div>
     ) 
 }
