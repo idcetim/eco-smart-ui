@@ -46,7 +46,7 @@ const Origen = () => {
             <TextInput codigo="Lignina(%)" func={setLignina} />
             <SelectInput options = {selectOptions} func = {setOrigen} />
             <button className='button-registrar' onClick={registrarHandler} disabled={!codigo}>Registrar</button>
-                { hash === "" && <ShowTxHash hash={hash} text={"Ver transacción"}/>}
+                { hash !== "" && <ShowTxHash hash={hash} text={"Ver transacción"}/>}
         </div>
     )
 

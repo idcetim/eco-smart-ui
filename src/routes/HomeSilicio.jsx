@@ -11,11 +11,11 @@ const HomeSilicio = () => {
     const consultarTodosHandler = () => {navigate('/silicio/consulta/lotes')}
     return(
         <div className="web-wrapper">
-            <h1>Nanosilicio</h1>
+            <h1 className="main-silicio">Nanosilicio</h1>
           
             <h3> Registro de información</h3>
             <div>
-                <button className="button-home" onClick={origenHandler}>Lotes 🛄</button>
+                <button className="button-home" onClick={origenHandler}>Lotes 🚚</button>
                 <button className="button-home" onClick={productoHandler}>Producto final 📦</button>
             </div>
             <h3>Consulta de información</h3>

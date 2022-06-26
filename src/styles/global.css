@@ -45,8 +45,9 @@
     padding: 5px;
     font-size: 18px;
     font-weight: 700;
-    color: black;
+    color: rgb(99, 8, 1);
     font-family: 'Courier New', Courier, monospace;
+    border-radius: 5px;
 }
 
 h3 {
@@ -55,4 +56,39 @@ h3 {
 
 h4 {
     letter-spacing: 0.1em;
+}
+
+.main-h1 {
+    background: -webkit-linear-gradient(rgb(0, 0, 0), rgb(84, 83, 83));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.main-celulosa {
+    background: -webkit-linear-gradient(rgb(3, 29, 2), rgb(69, 225, 7));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.main-silicio {
+    background: -webkit-linear-gradient(rgb(45, 45, 45), rgb(99, 136, 170));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.main-baterias {
+    background: -webkit-linear-gradient(rgb(2, 46, 129), rgb(19, 215, 237));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.main-consultar {
+    background: -webkit-linear-gradient(rgb(17, 63, 246), rgb(252, 57, 181));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }

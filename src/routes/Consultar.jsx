@@ -17,7 +17,7 @@ const Consultar = () => {
     
 return (
     <div className='web-wrapper'>
-        <h3>Consultar Información</h3>
+        <h3 className="main-consultar">Consultar Información</h3>
         <TextInput codigo="Codigo" func={setCodigo}  />
         <button onClick={consultarHandler}>Consultar</button>
         <BackHomeButton />
