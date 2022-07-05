@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import BackSilButton from '../../components/BackSilButton'
 import TextInput from '../../components/TextInput'
+import TextInputDate from '../../components/TextInputDate'
+import TextInputFile from '../../components/TextInputFile'
 import SelectInput from '../../components/SelectInput'
 import ShowTxHash from '../../components/ShowTxHash';
 import {postHeader} from '../../api/fetchHeader'
@@ -20,6 +22,10 @@ const LotesSilicio = () => {
     const [hash, setHash] = useState("")
 
     const registrarHandler = async () => {
+        
+        const file = analisis
+        const formData = new FormData();
+        formData.append('fileAnalisis', file)
         let bodyData = JSON.stringify({
             "codigo": codigo,
             "fecha": fecha,
@@ -41,11 +47,13 @@ return (
 
     <h3> Registro de lotes </h3> 
     <TextInput codigo="Código" func={setCodigo} />
-    <TextInput codigo="Fecha llegada" func={setFecha} />
+    <TextInputDate  func={setFecha} />
+    <SelectInput options = {selectOptions} func = {setCalidad} />
     <TextInput codigo="Origen" func={setOrigen} />
     <TextInput codigo="Cantidad (kg)" func={setCantidad} />
-    <TextInput codigo="Resultado análisis" func={setAnalisis} />
-    <SelectInput options = {selectOptions} func = {setCalidad} />
+    <label>Resultado análisis</label>
+    <TextInputFile  func={setAnalisis} />
+   
     <button className='button-registrar' onClick={registrarHandler} disabled={!codigo || !fecha || !origen || !cantidad || !analisis || !calidad}>Registrar</button>
         { hash !== "" && <ShowTxHash hash={hash} text={"Ver transacción"}/>}
 </div>
