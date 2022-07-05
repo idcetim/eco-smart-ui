@@ -27,11 +27,12 @@ const LotesSilicio = () => {
         const formData = new FormData();
         formData.append('fileAnalisis', file)
         await fetch(urlSilAnalisisLotes, { method: 'POST',  body: formData, })
+        const analisisUrl = `https://silicio.blob.core.windows.net/analisis-lotes/${file.name}`
         let bodyData = JSON.stringify({
             "codigo": codigo,
             "fecha": fecha,
             "cantidad": cantidad,
-            "analisis": analisis,
+            "analisis": analisisUrl,
             "calidad": calidad,
             "origen": origen
         })
