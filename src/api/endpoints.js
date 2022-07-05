@@ -17,6 +17,8 @@ export const urlCelProductoHash = url + 'celulosa/hash/producto/'
 
 export const urlSilLotes = url + 'silicio/lotes/'
 
+export const urlSilAnalisisLotes = url + 'silicio/lotes/analisis'
+
 export const urlSilProducto = url + 'silicio/producto/'
 
 export const urlSilVerTodosInicial = url + 'silicio/todos/inicial/'

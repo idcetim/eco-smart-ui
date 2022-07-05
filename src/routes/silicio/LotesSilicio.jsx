@@ -6,7 +6,7 @@ import TextInputFile from '../../components/TextInputFile'
 import SelectInput from '../../components/SelectInput'
 import ShowTxHash from '../../components/ShowTxHash';
 import {postHeader} from '../../api/fetchHeader'
-import { urlSilLotes } from '../../api/endpoints';
+import { urlSilLotes, urlSilAnalisisLotes } from '../../api/endpoints';
 
 
 import "../..//styles/global.css"
@@ -26,6 +26,7 @@ const LotesSilicio = () => {
         const file = analisis
         const formData = new FormData();
         formData.append('fileAnalisis', file)
+        await fetch(urlSilAnalisisLotes, { method: 'POST',  body: formData, })
         let bodyData = JSON.stringify({
             "codigo": codigo,
             "fecha": fecha,
