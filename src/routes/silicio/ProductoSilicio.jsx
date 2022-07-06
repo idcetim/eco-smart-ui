@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import BackSilButton from '../../components/BackSilButton'
 import TextInput from '../../components/TextInput'
+import TextInputFile from '../../components/TextInputFile'
+import TextInputDate from '../../components/TextInputDate'
 import SelectInput from '../../components/SelectInput'
 import ShowTxHash from '../../components/ShowTxHash';
 
 import {postHeader} from '../../api/fetchHeader'
-import { urlSilProducto } from '../../api/endpoints';
+import { urlSilProducto, urlSilGranulometriaProducto, urlSilQuimicoProducto } from '../../api/endpoints';
 import "../..//styles/global.css"
 import "../../styles/TextInput.css"
 const ProductoSilicio = () => {
@@ -19,13 +21,24 @@ const ProductoSilicio = () => {
     const [hash, setHash] = useState("")
 
     const registrarHandler = async () => {
-        let bodyData = JSON.stringify({
+        const fileGranulometria = granulometria
+        const formData = new FormData();
+        formData.append('fileGranulometria', fileGranulometria)
+        await fetch(urlSilGranulometriaProducto, { method: 'POST',  body: formData, })
+        const granulometriaUrl = `https://silicio.blob.core.windows.net/granulometria-producto/${fileGranulometria.name}`
+
+        const fileQuimico = quimico
+        const formDataQuimico = new FormData();
+        formDataQuimico.append('fileQuimico', fileQuimico)
+        await fetch(urlSilQuimicoProducto, { method: 'POST',  body: formDataQuimico, })
+        const quimicoUrl = `https://silicio.blob.core.windows.net/granulometria-producto/${fileQuimico.name}`
+        const bodyData = JSON.stringify({
             "codigo": codigo,
             "fecha": fecha,
             "cantidad": cantidad,
-            "granulometria": granulometria,
-            "quimico": quimico,
-            "tipo": tipo
+            "tipo": tipo,
+            "granulometria": granulometriaUrl,
+            "quimico": quimicoUrl
         })
         const response = await fetch(urlSilProducto, { method: 'POST', headers: postHeader, body: bodyData, })
         setHash(await response.json())
@@ -38,11 +51,13 @@ const ProductoSilicio = () => {
             </div>
             <h3> Registro de producto final </h3> 
             <TextInput codigo="Código" func={setCodigo} />
-            <TextInput codigo="Fecha producción" func={setFecha} />
+            <TextInputDate  func={setFecha} />
             <TextInput codigo="Cantidad (kg)" func={setCantidad} />
             <SelectInput options = {selectOptions} func = {setTipo} />
-            <TextInput codigo="Análisis granulométrico" func={setGranulometria} />
-            <TextInput codigo="Análisis químico" func={setQuimico} />
+            <label>Análisis granulométrico</label>
+            <TextInputFile  func={setGranulometria} />
+            <label>Análisis químico</label>
+            <TextInputFile  func={setQuimico} />
             <button className='button-registrar' onClick={registrarHandler} 
             disabled={!codigo || !fecha || !granulometria || !cantidad || !quimico || !tipo} >Registrar</button>
                 { hash !== "" && <ShowTxHash hash={hash} text={"Ver transacción"}/>}

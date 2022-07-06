@@ -33,7 +33,7 @@ const LotesSilicio = () => {
             "fecha": fecha,
             "cantidad": cantidad,
             "analisis": analisisUrl,
-            "calidad": calidad,
+            "calidad": calidad,  
             "origen": origen
         })
         const response = await fetch(urlSilLotes, { method: 'POST', headers: postHeader, body: bodyData, })

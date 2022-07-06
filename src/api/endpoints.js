@@ -21,6 +21,10 @@ export const urlSilAnalisisLotes = url + 'silicio/lotes/analisis'
 
 export const urlSilProducto = url + 'silicio/producto/'
 
+export const urlSilGranulometriaProducto = url + 'silicio/producto/granulometria'
+
+export const urlSilQuimicoProducto = url + 'silicio/producto/quimico'
+
 export const urlSilVerTodosInicial = url + 'silicio/todos/inicial/'
 
 export const urlSilVerTodosFinal = url + 'silicio/todos/final/'
