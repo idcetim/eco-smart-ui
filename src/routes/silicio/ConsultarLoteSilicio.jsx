@@ -40,8 +40,10 @@ const ConsultarLoteSilicio = () => {
             </div>
             <div className='div-button-back'>
                 <h3>Consultar información sobre nanosilicio</h3>
-                <TextInput codigo="Codigo" func={setCodigo}  />
-                <button className='button-registrar' onClick={consultarHandler} disabled={!codigo}>Consultar lote {codigo}🔎</button>
+                <div className='div-consultar-1lote'>
+                    <TextInput codigo="Codigo" func={setCodigo}  />
+                    <button className='button-registrar-inline' onClick={consultarHandler} disabled={!codigo}>Consultar lote 🔎</button>
+                </div> 
                 <ShowSilicioIndividual loteData={loteData} productoData={productoData} codigo={codigo} />
                 <div className='div-blockchain-info'>
                     {loteHash!== "" &&  <span className="span-title"> Información blockchain del lote <span className="span-title-green">{codigo}</span></span> }

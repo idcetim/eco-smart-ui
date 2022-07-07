@@ -25,12 +25,26 @@
     margin-top: 15px;
 }
 
+.div-consultar-1lote {
+    display: grid;
+    grid-template-columns: 300px 300px;
+}
+
 .button-registrar {
     padding: 5px;
     font-size: 14px;
     font-weight: 700;
     font-family: 'Courier New', Courier, monospace;
     margin-top: 18px;
+}
+
+.button-registrar-inline {
+    font-size: 14px;
+    font-weight: 700;
+    font-family: 'Courier New', Courier, monospace;
+    width: 180px;
+    height: 30px;
+    margin-top: 4px;
 }
 
 .button-back-home {
