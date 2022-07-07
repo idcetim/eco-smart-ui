@@ -6,18 +6,6 @@ const ShowCelulosaData = (props) => {
  const productoData = props.productoData
  const codigo = props.codigo
 
- let mec, enz, qui, homo;
- 
- if(procesosData[0] === '1') mec= 'Realizado'
- else mec = ''
- if(procesosData[1] === '1') enz= 'Realizado'
- else enz = ''
- if(procesosData[2] === '1') qui= 'Realizado'
- else qui = ''
- if(procesosData[3] === '1') homo= 'Realizado'
- else homo = ''
- 
-
     return (
        Object.keys(productoData).length!== 0 && <div>
        <div className="div-title">
@@ -27,8 +15,7 @@ const ShowCelulosaData = (props) => {
         <table className="table-celulosa">
            <thead>
         <tr>
-            <th>Características</th>
-            <th>Datos</th>
+            <th colspan={2}>Pasta de celulosa original</th>
         </tr>
         </thead> 
         <tbody>
@@ -48,23 +35,41 @@ const ShowCelulosaData = (props) => {
                 <td>Origen</td>
                  {origenData[3] !== "" ? <td>{origenData[3]}</td>: <td></td>}   
             </tr>
+        </tbody>
+        </table>
+        <table className="table-celulosa">
+           <thead>
+        <tr>
+            <th colspan={2}>Procesos realizados</th>
+        </tr>
+        </thead> 
+        <tbody>
             <tr>
                 <td>Pretratamiento mecánico</td>
-                <td>{mec}</td>
+                <td>{procesosData[0] === '1' ? 'Realizado' : ' No realizado'}</td>
             </tr>
             <tr>
                 <td>Pretratamiento químico</td>
-                <td>{qui}</td>
+                <td>{procesosData[2] === '1' ? 'Realizado' : ' No realizado'}</td>
             </tr>
             <tr>
                 
                 <td>Pretratamiento enzimático</td>
-                <td>{enz}</td>
+                <td>{procesosData[1] === '1' ? 'Realizado' : ' No realizado'}</td>
             </tr>
             <tr>
                 <td>Homogenización</td>
-                <td>{homo}</td>
+                <td>{procesosData[3] === '1' ? 'Realizado' : ' No realizado'}</td>
             </tr>
+            </tbody>
+        </table>
+    <table className="table-celulosa">
+        <thead>
+            <tr>
+                <th colspan={2}>Nanocelulosa</th>
+            </tr>
+        </thead> 
+        <tbody>
             <tr>
                 <td>Conductividad iónica</td>
                 <td>{productoData[0]}</td>
@@ -82,7 +87,7 @@ const ShowCelulosaData = (props) => {
                 {productoData !== "" ? <td>{productoData[3]}%</td> : <td></td>} 
             </tr>
         </tbody>
-        </table>
+    </table>
         </div>
     )
 }

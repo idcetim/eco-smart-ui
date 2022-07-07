@@ -13,10 +13,9 @@ const ShowSilicioIndividual = (props) => {
 
         <table className="table-celulosa">
         <thead>
-        <tr>
-            <th>Características</th>
-            <th>Datos</th>
-        </tr>
+            <tr>
+                <th colSpan={2}>Información de llegada</th> 
+            </tr>
         </thead>
         <tbody>
         <tr>
@@ -42,32 +41,36 @@ const ShowSilicioIndividual = (props) => {
             <td>Análisis</td>
             {loteData[4] !== "" ? <td>{loteData[4]}</td>: <td></td> }  
         </tr>
-       
-          <tr> 
-            <td>-----------------</td>
-            <td>-----------------</td>
-         </tr>
+    </tbody>
+</table>
 
-        <tr>
-            <td>Fecha de producción</td>
-            <td>{productoData[0]}</td>
-        </tr>
-        <tr>
-            <td>Tipo</td>
-            <td>{productoData[1]}</td>
-        </tr>
-        <tr>
-            <td>Cantidad</td>
-            <td>{productoData[4]} kg</td>
-        </tr>
-        <tr>
-            <td>Granulometría</td>
-            <td>{productoData[2]}</td>
-        </tr>
-        <tr>
-            <td>Quimico</td>
-            <td>{productoData[3]}</td>
-        </tr>
+       <table className="table-celulosa">
+        <thead>
+            <tr>
+                <th colSpan={2}>Información del producto</th> 
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Fecha de producción</td>
+                <td>{productoData[0]}</td>
+            </tr>
+            <tr>
+                <td>Tipo</td>
+                <td>{productoData[1]}</td>
+            </tr>
+            <tr>
+                <td>Cantidad</td>
+                <td>{productoData[4]} kg</td>
+            </tr>
+            <tr>
+                <td>Granulometría</td>
+                <td>{productoData[2]}</td>
+            </tr>
+            <tr>
+                <td>Quimico</td>
+                <td>{productoData[3]}</td>
+            </tr>
     </tbody>
 </table>
 </div>

@@ -31,7 +31,7 @@ const ProductoSilicio = () => {
         const formDataQuimico = new FormData();
         formDataQuimico.append('fileQuimico', fileQuimico)
         await fetch(urlSilQuimicoProducto, { method: 'POST',  body: formDataQuimico, })
-        const quimicoUrl = `https://silicio.blob.core.windows.net/granulometria-producto/${fileQuimico.name}`
+        const quimicoUrl = `https://silicio.blob.core.windows.net/quimico-producto/${fileQuimico.name}`
         const bodyData = JSON.stringify({
             "codigo": codigo,
             "fecha": fecha,
