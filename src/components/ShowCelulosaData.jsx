@@ -84,7 +84,7 @@ const ShowCelulosaData = (props) => {
             </tr>
             <tr>
                 <td>Porcensaje en suspensión</td>
-                {productoData !== "" ? <td>{productoData[3]}%</td> : <td></td>} 
+                {productoData[3] !== "" ? <td>{productoData[3]}%</td> : <td>------</td>} 
             </tr>
         </tbody>
     </table>

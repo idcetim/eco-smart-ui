@@ -18,30 +18,18 @@ const Procesos = () => {
     const [hash, setHash] = useState("")
 
     const registrarHandler = async () => {
-        const arrayData = helperProcesos()
+        
         let bodyData = JSON.stringify({
             "codigo": codigo,
-            "mecanico": arrayData[0],
-            "enzimatico": arrayData[1],
-            "quimico": arrayData[2],
-            "homogenizacion": arrayData[3]
+            "mecanico": preMecanico ? "1" : "0",
+            "enzimatico": preEnzimatico ? "1" : "0",
+            "quimico": preQuimico ? "1" : "0",
+            "homogenizacion": homogenizacion ? "1" : "0"
         })
 		const response = await fetch(urlCelProceso, { method: 'POST', headers: postHeader, body: bodyData, })
         setHash(await response.json())
     }
    
-    const helperProcesos = () => {
-        let arrayData = []
-        if(preMecanico)  arrayData.push("1")
-        else arrayData.push("0")
-        if(preEnzimatico)  arrayData.push("1")
-        else arrayData.push("0")
-        if(preQuimico)  arrayData.push("1")
-        else arrayData.push("0")
-        if(homogenizacion)  arrayData.push("1")
-        else arrayData.push("0")
-        return arrayData
-    }
     return (
         <div className='web-wrapper'>
             <div className='div-button-back'>
