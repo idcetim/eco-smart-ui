@@ -39,7 +39,7 @@ const Origen = () => {
             <div className='div-button-back'> 
                 <BackCelButton />
             </div>
-            <h3> Registro de materias primas </h3> 
+            <h3> Registro de pasta de celulosa </h3> 
             <TextInput codigo="Código" func={setCodigo} />
             <TextInput codigo="Celulosa(%)" func={setCelulosa} />
             <TextInput codigo="Hemicelulosa(%)" func={setHemicelulosa} />

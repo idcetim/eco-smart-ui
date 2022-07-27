@@ -57,12 +57,22 @@
 }
 
 .button-back-cel {
-    padding: 5px;
+    padding: 8px;
     font-size: 18px;
     font-weight: 700;
-    color: rgb(99, 8, 1);
+    color: rgb(0, 0, 0);
     font-family: 'Courier New', Courier, monospace;
     border-radius: 5px;
+    background-color: rgb(249, 151, 151);
+}
+
+.button-back-cel:hover {
+    background-color: rgb(254, 107, 107);
+    transition: ease-in-out 0.3s;
+}
+
+.back-arrows {
+    font-size: 28px;
 }
 
 h3 {

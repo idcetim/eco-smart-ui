@@ -38,8 +38,8 @@ const ShowSilicioIndividual = (props) => {
         </tr>
         <tr>
             
-            <td>Análisis</td>
-            {loteData[4] !== "" ? <td>{loteData[4]}</td>: <td></td> }  
+            <td>Análisis químico</td>
+            {loteData[4] !== "" ? <td><a href={loteData[4]}>Ver Análisis</a></td>: <td></td> }  
         </tr>
     </tbody>
 </table>
@@ -65,11 +65,11 @@ const ShowSilicioIndividual = (props) => {
             </tr>
             <tr>
                 <td>Granulometría</td>
-                <td>{productoData[2]}</td>
+                <td><a href={productoData[2]}>Ver Análisis</a></td>
             </tr>
             <tr>
-                <td>Quimico</td>
-                <td>{productoData[3]}</td>
+                <td>Análisis Quimico</td>
+                <td><a href={productoData[3]}>ver Análisis</a></td>
             </tr>
     </tbody>
 </table>

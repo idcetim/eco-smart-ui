@@ -15,7 +15,7 @@ const ShowCelulosaData = (props) => {
         <table className="table-celulosa">
            <thead>
         <tr>
-            <th colspan={2}>Pasta de celulosa original</th>
+            <th colSpan={2}>Pasta de celulosa original</th>
         </tr>
         </thead> 
         <tbody>
@@ -40,7 +40,7 @@ const ShowCelulosaData = (props) => {
         <table className="table-celulosa">
            <thead>
         <tr>
-            <th colspan={2}>Procesos realizados</th>
+            <th colSpan={2}>Procesos realizados</th>
         </tr>
         </thead> 
         <tbody>
@@ -66,7 +66,7 @@ const ShowCelulosaData = (props) => {
     <table className="table-celulosa">
         <thead>
             <tr>
-                <th colspan={2}>Nanocelulosa</th>
+                <th colSpan={2}>Nanocelulosa</th>
             </tr>
         </thead> 
         <tbody>
