@@ -2,6 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 .modalBackground {
@@ -39,6 +40,7 @@
 
 .close-btn:hover {
     background-color: rgb(251, 108, 108);
+    border-radius: 4px;
 }
 
 .modalTitle {

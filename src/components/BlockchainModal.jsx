@@ -13,9 +13,10 @@ const BlockchainModal = (props) => {
           <button onClick={() => closeModal(false)} className="close-btn"> X </button>
         </div>
         <section>
-          <p><a href={`${fantomExplorer}${celulosaSC}`} target="_blank" rel="noreferrer" className="modalLink">Smart contract Nanocelulosa</a></p>
-          <p><a href={`${fantomExplorer}${silicioSC}`} target="_blank" rel="noreferrer" className="modalLink">Smart contract Nanosilicio</a></p>
-          <p><a href={`${fantomExplorer}${bateriasSC}`} target="_blank" rel="noreferrer" className="modalLink">Smart contract Baterías</a></p>
+          <p><a href={`https://fantom.foundation/`} target="_blank" rel="noreferrer" className="modalLink">Blockchain de Fantom</a></p>
+          <p><a href={`${fantomExplorer}${celulosaSC}`} target="_blank" rel="noreferrer" className="modalLink">Smart contract Nanocelulosa 📜</a></p>
+          <p><a href={`${fantomExplorer}${silicioSC}`} target="_blank" rel="noreferrer" className="modalLink">Smart contract Nanosilicio 📜</a></p>
+          <p><a href={`${fantomExplorer}${bateriasSC}`} target="_blank" rel="noreferrer" className="modalLink">Smart contract Baterías 📜</a></p>
         </section>
 
       </div>
