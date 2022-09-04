@@ -1,6 +1,7 @@
 .web-wrapper {
     margin: 40px;
-    width: 1000px;
+    width: 1200px;
+    overflow: auto;
 }
 
 .small-separation {

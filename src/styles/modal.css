@@ -1,0 +1,59 @@
+.modalPosition {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalBackground {
+    background-color: rgba(200, 200, 200);
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+}
+
+.modalContainer {
+    width: 400px;
+    height: 200px;
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}
+
+.close-btn {
+    padding: 6px;
+    font-weight: bold;
+    width: 30px;
+    border-radius: 4px;
+}
+
+.close-btn:hover {
+    background-color: rgb(251, 108, 108);
+}
+
+.modalTitle {
+    padding: 6px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.modalLink {
+    color: grey;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.modalLink:hover {
+    color: blue
+}
