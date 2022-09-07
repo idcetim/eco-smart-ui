@@ -1,7 +1,5 @@
 import TextInput from "../components/TextInput";
 import { useState } from 'react';
-import BackHomeButton from '../components/BackHomeButton';
-
 
 const Consultar = () => {
     const [codigo, setCodigo] = useState("")
@@ -17,10 +15,9 @@ const Consultar = () => {
     
 return (
     <div className='web-wrapper'>
-        <h3 className="main-consultar">Consultar Información</h3>
+        <h1 className="main-consultar">Consultar Información</h1>
         <TextInput codigo="Codigo" func={setCodigo}  />
-        <button onClick={consultarHandler}>Consultar</button>
-        <BackHomeButton />
+        <button onClick={consultarHandler} className="button-registrar" >Consultar</button>
     </div>
     
 )

@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import BackHomeButton from '../components/BackHomeButton';
 
 import "../styles/global.css"
 
@@ -23,9 +22,6 @@ const HomeCelulosa = () => {
       <h3>Consulta de información</h3>
       <button className="button-home" onClick={consultarHandler}>Consultar lote 🔎</button>
       <button className="button-home" onClick={consultarTodosHandler}>Consultar todos 🔎</button>
-      <div className="div-backhome-button">
-        <BackHomeButton />
-      </div>
 
     </div>
   )
