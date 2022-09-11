@@ -13,7 +13,7 @@ const ProyectInfoModal = (props) => {
           <br></br>
           <ul>
             <li>Producción de nanocelulosa</li>
-            <li>Producción de nanosilicio</li>
+            <li>Producción de nanosilicio</li> 
             <li>Diseño e implementación de baterías</li>
           </ul>
         </section>
