@@ -1,10 +1,11 @@
 import TextInput from '../../components/TextInput'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import BackCelButton from '../../components/BackCelButton';
 import { urlCelProducto } from '../../api/endpoints';
 import { postHeader } from '../../api/fetchHeader'
 import ShowTxHash from '../../components/ShowTxHash';
 import SelectInput from '../../components/SelectInput';
+import { Loading } from '../../components/Loading';
 
 import "../../styles/global.css"
 import "../../styles/TextInput.css"
@@ -15,10 +16,17 @@ const ProductoFinal = () => {
   const [anchoMedio, setAnchoMedio] = useState("")
   const [conductividad, setConductividad] = useState("")
   const [porcentajeSusp, setPorcentajeSusp] = useState("")
-  const [hash, setHash] = useState("")
+  const [hash, setHash] = useState(undefined)
+  const [isRegisterOngoing, setIsRegisterOnGoing] = useState(false)
 
   const selectOptions = ["Formato", "Seca", "Suspension"]
+
+  useEffect(() => {
+    if (hash === undefined) setIsRegisterOnGoing(false)
+  }, [hash])
+
   const registrarHandler = async () => {
+    setIsRegisterOnGoing(true)
     const bodyData = JSON.stringify({
       "codigo": codigo,
       "suspension": suspension,
@@ -42,7 +50,8 @@ const ProductoFinal = () => {
       <SelectInput options={selectOptions} func={setSuspension} />
       {suspension === selectOptions[2] && <TextInput codigo="Porcentaje suspension" func={setPorcentajeSusp} />}
       <button className='button-registrar' onClick={registrarHandler} disabled={!codigo || !anchoMedio || !suspension || !conductividad}>Registrar</button>
-      {hash !== "" && <ShowTxHash hash={hash} text={"Ver transacción"} />}
+      {hash !== undefined && isRegisterOngoing && <ShowTxHash hash={hash} text={"Ver transacción"} />}
+      {hash === undefined && isRegisterOngoing && <Loading text={"Registrando"} />}
     </div>
   )
 }

@@ -1,5 +1,4 @@
 import "../styles/tables.css"
-
 const ShowCelulosaData = (props) => {
  const origenData = props.origenData
  const procesosData = props.procesosData
@@ -7,7 +6,7 @@ const ShowCelulosaData = (props) => {
  const codigo = props.codigo
 
     return (
-       Object.keys(productoData).length!== 0 && <div>
+       Object.keys(productoData).length !== 0 && <div>
        <div className="div-title">
         <span className="span-title">Información de producto del lote <span className="span-title-green">{codigo}</span> </span>
         </div> 
@@ -88,7 +87,7 @@ const ShowCelulosaData = (props) => {
             </tr>
         </tbody>
     </table>
-        </div>
+        </div> 
     )
 }
 

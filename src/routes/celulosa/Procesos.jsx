@@ -1,10 +1,11 @@
 import TextInput from '../../components/TextInput'
 import CheckBox from '../../components/CheckBox'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import BackCelButton from '../../components/BackCelButton';
 import { urlCelProceso } from '../../api/endpoints'
 import { postHeader } from '../../api/fetchHeader'
 import ShowTxHash from '../../components/ShowTxHash';
+import { Loading } from '../../components/Loading';
 
 import "../../styles/global.css"
 import "../../styles/TextInput.css"
@@ -15,11 +16,16 @@ const Procesos = () => {
   const [preEnzimatico, setPreEnzimatico] = useState(false)
   const [preQuimico, setPreQuimico] = useState(false)
   const [homogenizacion, setHomogenizacion] = useState(false)
-  const [hash, setHash] = useState("")
+  const [hash, setHash] = useState(undefined)
+  const [isRegisterOngoing, setIsRegisterOnGoing] = useState(false)
+
+  useEffect(() => {
+    if(hash === undefined) setIsRegisterOnGoing(false)
+  }, [hash])
 
   const registrarHandler = async () => {
-
-    let bodyData = JSON.stringify({
+    setIsRegisterOnGoing(true)
+    const bodyData = JSON.stringify({
       "codigo": codigo,
       "mecanico": preMecanico ? "1" : "0",
       "enzimatico": preEnzimatico ? "1" : "0",
@@ -45,7 +51,8 @@ const Procesos = () => {
         <CheckBox label={"Homogenización"} value={homogenizacion} setChange={setHomogenizacion} />
       </div>
       <button className='button-registrar' onClick={registrarHandler} disabled={!codigo}>Registrar</button>
-      {hash !== "" && <ShowTxHash hash={hash} text={"Ver transacción"} />}
+      {hash !== undefined && isRegisterOngoing && <ShowTxHash hash={hash} text={"Ver transacción"} />}
+      {hash === undefined && isRegisterOngoing &&  <Loading text={"Registrando"} />}
     </div>
   )
 

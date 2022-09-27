@@ -1,10 +1,11 @@
 import TextInput from '../../components/TextInput'
 import SelectInput from '../../components/SelectInput'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import BackCelButton from '../../components/BackCelButton';
 import { urlCelOrigen } from '../../api/endpoints'
 import { postHeader } from '../../api/fetchHeader'
 import ShowTxHash from '../../components/ShowTxHash';
+import { Loading } from '../../components/Loading';
 
 import "../../styles/global.css"
 import "../../styles/TextInput.css"
@@ -16,12 +17,16 @@ const Origen = () => {
   const [hemicelulosa, setHemicelulosa] = useState("")
   const [lignina, setLignina] = useState("")
   const [origen, setOrigen] = useState("")
-  const [hash, setHash] = useState("")
+  const [hash, setHash] = useState(undefined)
+  const [isRegisterOngoing, setIsRegisterOnGoing] = useState(false)
 
 
+  useEffect(() => {
+    if(hash === undefined) setIsRegisterOnGoing(false)
+  }, [hash])
   const registrarHandler = async () => {
-
-    let bodyData = JSON.stringify({
+    setIsRegisterOnGoing(true)
+    const bodyData = JSON.stringify({
       "codigo": codigo,
       "celulosa": celulosa,
       "hemicelulosa": hemicelulosa,
@@ -45,8 +50,9 @@ const Origen = () => {
         <TextInput codigo="Hemicelulosa(%)" func={setHemicelulosa} />
         <TextInput codigo="Lignina(%)" func={setLignina} />
         <SelectInput options={selectOptions} func={setOrigen} />
-        <button className='button-registrar' onClick={registrarHandler} disabled={!codigo || celulosa || hemicelulosa || origen || lignina}>Registrar</button>
-        {hash !== "" && <ShowTxHash hash={hash} text={"Ver transacción"} />}
+        <button className='button-registrar' onClick={registrarHandler} disabled={!codigo || !celulosa || !hemicelulosa || !origen || !lignina}>Registrar</button>
+        {hash !== undefined && isRegisterOngoing && <ShowTxHash hash={hash} text={"Ver transacción"} />}
+        {hash === undefined && isRegisterOngoing &&  <Loading text={"Registrando"} />}
     </div>
   )
 

@@ -7,10 +7,11 @@ import { header} from '../../api/fetchHeader'
 import "../../styles/global.css"
 import "../../styles/TextInput.css"
 import ShowCelulosaLotes from '../../components/ShowCelulosaLotes';
+import { Loading } from '../../components/Loading';
 
 
 const ConsultarLotesCel = () => {
-    const [lotes, setLotes] = useState([])
+    const [lotes, setLotes] = useState(undefined)
 
     const searchAllLotes = async () => {
 		const dataLotes = await fetch(urlCelConsultaLotes, header)
@@ -27,7 +28,8 @@ return (
                 <BackCelButton />
         </div>
        <h3>Lotes registrados</h3>
-        {lotes.length > 0 && <ShowCelulosaLotes lotes={lotes} />} 
+        {lotes !== undefined && <ShowCelulosaLotes lotes={lotes} />} 
+        {lotes === undefined && <Loading text={"Cargando"} />}
     </div>
 )
 }

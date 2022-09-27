@@ -1,22 +1,22 @@
 import { useState } from 'react';
-import {urlCelOrigen ,  urlCelProceso, urlCelProducto, urlCelOrigenHash, urlCelProcesosHash, urlCelProductoHash   } from '../api/endpoints'
+import { urlCelOrigen, urlCelProceso, urlCelProducto, urlCelOrigenHash, urlCelProcesosHash, urlCelProductoHash } from '../api/endpoints'
 import "../styles/showLotes.css"
-import { header} from '../api/fetchHeader'
+import { header } from '../api/fetchHeader'
 import ShowCelulosaData from './ShowCelulosaData';
 import ShowTxHash from './ShowTxHash';
 
 const ShowCelulosaLotes = (props) => {
- const {lotes } = props
- const [currentCode, setCurrentCode] = useState("")
- const [origenData, setOrigenData] = useState([])
- const [procesosData, setProcesosData] = useState([])
- const [productoData, setProductoData] = useState([])
- const [origenHash, setOrigenHash] = useState("")
- const [procesosHash, setProcesosHash] = useState("")
- const [productoHash, setProductoHash] = useState("")
+  const { lotes } = props
+  const [currentCode, setCurrentCode] = useState("")
+  const [origenData, setOrigenData] = useState([])
+  const [procesosData, setProcesosData] = useState([])
+  const [productoData, setProductoData] = useState([])
+  const [origenHash, setOrigenHash] = useState("")
+  const [procesosHash, setProcesosHash] = useState("")
+  const [productoHash, setProductoHash] = useState("")
 
- const searchLoteInfo = async (lote) => {
-     setCurrentCode(lote)
+  const searchLoteInfo = async (lote) => {
+    setCurrentCode(lote)
     const urlOrigen = `${urlCelOrigen}?code=${lote}`
     const dataOrigen = await fetch(urlOrigen, header)
     const resOrigen = await dataOrigen.json()
@@ -46,23 +46,24 @@ const ShowCelulosaLotes = (props) => {
     const hashProducto = await fetch(urlHashProducto, header)
     const resHashProducto = await hashProducto.json()
     setProductoHash(resHashProducto)
- }
+  }
 
-return (
+  return (
     <div className="div-bt-lotes">
-        {lotes.map((lote, index)=>
-        <button className="bt-lotes" key={index} onClick={() => searchLoteInfo(lote)}>{lote}</button>)}
-        {lotes.length > 0 && <hr/>} 
-        <ShowCelulosaData origenData={origenData} procesosData={procesosData} productoData={productoData} codigo={currentCode}/>
-        <div className='div-blockchain-info'>
-        {origenHash!== "" &&  <span className="span-title"> Información blockchain del lote <span className="span-title-green">{currentCode}</span></span> }
-            {origenHash!== "" &&  <ShowTxHash hash={origenHash} text={"Transacción origen"}/> }
-            {procesosHash!== "" && <ShowTxHash hash={procesosHash} text={"Transacción procesos"} /> }
-            {productoHash!== "" && <ShowTxHash hash={productoHash} text={"Transacción producto"} /> }
+        <div>
+          {lotes.map((lote, index) =>
+            <button className="bt-lotes" key={index} onClick={() => searchLoteInfo(lote)}>{lote}</button>)}
+          {lotes.length > 0 && <hr />}
+          <ShowCelulosaData origenData={origenData} procesosData={procesosData} productoData={productoData} codigo={currentCode} />
+          <div className='div-blockchain-info'>
+            {origenHash !== "" && <span className="span-title"> Información blockchain del lote <span className="span-title-green">{currentCode}</span></span>}
+            {origenHash !== "" && <ShowTxHash hash={origenHash} text={"Transacción origen"} />}
+            {procesosHash !== "" && <ShowTxHash hash={procesosHash} text={"Transacción procesos"} />}
+            {productoHash !== "" && <ShowTxHash hash={productoHash} text={"Transacción producto"} />}
+          </div>
         </div>
-       
     </div>
-)
+  )
 }
 
 export default ShowCelulosaLotes;
