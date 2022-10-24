@@ -20,7 +20,7 @@ const Procesos = () => {
   const [isRegisterOngoing, setIsRegisterOnGoing] = useState(false)
 
   useEffect(() => {
-    if(hash === undefined) setIsRegisterOnGoing(false)
+    if (hash === undefined) setIsRegisterOnGoing(false)
   }, [hash])
 
   const registrarHandler = async () => {
@@ -52,7 +52,7 @@ const Procesos = () => {
       </div>
       <button className='button-registrar' onClick={registrarHandler} disabled={!codigo}>Registrar</button>
       {hash !== undefined && isRegisterOngoing && <ShowTxHash hash={hash} text={"Ver transacción"} />}
-      {hash === undefined && isRegisterOngoing &&  <Loading text={"Registrando"} />}
+      {hash === undefined && isRegisterOngoing && <Loading text={"Registrando"} />}
     </div>
   )
 

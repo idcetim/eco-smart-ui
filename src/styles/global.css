@@ -17,10 +17,10 @@
     display: block;
     margin-top: 10px;
     padding: 5px;
-    font-size: 20px;
+    font-size: 22px;
     font-weight: bold;
     width: 350px;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'comic sans';
 }
 
 .div-backhome-button {
@@ -29,47 +29,51 @@
 
 .div-consultar-1lote {
     display: grid;
-    grid-template-columns: 300px 300px;
+    grid-template-columns: 370px 300px;
 }
 
 .button-registrar {
-    padding: 5px;
-    font-size: 14px;
-    font-weight: 700;
-    font-family: 'Courier New', Courier, monospace;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'comic sans';
     margin-top: 18px;
+    border-radius: 5px;
 }
 
 .button-registrar-inline {
-    font-size: 14px;
-    font-weight: 700;
-    font-family: 'Courier New', Courier, monospace;
-    width: 180px;
-    height: 30px;
+    position: relative;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'comic sans';
+    width: 200px;
+    height: 40px;
+    margin-left: 10px;
     margin-top: 4px;
+    align-self: center;
 }
 
 .button-back-home {
-    padding: 5px;
+    padding: 10px;
     font-size: 18px;
-    font-weight: 700;
-    color: black;
-    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-family: 'comic sans';
     margin-right: 10px;
 }
 
 .button-back-cel {
-    padding: 8px;
-    font-size: 18px;
-    font-weight: 700;
-    color: rgb(0, 0, 0);
-    font-family: 'Courier New', Courier, monospace;
-    border-radius: 5px;
-    background-color: rgb(249, 151, 151);
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    font-family: 'comic sans';
+    border-radius: 8px;
+    background-color: rgb(150, 3, 3);
+    text-transform: uppercase;
 }
 
 .button-back-cel:hover {
-    background-color: rgb(254, 107, 107);
+    background-color: rgb(241, 136, 136);
     transition: ease-in-out 0.3s;
 }
 
@@ -78,11 +82,19 @@
 }
 
 h3 {
-    letter-spacing: 0.1em;
+    letter-spacing: 0.05em;
+    font-family: 'comic sans';
+    font-weight: bold;
+    font-size: 26px;
+    text-transform: uppercase;
 }
 
 h4 {
-    letter-spacing: 0.1em;
+    letter-spacing: 0.05em;
+    font-family: 'comic sans';
+    font-weight: bold;
+    font-size: 22px;
+    text-transform: uppercase;
 }
 
 .main-h1 {
