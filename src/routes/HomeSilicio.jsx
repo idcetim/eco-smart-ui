@@ -6,7 +6,7 @@ const HomeSilicio = () => {
     const navigate = useNavigate()
     const origenHandler = () => {navigate('/silicio/entradas/')}
     const entradasAnalisisHandler = () => {navigate('/silicio/entradas/analisis/')}
-    const productoHandler = () => {navigate('/silicio/producto/')}
+    const productoHandler = () => {navigate('/silicio/produccion/')}
     const produccionAnalisisHandler = () => {navigate('/silicio/produccion/analisis/')}
     const consultarHandler = () => {navigate('/silicio/consulta/')}
     const consultarTodosHandler = () => {navigate('/silicio/consulta/lotes')}

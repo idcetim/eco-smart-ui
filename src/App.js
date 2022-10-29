@@ -11,7 +11,7 @@ import ConsultarCelulosa from "./routes/celulosa/ConsultarCelulosa";
 import ConsultarLotesCel from "./routes/celulosa/ConsultarLotesCel";
 import { Entradas } from "./routes/silicio/Entradas";
 import { AddAnalisisEntrada } from "./routes/silicio/AddAnalisisEntrada";
-import ProductoSilicio from "./routes/silicio/ProductoSilicio";
+import Produccion from "./routes/silicio/Produccion";
 import ConsultarLoteSilicio from "./routes/silicio/ConsultarLoteSilicio";
 import ConsultarTodosSilicio from "./routes/silicio/ConsultarTodosSilicio";
 import NavBar from "./routes/NavBar";
@@ -33,7 +33,7 @@ function App() {
                 <Route path="/silicio" element={< HomeSilicio />} />
                 <Route path="/silicio/entradas/*" element={< Entradas />} />
                 <Route path="/silicio/entradas/analisis/*" element={< AddAnalisisEntrada />} />
-                <Route path="/silicio/producto/*" element={< ProductoSilicio />} />
+                <Route path="/silicio/produccion/*" element={< Produccion />} />
                 <Route path="/silicio/produccion/analisis/*" element={< AddAnalisisProduct />} />
                 <Route path="/silicio/consulta/*" element={< ConsultarLoteSilicio />} />
                 <Route path="/silicio/consulta/lotes/*" element={< ConsultarTodosSilicio />} />
