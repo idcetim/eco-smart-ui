@@ -15,6 +15,7 @@ import ProductoSilicio from "./routes/silicio/ProductoSilicio";
 import ConsultarLoteSilicio from "./routes/silicio/ConsultarLoteSilicio";
 import ConsultarTodosSilicio from "./routes/silicio/ConsultarTodosSilicio";
 import NavBar from "./routes/NavBar";
+import { AddAnalisisProduct } from "./routes/silicio/AddAnalisisProduct";
 
 function App() {
 
@@ -33,6 +34,7 @@ function App() {
                 <Route path="/silicio/entradas/*" element={< Entradas />} />
                 <Route path="/silicio/entradas/analisis/*" element={< AddAnalisisEntrada />} />
                 <Route path="/silicio/producto/*" element={< ProductoSilicio />} />
+                <Route path="/silicio/produccion/analisis/*" element={< AddAnalisisProduct />} />
                 <Route path="/silicio/consulta/*" element={< ConsultarLoteSilicio />} />
                 <Route path="/silicio/consulta/lotes/*" element={< ConsultarTodosSilicio />} />
                 <Route path="/baterias" element={< HomeBaterias />} />

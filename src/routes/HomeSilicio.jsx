@@ -7,6 +7,7 @@ const HomeSilicio = () => {
     const origenHandler = () => {navigate('/silicio/entradas/')}
     const entradasAnalisisHandler = () => {navigate('/silicio/entradas/analisis/')}
     const productoHandler = () => {navigate('/silicio/producto/')}
+    const produccionAnalisisHandler = () => {navigate('/silicio/produccion/analisis/')}
     const consultarHandler = () => {navigate('/silicio/consulta/')}
     const consultarTodosHandler = () => {navigate('/silicio/consulta/lotes')}
     return(
@@ -18,6 +19,7 @@ const HomeSilicio = () => {
                 <button className="button-home" onClick={origenHandler}>Lotes 🚚</button>
                 <button className="button-home" onClick={entradasAnalisisHandler}>Añadir análisis de entrada</button>
                 <button className="button-home" onClick={productoHandler}>Producto final 📦</button>
+                <button className="button-home" onClick={produccionAnalisisHandler}>Añadir análisis al producto</button>
             </div>
             <h3>Consulta de información</h3>
             <button className="button-home" onClick={consultarHandler}>Consultar un lote🔎</button>
