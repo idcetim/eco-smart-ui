@@ -9,7 +9,7 @@ import Procesos from "./routes/celulosa/Procesos";
 import ProductoFinal from "./routes/celulosa/ProductoFinal";
 import ConsultarCelulosa from "./routes/celulosa/ConsultarCelulosa";
 import ConsultarLotesCel from "./routes/celulosa/ConsultarLotesCel";
-import LotesSilicio from "./routes/silicio/LotesSilicio";
+import { Entradas } from "./routes/silicio/Entradas";
 import ProductoSilicio from "./routes/silicio/ProductoSilicio";
 import ConsultarLoteSilicio from "./routes/silicio/ConsultarLoteSilicio";
 import ConsultarTodosSilicio from "./routes/silicio/ConsultarTodosSilicio";
@@ -29,7 +29,7 @@ function App() {
                 <Route path="/celulosa/consulta/*" element={< ConsultarCelulosa />} />
                 <Route path="/celulosa/consulta/lotes/*" element={< ConsultarLotesCel />} />
                 <Route path="/silicio" element={< HomeSilicio />} />
-                <Route path="/silicio/origen/*" element={< LotesSilicio />} />
+                <Route path="/silicio/entradas/*" element={< Entradas />} />
                 <Route path="/silicio/producto/*" element={< ProductoSilicio />} />
                 <Route path="/silicio/consulta/*" element={< ConsultarLoteSilicio />} />
                 <Route path="/silicio/consulta/lotes/*" element={< ConsultarTodosSilicio />} />

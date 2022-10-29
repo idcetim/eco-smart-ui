@@ -1,7 +1,7 @@
 .div-showTxHash {
     margin-top: 15px;
     display: grid;
-    grid-template-columns: 195px 170px;
+    grid-template-columns: 200px 200px;
 }
 
 .span-hashTx {

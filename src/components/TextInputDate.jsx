@@ -1,5 +1,5 @@
 const TextInputDate = (props) => {
-    const setValueState = props.func
+    const setValueState = props.setter
     const inputValueHandler = (event) => { setValueState(event.target.value) }
     return (
         <div>

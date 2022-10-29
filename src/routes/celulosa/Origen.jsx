@@ -1,15 +1,14 @@
 import TextInput from '../../components/TextInput'
 import SelectInput from '../../components/SelectInput'
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import BackCelButton from '../../components/BackCelButton';
 import { urlCelOrigen } from '../../api/endpoints'
 import { postHeader } from '../../api/fetchHeader'
-import ShowTxHash from '../../components/ShowTxHash';
+import { ShowHash } from '../../components/ShowHash';
 import { Loading } from '../../components/Loading';
 
 import "../../styles/global.css"
 import "../../styles/TextInput.css"
-
 
 const Origen = () => {
   const [codigo, setCodigo] = useState("")
@@ -18,14 +17,10 @@ const Origen = () => {
   const [lignina, setLignina] = useState("")
   const [origen, setOrigen] = useState("")
   const [hash, setHash] = useState(undefined)
-  const [isRegisterOngoing, setIsRegisterOnGoing] = useState(false)
+  const buttonDisabledCondition = !codigo || !celulosa || !hemicelulosa || !origen || !lignina
 
-
-  useEffect(() => {
-    if(hash === undefined) setIsRegisterOnGoing(false)
-  }, [hash])
   const registrarHandler = async () => {
-    setIsRegisterOnGoing(true)
+    setHash('loading')
     const bodyData = JSON.stringify({
       "codigo": codigo,
       "celulosa": celulosa,
@@ -35,24 +30,42 @@ const Origen = () => {
     })
 
     const response = await fetch(urlCelOrigen, { method: 'POST', headers: postHeader, body: bodyData, })
-    setHash(await response.json())
+    if (response.ok) {
+      setHash(await response.json())
+      setCelulosa('')
+      setCodigo('')
+      setHemicelulosa('')
+      setLignina('')
+    } else {
+      setHash(undefined)
+      alert(`
+      Error registrando información del lote ${codigo}.
+      Revisa que ese lote no haya sido registrado`)
+      return (
+        <div className='web-wrapper'>
+          <h3>Error al registrar en la blockchain</h3>
+          <h4><i>Realiza la operación más tarde</i></h4>
+        </div>
+      )
+    }
 
   }
   const selectOptions = ["Origen", "Abeto", "Pino", "Eucalipto"]
   return (
     <div className='web-wrapper'>
-        <div className='div-button-back'>
-          <BackCelButton />
-        </div>
-        <h3> Registro de pasta de celulosa </h3>
-        <TextInput codigo="Código" func={setCodigo} />
-        <TextInput codigo="Celulosa(%)" func={setCelulosa} />
-        <TextInput codigo="Hemicelulosa(%)" func={setHemicelulosa} />
-        <TextInput codigo="Lignina(%)" func={setLignina} />
-        <SelectInput options={selectOptions} func={setOrigen} />
-        <button className='button-registrar' onClick={registrarHandler} disabled={!codigo || !celulosa || !hemicelulosa || !origen || !lignina}>Registrar</button>
-        {hash !== undefined && isRegisterOngoing && <ShowTxHash hash={hash} text={"Ver transacción"} />}
-        {hash === undefined && isRegisterOngoing &&  <Loading text={"Registrando"} />}
+      <div className='div-button-back'>
+        <BackCelButton />
+      </div>
+      <h3> Registro de pasta de celulosa </h3>
+      <TextInput type="Código" setter={setCodigo} value={codigo} />
+      <TextInput type="Celulosa(%)" setter={setCelulosa} value={celulosa} />
+      <TextInput type="Hemicelulosa(%)" setter={setHemicelulosa} value={hemicelulosa} />
+      <TextInput type="Lignina(%)" setter={setLignina} value={lignina} />
+      <SelectInput options={selectOptions} setter={setOrigen} />
+      <button className='button-registrar' onClick={registrarHandler} disabled={buttonDisabledCondition}>Registrar</button>
+      {hash !== undefined && hash.startsWith('0x') && <ShowHash txHash={hash} />}
+      {hash === 'loading' && <Loading text={"Registrando"} />}
+      <br />
     </div>
   )
 

@@ -4,7 +4,7 @@ import "../styles/global.css"
 
 const HomeSilicio = () => {
     const navigate = useNavigate()
-    const origenHandler = () => {navigate('/silicio/origen/')}
+    const origenHandler = () => {navigate('/silicio/entradas/')}
     const productoHandler = () => {navigate('/silicio/producto/')}
     const consultarHandler = () => {navigate('/silicio/consulta/')}
     const consultarTodosHandler = () => {navigate('/silicio/consulta/lotes')}

@@ -12,7 +12,7 @@ import { Loading } from '../../components/Loading';
 
 
 const ConsultarCelulosa = () => {
-  const [codigo, setCodigo] = useState("")
+  const [codigo, setCodigo] = useState("") 
   const [origenData, setOrigenData] = useState(undefined)
   const [procesosData, setProcesosData] = useState(undefined)
   const [productoData, setProductoData] = useState(undefined)

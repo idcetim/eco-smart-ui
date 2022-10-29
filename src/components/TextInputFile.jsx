@@ -1,6 +1,6 @@
 import React from "react"
 const TextInputFile = (props) => {
-    const setValueState = props.func
+    const setValueState = props.setter
     const inputValueHandler = (event) => { setValueState(fileInput.current.files[0]) }
     const fileInput = React.createRef()
     return (
