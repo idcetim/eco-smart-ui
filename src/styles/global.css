@@ -7,13 +7,48 @@
 
 #home {
     background-image: url('../data/mainBACK2.jpg');
-    width: 100%;
+    width: 100vw;
+    min-height: 100vh;
     overflow: auto;
-    min-height: 100vh
 }
 
-.small-separation {
-    margin-top: 10px
+.home-wrapper {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.main-h1 {
+    font-size: 60px;
+    font-family: 'comic sans';
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: -webkit-linear-gradient(rgb(248, 244, 244), rgb(112, 212, 248));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.landing-image {
+    margin-top: 10px;
+    margin-bottom: 30px;
+    height: 200px;
+    border-radius: 20px;
+    @media screen and (max-width: 768px) {
+        width: 500px;
+    }
+}
+
+.landing-link {
+    border-radius: 30px;
+    margin-bottom: 30px;
+}
+
+.landing-image:hover {
+    border: solid 3px black;
+    border-radius: 8px;
 }
 
 .div-button-back {
@@ -104,13 +139,6 @@ h4 {
     text-transform: uppercase;
 }
 
-.main-h1 {
-    background: -webkit-linear-gradient(rgb(0, 0, 0), rgb(84, 83, 83));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
 .main-celulosa {
     background: -webkit-linear-gradient(rgb(3, 29, 2), rgb(69, 225, 7));
     background-clip: text;
@@ -137,22 +165,4 @@ h4 {
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-}
-
-.landing-image {
-    margin-top: 20px;
-    margin-bottom: 30px;
-    @media screen and (max-width: 768px) {
-        width: 500px;
-    }
-}
-
-.landing-link {
-    border-radius: 6px;
-    margin-bottom: 30px;
-}
-
-.landing-image:hover {
-    border: solid 3px black;
-    border-radius: 8px;
 }
