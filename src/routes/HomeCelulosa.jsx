@@ -7,7 +7,7 @@ const HomeCelulosa = () => {
   const origenHandler = () => { navigate('/celulosa/origen/') }
   const procesosHandler = () => { navigate('/celulosa/procesos/') }
   const productoHandler = () => { navigate('/celulosa/producto/') }
-  const consultarHandler = () => { navigate('/celulosa/consulta/') }
+  // const consultarHandler = () => { navigate('/celulosa/consulta/') }
   const consultarTodosHandler = () => { navigate('/celulosa/consulta/lotes') }
   return (
     <div className="web-wrapper">
@@ -20,8 +20,8 @@ const HomeCelulosa = () => {
       </div>
 
       <h3>Consulta de información</h3>
-      <button className="button-home" onClick={consultarHandler}>Consultar lote 🔎</button>
-      <button className="button-home" onClick={consultarTodosHandler}>Consultar todos 🔎</button>
+      {/* <button className="button-home" onClick={consultarHandler}>Consultar lote 🔎</button> */}
+      <button className="button-home" onClick={consultarTodosHandler}>Consultar Lotes 🔎</button>
 
     </div>
   )

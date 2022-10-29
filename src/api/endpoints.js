@@ -14,21 +14,3 @@ export const urlCelOrigenHash = url + 'celulosa/hash/origen/'
 export const urlCelProcesosHash = url + 'celulosa/hash/procesos/'
 
 export const urlCelProductoHash = url + 'celulosa/hash/producto/'
-
-export const urlSilLotes = url + 'silicio/lotes/'
-
-export const urlSilAnalisisLotes = url + 'silicio/lotes/analisis'
-
-export const urlSilProducto = url + 'silicio/producto/'
-
-export const urlSilGranulometriaProducto = url + 'silicio/producto/granulometria'
-
-export const urlSilQuimicoProducto = url + 'silicio/producto/quimico'
-
-export const urlSilVerTodosInicial = url + 'silicio/todos/inicial/'
-
-export const urlSilVerTodosFinal = url + 'silicio/todos/final/'
-
-export const urlSilLotesHash = url + 'silicio/hash/lotes/'
-
-export const urlSilProductoHash = url + 'silicio/hash/producto/'

@@ -1,9 +1,9 @@
 import TextInput from '../../components/TextInput'
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import BackCelButton from '../../components/BackCelButton';
 import { urlCelProducto } from '../../api/endpoints';
 import { postHeader } from '../../api/fetchHeader'
-import ShowTxHash from '../../components/ShowTxHash';
+import { ShowHash } from '../../components/ShowHash';
 import SelectInput from '../../components/SelectInput';
 import { Loading } from '../../components/Loading';
 
@@ -17,16 +17,11 @@ const ProductoFinal = () => {
   const [conductividad, setConductividad] = useState("")
   const [porcentajeSusp, setPorcentajeSusp] = useState("")
   const [hash, setHash] = useState(undefined)
-  const [isRegisterOngoing, setIsRegisterOnGoing] = useState(false)
 
   const selectOptions = ["Formato", "Seca", "Suspension"]
 
-  useEffect(() => {
-    if (hash === undefined) setIsRegisterOnGoing(false)
-  }, [hash])
-
   const registrarHandler = async () => {
-    setIsRegisterOnGoing(true)
+    setHash('loading')
     const bodyData = JSON.stringify({
       "codigo": codigo,
       "suspension": suspension,
@@ -35,7 +30,12 @@ const ProductoFinal = () => {
       "porcentaje": porcentajeSusp
     })
     const response = await fetch(urlCelProducto, { method: 'POST', headers: postHeader, body: bodyData, })
-    setHash(await response.json())
+    if(response.ok) {
+      setHash(await response.json())
+    } else {
+      alert("Error con el registro")
+      setHash(undefined)
+    }
   }
 
   return (
@@ -44,14 +44,14 @@ const ProductoFinal = () => {
         <BackCelButton />
       </div>
       <h3> Registro de características de nanocelulosa </h3>
-      <TextInput codigo="Código" func={setCodigo} />
-      <TextInput codigo="Conductividad iónica" func={setConductividad} />
-      <TextInput codigo="Ancho medio partícula" func={setAnchoMedio} />
-      <SelectInput options={selectOptions} func={setSuspension} />
-      {suspension === selectOptions[2] && <TextInput codigo="Porcentaje suspension" func={setPorcentajeSusp} />}
+      <TextInput type="Código" setter={setCodigo} value={codigo} />
+      <TextInput type="Conductividad iónica" setter={setConductividad} value={conductividad} />
+      <TextInput type="Ancho medio partícula" setter={setAnchoMedio} value = {anchoMedio} />
+      <SelectInput options={selectOptions} setter={setSuspension} />
+      {suspension === selectOptions[2] && <TextInput type="Porcentaje suspension" setter={setPorcentajeSusp}  value={porcentajeSusp}/>}
       <button className='button-registrar' onClick={registrarHandler} disabled={!codigo || !anchoMedio || !suspension || !conductividad}>Registrar</button>
-      {hash !== undefined && isRegisterOngoing && <ShowTxHash hash={hash} text={"Ver transacción"} />}
-      {hash === undefined && isRegisterOngoing && <Loading text={"Registrando"} />}
+      {hash !== undefined && hash.startsWith('0x') && <ShowHash txHash={hash} />}
+      {hash === 'loading' && <Loading text={"Registrando"} />}
     </div>
   )
 }

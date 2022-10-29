@@ -1,21 +1,27 @@
 import { useState } from 'react';
 import { urlCelOrigen, urlCelProceso, urlCelProducto, urlCelOrigenHash, urlCelProcesosHash, urlCelProductoHash } from '../api/endpoints'
-import "../styles/showLotes.css"
 import { header } from '../api/fetchHeader'
-import ShowCelulosaData from './ShowCelulosaData';
-import ShowTxHash from './ShowTxHash';
+import TableCelulosaData from './TableCelulosaData'
 
-const ShowCelulosaLotes = (props) => {
-  const { lotes } = props
+import "../styles/showLotes.css"
+import { Loading } from './Loading';
+
+const ShowCelulosaLotes = ({ lotes }) => {
   const [currentCode, setCurrentCode] = useState("")
   const [origenData, setOrigenData] = useState([])
   const [procesosData, setProcesosData] = useState([])
   const [productoData, setProductoData] = useState([])
-  const [origenHash, setOrigenHash] = useState("")
-  const [procesosHash, setProcesosHash] = useState("")
-  const [productoHash, setProductoHash] = useState("")
+  const [origenHash, setOrigenHash] = useState(undefined)
+  const [procesosHash, setProcesosHash] = useState(undefined)
+  const [productoHash, setProductoHash] = useState(undefined)
 
   const searchLoteInfo = async (lote) => {
+    setOrigenData([])
+    setProcesosData([])
+    setProductoData([])
+    setOrigenHash(undefined)
+    setProcesosHash(undefined)
+    setProductoHash(undefined)
     setCurrentCode(lote)
     const urlOrigen = `${urlCelOrigen}?code=${lote}`
     const dataOrigen = await fetch(urlOrigen, header)
@@ -50,18 +56,16 @@ const ShowCelulosaLotes = (props) => {
 
   return (
     <div className="div-bt-lotes">
-        <div>
+        <section id="vista-lotes-cel">
           {lotes.map((lote, index) =>
             <button className="bt-lotes" key={index} onClick={() => searchLoteInfo(lote)}>{lote}</button>)}
           {lotes.length > 0 && <hr />}
-          <ShowCelulosaData origenData={origenData} procesosData={procesosData} productoData={productoData} codigo={currentCode} />
-          <div className='div-blockchain-info'>
-            {origenHash !== "" && <span className="span-title"> Información blockchain del lote <span className="span-title-green">{currentCode}</span></span>}
-            {origenHash !== "" && <ShowTxHash hash={origenHash} text={"Transacción origen"} />}
-            {procesosHash !== "" && <ShowTxHash hash={procesosHash} text={"Transacción procesos"} />}
-            {productoHash !== "" && <ShowTxHash hash={productoHash} text={"Transacción producto"} />}
-          </div>
-        </div>
+        </section>
+
+        <section id="visto-info-lote-cel">
+          {productoHash === undefined && <Loading  text={"Cargando"} />}
+          <TableCelulosaData origenData={origenData} procesosData={procesosData} productoData={productoData} codigo={currentCode} origenHash={origenHash} productoHash={productoHash} procesosHash={procesosHash}/>
+        </section>
     </div>
   )
 }

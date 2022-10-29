@@ -91,7 +91,7 @@ export const AddAnalisisProduct = () => {
                   <label className='file-title'>Resultado análisis</label>
                   <TextInputFile setter={setAnalisis} />
                 </div>
-                <button onClick={() => { registrarHandler("granu") }} className='bt-registrar' disabled={!analisis}>Registrar</button>
+                <button onClick={() => { registrarHandler("granu") }} className='button-registrar' disabled={!analisis}>Registrar</button>
                 <div className="div-register">
                   {registerDone === "granu" && <span className="register-done">Registro realizado correctamente ✅</span>}
                   {registerDone === 'loading' && <Loading text="Registrando" />}

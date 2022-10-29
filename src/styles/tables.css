@@ -5,13 +5,14 @@
 
 .span-title {
     font-size: 18px;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'comic-sans';
     font-weight: bold;
+    letter-spacing: 0.7px;
 }
 
 .span-title-green {
     font-size: 18px;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'comic-sans';
     font-weight: bold;
     color: green;
 }
@@ -19,7 +20,7 @@
 table {
     border: 1px solid black;
     border-collapse: collapse;
-    width: 600px;
+    width: 750px;
     padding: 10px;
     margin-top: 20px;
 }
@@ -29,8 +30,10 @@ th,
 td {
     border: 1px solid black;
     border-collapse: collapse;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'comic-sans';
+    letter-spacing: 0.7px;
     padding: 3px;
     width: 300px;
     padding-left: 8px;
+    text-align: center;
 }

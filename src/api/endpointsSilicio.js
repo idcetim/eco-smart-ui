@@ -1,5 +1,5 @@
-//export const url = 'https://server-ecosmartbatt.azurewebsites.net/'
-export const url = "http://localhost:5000/silicio/"
+export const url = 'https://server-ecosmartbatt.azurewebsites.net/silicio/'
+    //export const url = "http://localhost:5000/silicio/"
 
 export const entradas = `${url}entradas`
 

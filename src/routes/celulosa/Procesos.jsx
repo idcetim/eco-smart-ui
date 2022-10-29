@@ -42,7 +42,7 @@ const Procesos = () => {
         <BackCelButton />
       </div>
       <h3> Registro de procesos  </h3>
-      <TextInput codigo="Código" func={setCodigo} />
+      <TextInput type="Código" setter={setCodigo} value={codigo} />
       <h4>Procesos realizados</h4>
       <div>
         <CheckBox label={"Pretratamiento mecánico"} value={preMecanico} setChange={setPreMecanico} />

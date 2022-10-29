@@ -3,7 +3,7 @@ const BlockchainModal = (props) => {
   const closeModal = props.closeModal
   const fantomExplorer = "https://testnet.ftmscan.com/address/"
   const celulosaSC = "0x0ffbD40722C4C1812fE427c9eF37525EB1de05BE"
-  const silicioSC = "0x7aA20497D22D4dB0bBEA8BFfF409A9F65D75dACE"
+  const silicioSC = "0xD4b01159136d6783c5e13fD3C948E4Afa967682B"
   const bateriasSC = "0x5648A0C401093e798f4C3588EF02b28Db99cA4A0"
   return (
     <div className="modalBackground">
