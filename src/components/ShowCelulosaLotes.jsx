@@ -7,7 +7,7 @@ import "../styles/showLotes.css"
 import { Loading } from './Loading';
 
 const ShowCelulosaLotes = ({ lotes }) => {
-  const [currentCode, setCurrentCode] = useState("")
+  const [currentCode, setCurrentCode] = useState(undefined)
   const [origenData, setOrigenData] = useState([])
   const [procesosData, setProcesosData] = useState([])
   const [productoData, setProductoData] = useState([])
@@ -63,7 +63,7 @@ const ShowCelulosaLotes = ({ lotes }) => {
         </section>
 
         <section id="visto-info-lote-cel">
-          {productoHash === undefined && <Loading  text={"Cargando"} />}
+          {productoHash === undefined && currentCode !== undefined && <Loading  text={"Cargando"} />}
           <TableCelulosaData origenData={origenData} procesosData={procesosData} productoData={productoData} codigo={currentCode} origenHash={origenHash} productoHash={productoHash} procesosHash={procesosHash}/>
         </section>
     </div>
