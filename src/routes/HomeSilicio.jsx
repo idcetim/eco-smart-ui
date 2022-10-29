@@ -5,6 +5,7 @@ import "../styles/global.css"
 const HomeSilicio = () => {
     const navigate = useNavigate()
     const origenHandler = () => {navigate('/silicio/entradas/')}
+    const entradasAnalisisHandler = () => {navigate('/silicio/entradas/analisis/')}
     const productoHandler = () => {navigate('/silicio/producto/')}
     const consultarHandler = () => {navigate('/silicio/consulta/')}
     const consultarTodosHandler = () => {navigate('/silicio/consulta/lotes')}
@@ -15,6 +16,7 @@ const HomeSilicio = () => {
             <h3> Registro de información</h3>
             <div>
                 <button className="button-home" onClick={origenHandler}>Lotes 🚚</button>
+                <button className="button-home" onClick={entradasAnalisisHandler}>Añadir análisis de entrada</button>
                 <button className="button-home" onClick={productoHandler}>Producto final 📦</button>
             </div>
             <h3>Consulta de información</h3>
