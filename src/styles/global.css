@@ -5,6 +5,13 @@
     overflow: auto;
 }
 
+#home {
+    background-image: url('../data/mainBACK2.jpg');
+    width: 100%;
+    overflow: auto;
+    min-height: 100vh
+}
+
 .small-separation {
     margin-top: 10px
 }
