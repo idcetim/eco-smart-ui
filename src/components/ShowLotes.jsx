@@ -10,19 +10,19 @@ import '../styles/global.css'
 export const ShowLotes = ({ type }) => {
   const [lotesCode, setLotesCode] = useState([])
   const [singleLote, setSingleLote] = useState(null)
-  
-  useEffect(() => { 
+
+  useEffect(() => {
     (async function(){
       const url = type === "Product" ? produccion : entradas
       const data = await fetch(url, header)
       setLotesCode(await data.json())
     })()
    }, [type])
- 
+
   return (
     <div className='web-wrapper'>
       <div className='bt-lotes-wrapper'>
-        {type === "Product" ? <h2>Ver Producto final</h2> : <h2>Ver Lotes de Entrada</h2> }
+        {type === "Product" ? <h2 className='title-task silicio'>Ver Producto final</h2> : <h2 className='title-task silicio'>Ver Lotes de Entrada</h2> }
         {lotesCode.length > 0
           ? lotesCode.map((lote, index) => <button key={index} className="bt-lotes" onClick={() => setSingleLote(lote)}>{lote}</button>)
           : <Loading text={"Cargando"} />}

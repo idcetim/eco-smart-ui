@@ -3,7 +3,7 @@ const TextInputDate = (props) => {
     const inputValueHandler = (event) => { setValueState(event.target.value) }
     return (
         <div>
-            <input className="input-text" type="date"  onChange={inputValueHandler} />
+            <input className="input-date" type="date"  onChange={inputValueHandler} />
         </div>
     )
 }

@@ -83,7 +83,7 @@ const Produccion = () => {
 
   return (
     <div className='web-wrapper'>
-      <h2>Registrar producto final</h2>
+      <h2 className='title-task silicio'>Registrar producto final</h2>
       <TextInput type={"Código lote de origen"} setter={setOriginCode} />
       <TextInput type={'Código nuevo producto'} setter={setNewCode} />
       <TextInputDate setter={setDate} />

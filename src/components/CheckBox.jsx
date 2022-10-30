@@ -9,7 +9,7 @@ const Checkbox = (props) => {
     setChange(!value)
   }
   return (
-    <label>
+    <label className="label-checkbox">
       <div id="check-box-input-div">
         <input className="checkbox-design" type="checkbox" checked={value} onChange={() => changeValueHandler()} />
       </div>

@@ -7,6 +7,7 @@ import { entradas, entradasFile } from '../../api/endpointsSilicio';
 import { postHeader } from '../../api/fetchHeader';
 import { ShowHash } from '../../components/ShowHash';
 import { Loading } from '../..//components/Loading';
+import BackCelButton from '../../components/BackCelButton';
 
 import '../../styles/global.css'
 
@@ -40,7 +41,6 @@ export const Entradas = () => {
       "quality": quality,
       "origin": origin
     })
-    console.log(bodyData)
     const response = await fetch(entradas, { method: 'POST', headers: postHeader, body: bodyData, })
     if (response.ok) {
       setHash(await response.json())
@@ -64,15 +64,17 @@ export const Entradas = () => {
   }
 
   return (
+   <>
+   <BackCelButton />
     <div className='web-wrapper'>
-      <h1>Registrar entrada de lotes</h1>
+      <h1 className='title-task silicio'>Registrar entrada de lotes</h1>
       <TextInput type={'Código Lote'} setter={setCode} value={code} />
       <TextInputDate setter={setDate} />
       <TextInput type={'Cantidad (kg)'} setter={setAmount} value={amount} />
       <TextInput type={"Origen"} setter={setOrigin} value={origin}/>
       <SelectInput options={selectOptions} setter={setQuality}  value={quality}/>
       <div className='div-file-title'>
-        <label className='file-title'>Resultado análisis</label>
+        <label className='file-label-title'>Análisis entrada</label>
         <TextInputFile setter={setAnalysis} />
       </div>
 
@@ -82,6 +84,7 @@ export const Entradas = () => {
       {hash === 'loading' &&  <Loading text={"Registrando"} />}
       <br />
     </div>
+    </>
 
   )
 

@@ -49,7 +49,7 @@ export const AddAnalisisEntrada = () => {
       <section>
         {lotesCode.length > 0 ?
           <>
-            <h2>Lotes de entrada registrados</h2>
+            <h2 className='title-task silicio'>Lotes de entrada registrados</h2>
             <select className="select-lotes" onChange={selectHandler}>
               {lotesCode.map((lote, i) => <option key={lote}>{lote}</option>)}
             </select>
