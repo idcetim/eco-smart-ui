@@ -3,6 +3,7 @@ import { entradas, entradasFile, entradasAnalisis } from '../../api/endpointsSil
 import { header, postHeader } from '../../api/fetchHeader';
 import TextInputFile from "../../components/TextInputFile";
 import { Loading } from "../../components/Loading";
+import BackCelButton from '../../components/BackCelButton';
 
 import '../../styles/showLotesCodes.css'
 import '../../styles/global.css'
@@ -45,6 +46,8 @@ export const AddAnalisisEntrada = () => {
     setRegisterDone(await response.json())
   }
   return (
+    <>
+    <BackCelButton />
     <div className="web-wrapper">
       <section>
         {lotesCode.length > 0 ?
@@ -62,11 +65,10 @@ export const AddAnalisisEntrada = () => {
         <section>
           <div className="div-adding-analisis">
             {(singleLote.Analisis).startsWith("http")
-              ? <h2>Análisis del lote  <span className="lote-color">{singleLote.Codigo}</span> ✅</h2>
+              ? <h2 className="title-add-analisis">Análisis del lote  <span className="lote-color">{singleLote.Codigo}</span> ✅</h2>
               : <>
-                <h2>Añadir análisis del lote <span className="lote-color">{singleLote.Codigo}</span></h2>
+                <h2 className="title-add-analisis">Añadir análisis del lote <span className="lote-color">{singleLote.Codigo}</span></h2>
                 <div className='div-file-title'>
-                  <label className='file-title'>Resultado análisis</label>
                   <TextInputFile setter={setAnalisis} />
                 </div>
 
@@ -82,5 +84,6 @@ export const AddAnalisisEntrada = () => {
         </section>
       }
     </div>
+    </>
   )
 }

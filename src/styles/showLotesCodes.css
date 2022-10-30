@@ -36,13 +36,13 @@
 .div-adding-analisis {
     margin-top: 25px;
     border-radius: 5px;
-    border: 2px solid black;
+    border: 2px solid rgb(176, 173, 173);
     padding: 15px;
     width: 500px;
 }
 
 .lote-color {
-    color: darkgoldenrod;
+    color: rgb(240, 247, 51);
 }
 
 .register-done {

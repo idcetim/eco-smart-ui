@@ -7,6 +7,7 @@ import { postHeader } from '../../api/fetchHeader'
 import { produccion, produccionOrdenFile, produccionQuimicoFile, produccionGranulometricoFile } from '../../api/endpointsSilicio'
 import { ShowHash } from '../../components/ShowHash'
 import { Loading } from '../../components/Loading'
+import BackCelButton from '../../components/BackCelButton';
 
 import "../..//styles/global.css"
 import "../../styles/TextInput.css"
@@ -82,6 +83,8 @@ const Produccion = () => {
   const selectProductTypeOptions = ["Tipo de producto", "0.2 - 2 mm", "< 0.5 mm"]
 
   return (
+    <>
+    <BackCelButton />
     <div className='web-wrapper'>
       <h2 className='title-task silicio'>Registrar producto final</h2>
       <TextInput type={"Código lote de origen"} setter={setOriginCode} />
@@ -92,15 +95,15 @@ const Produccion = () => {
       <SelectInput options={selectQualityOptions} setter={setQuality} />
 
       <div className='div-file-title'>
-        <label className='file-title'>Resultado análisis químico</label>
+        <label className='file-label-title'>Análisis químico</label>
         <TextInputFile setter={setChemicalAnalysis} />
       </div>
       <div className='div-file-title'>
-        <label className='file-title'>Resultado análisis granulométrico</label>
+        <label className='file-label-title'>Granulometría</label>
         <TextInputFile setter={setGranuAnalysis} />
       </div>
       <div className='div-file-title'>
-        <label className='file-title'>Orden de trabajo</label>
+        <label className='file-label-title'>Orden de trabajo</label>
         <TextInputFile setter={setWorkOrder} />
       </div>
 
@@ -109,7 +112,7 @@ const Produccion = () => {
       {hash === 'loading' && <Loading text={"Registrando"} />}
       <br />
     </div>
-
+    </>
   )
 }
 

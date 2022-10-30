@@ -88,3 +88,10 @@ select {
     font-family: 'comics sans';
     text-align: center;
 }
+
+.title-add-analisis {
+    color: white;
+    font-weight: bold;
+    font-size: 28px;
+    font-family: 'comics sans';
+}

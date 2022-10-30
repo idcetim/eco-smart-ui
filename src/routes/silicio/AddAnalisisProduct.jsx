@@ -84,11 +84,10 @@ export const AddAnalisisProduct = () => {
         <section>
           <div className="div-adding-analisis">
             {(singleLote?.GranulometriaUrl).startsWith("http")
-              ? <h2> Granulometría del Lote <span className="lote-color">{singleLote.Codigo}</span> ✅</h2>
+              ? <h2 className="title-add-analisis"> Granulometría del Lote <span className="lote-color">{singleLote.Codigo}</span> ✅</h2>
               : <>
-                <h2>Añadir granulometría del lote <span className="lote-color">{singleLote.Codigo}</span></h2>
+                <h2 className="title-add-analisis">Añadir granulometría del lote <span className="lote-color">{singleLote.Codigo}</span></h2>
                 <div className='div-file-title'>
-                  <label className='file-title'>Resultado análisis</label>
                   <TextInputFile setter={setAnalisis} />
                 </div>
                 <button onClick={() => { registrarHandler("granu") }} className='button-registrar' disabled={!analisis}>Registrar</button>
@@ -103,11 +102,10 @@ export const AddAnalisisProduct = () => {
 
           <div className="div-adding-analisis">
             {(singleLote.QuimicoUrl).startsWith("http")
-              ? <h2>Análisis químico del lote <span className="lote-color">{singleLote.Codigo}</span> ✅</h2>
+              ? <h2 className="title-add-analisis">Análisis químico del lote <span className="lote-color">{singleLote.Codigo}</span> ✅</h2>
               : <>
-                <h2>Añadir análisis químico del lote <span className="lote-color">{singleLote.Codigo}</span></h2>
+                <h2 className="title-add-analisis">Añadir análisis químico del lote <span className="lote-color">{singleLote.Codigo}</span></h2>
                 <div className='div-file-title'>
-                  <label className='file-title'>Resultado análisis</label>
                   <TextInputFile setter={setAnalisis} />
                 </div>
                 <button onClick={() => { registrarHandler("quimico") }} className='bt-registrar' disabled={!analisis}>Registrar</button>
@@ -121,14 +119,13 @@ export const AddAnalisisProduct = () => {
 
           <div className="div-adding-analisis">
             {(singleLote.OrdenUrl).startsWith("http")
-              ? <h2>Orden de trabajo del lote  <span className="lote-color">{singleLote.Codigo}</span> ✅</h2>
+              ? <h2 className="title-add-analisis">Orden de trabajo del lote  <span className="lote-color">{singleLote.Codigo}</span> ✅</h2>
               : <>
-                <h2>Añadir orden de trabajo al lote <span className="lote-color">{singleLote.Codigo}</span></h2>
+                <h2 className="title-add-analisis">Añadir orden de trabajo al lote <span className="lote-color">{singleLote.Codigo}</span></h2>
                 <div className='div-file-title'>
-                  <label className='file-title'>Resultado análisis</label>
                   <TextInputFile setter={setAnalisis} />
                 </div>
-                <button onClick={() => { registrarHandler("orden") }} className='bt-registrar' disabled={!analisis}>Registrar</button>
+                <button onClick={() => { registrarHandler("orden") }} className='button-registrar' disabled={!analisis}>Registrar</button>
                 <div className="div-register">
                   {registerDone === "orden" && <span className="register-done">Registro realizado correctamente ✅</span>}
                   {registerDone === 'loading' && <Loading text="Registrando" />}
