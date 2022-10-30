@@ -1,6 +1,6 @@
 .web-wrapper {
     margin: 40px;
-    margin-top: 10px;
+    margin-top: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -56,7 +56,28 @@
 }
 
 .div-button-back {
-    margin-top: 15px;
+    position: absolute;
+    margin-left: 40px;
+    margin-top: 35px;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.button-back {
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    font-family: 'comic sans';
+    border-radius: 8px;
+    background-color: rgb(150, 3, 3);
+    text-transform: uppercase;
+    position: relative;
+}
+
+.button-back:hover {
+    background-color: rgb(241, 136, 136);
+    transition: ease-in-out 0.3s;
 }
 
 .button-home {
@@ -79,12 +100,19 @@
 }
 
 .button-registrar {
-    padding: 10px;
-    font-size: 18px;
+    padding: 12px;
+    font-size: 22px;
     font-weight: bold;
     font-family: 'comic sans';
+    letter-spacing: 1px;
     margin-top: 18px;
-    border-radius: 5px;
+    border-radius: 7px;
+    background-color: rgb(249, 234, 195);
+}
+
+.button-registrar:hover {
+    background-color: rgb(250, 212, 114);
+    transition: ease-in-out 0.3s;
 }
 
 .button-registrar-inline {
@@ -105,22 +133,6 @@
     font-weight: bold;
     font-family: 'comic sans';
     margin-right: 10px;
-}
-
-.button-back-cel {
-    padding: 10px;
-    font-size: 20px;
-    font-weight: bold;
-    color: rgb(255, 255, 255);
-    font-family: 'comic sans';
-    border-radius: 8px;
-    background-color: rgb(150, 3, 3);
-    text-transform: uppercase;
-}
-
-.button-back-cel:hover {
-    background-color: rgb(241, 136, 136);
-    transition: ease-in-out 0.3s;
 }
 
 .back-arrows {

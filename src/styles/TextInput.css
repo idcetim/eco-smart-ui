@@ -27,18 +27,22 @@ select {
 }
 
 label {
+    color: white;
     font-weight: bold;
     width: 315px;
     font-family: 'comics sans';
     padding: 5px;
-    font-size: 20px;
+    font-size: 22px;
     margin-top: 5px;
     margin-bottom: 5px;
     display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
 }
 
 .checkbox-design {
-    display: flex;
-    justify-content: left;
-    width: 25px;
+    width: 30px;
+    height: 25px;
+    margin-right: 10px;
 }

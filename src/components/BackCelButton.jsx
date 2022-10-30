@@ -8,7 +8,9 @@ const BackCelButton = () => {
         navigate('/celulosa/')
     }
     return (
-        <button className="button-back-cel" onClick={backCelHandler}> Atrás</button>
+        <div className='div-button-back'>
+        <button className="button-back" onClick={backCelHandler}> Atrás</button>
+        </div>
     )
     
 }

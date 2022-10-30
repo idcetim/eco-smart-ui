@@ -51,22 +51,23 @@ const Origen = () => {
 
   }
   const selectOptions = ["Origen", "Abeto", "Pino", "Eucalipto"]
+
   return (
-    <div className='web-wrapper'>
-      <div className='div-button-back'>
-        <BackCelButton />
+    <>
+      <BackCelButton />
+      <div className='web-wrapper'>
+        <h3 className='title-task celulosa'> Registro de pasta de celulosa </h3>
+        <TextInput type="Código" setter={setCodigo} value={codigo} />
+        <TextInput type="Celulosa(%)" setter={setCelulosa} value={celulosa} />
+        <TextInput type="Hemicelulosa(%)" setter={setHemicelulosa} value={hemicelulosa} />
+        <TextInput type="Lignina(%)" setter={setLignina} value={lignina} />
+        <SelectInput options={selectOptions} setter={setOrigen} />
+        <button className='button-registrar' onClick={registrarHandler} disabled={buttonDisabledCondition}>Registrar</button>
+        {hash !== undefined && hash.startsWith('0x') && <ShowHash txHash={hash} />}
+        {hash === 'loading' && <Loading text={"Registrando"} />}
+        <br />
       </div>
-      <h3> Registro de pasta de celulosa </h3>
-      <TextInput type="Código" setter={setCodigo} value={codigo} />
-      <TextInput type="Celulosa(%)" setter={setCelulosa} value={celulosa} />
-      <TextInput type="Hemicelulosa(%)" setter={setHemicelulosa} value={hemicelulosa} />
-      <TextInput type="Lignina(%)" setter={setLignina} value={lignina} />
-      <SelectInput options={selectOptions} setter={setOrigen} />
-      <button className='button-registrar' onClick={registrarHandler} disabled={buttonDisabledCondition}>Registrar</button>
-      {hash !== undefined && hash.startsWith('0x') && <ShowHash txHash={hash} />}
-      {hash === 'loading' && <Loading text={"Registrando"} />}
-      <br />
-    </div>
+    </>
   )
 
 }

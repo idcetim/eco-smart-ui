@@ -37,23 +37,22 @@ const Procesos = () => {
   }
 
   return (
-    <div className='web-wrapper'>
-      <div className='div-button-back'>
-        <BackCelButton />
+    <>
+      <BackCelButton />
+
+      <div className='web-wrapper'>
+        <h3 className='title-task celulosa'> Registro de procesos  </h3>
+        <TextInput type="Código" setter={setCodigo} value={codigo} />
+        <h4 className='title-task celulosa'>Procesos realizados</h4>
+          <CheckBox label={"Pretratamiento mecánico"} value={preMecanico} setChange={setPreMecanico} />
+          <CheckBox label={"Pretratamiento enzimático"} value={preEnzimatico} setChange={setPreEnzimatico} />
+          <CheckBox label={"Pretratamiento químico"} value={preQuimico} setChange={setPreQuimico} />
+          <CheckBox label={"Homogenización"} value={homogenizacion} setChange={setHomogenizacion} />
+        <button className='button-registrar' onClick={registrarHandler} disabled={!codigo}>Registrar</button>
+        {hash !== undefined && isRegisterOngoing && <ShowTxHash hash={hash} text={"Ver transacción"} />}
+        {hash === undefined && isRegisterOngoing && <Loading text={"Registrando"} />}
       </div>
-      <h3> Registro de procesos  </h3>
-      <TextInput type="Código" setter={setCodigo} value={codigo} />
-      <h4>Procesos realizados</h4>
-      <div>
-        <CheckBox label={"Pretratamiento mecánico"} value={preMecanico} setChange={setPreMecanico} />
-        <CheckBox label={"Pretratamiento enzimático"} value={preEnzimatico} setChange={setPreEnzimatico} />
-        <CheckBox label={"Pretratamiento químico"} value={preQuimico} setChange={setPreQuimico} />
-        <CheckBox label={"Homogenización"} value={homogenizacion} setChange={setHomogenizacion} />
-      </div>
-      <button className='button-registrar' onClick={registrarHandler} disabled={!codigo}>Registrar</button>
-      {hash !== undefined && isRegisterOngoing && <ShowTxHash hash={hash} text={"Ver transacción"} />}
-      {hash === undefined && isRegisterOngoing && <Loading text={"Registrando"} />}
-    </div>
+    </>
   )
 
 }
