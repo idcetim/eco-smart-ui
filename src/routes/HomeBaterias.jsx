@@ -6,10 +6,9 @@ import "../styles/global.css"
 const HomeBaterias = () => {
     return(
         <div className="web-wrapper">
-         <h1 className="main-baterias">Montaje de baterias</h1>
+         <h1 className="main-title baterias">Montaje de baterias</h1>
         </div>
     )
-  
 }
 
 export default HomeBaterias;

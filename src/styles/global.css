@@ -1,7 +1,10 @@
 .web-wrapper {
     margin: 40px;
     margin-top: 10px;
-    width: 1200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     overflow: auto;
 }
 
@@ -10,6 +13,7 @@
     width: 100vw;
     min-height: 100vh;
     overflow: auto;
+    overflow-x: hidden;
 }
 
 .home-wrapper {
@@ -123,12 +127,20 @@
     font-size: 28px;
 }
 
-h3 {
+.title-task {
     letter-spacing: 0.05em;
     font-family: 'comic sans';
     font-weight: bold;
     font-size: 26px;
     text-transform: uppercase;
+}
+
+.title-task.celulosa {
+    color: rgb(161, 254, 136);
+}
+
+.title-task.silicio {
+    color: rgb(172, 172, 172);
 }
 
 h4 {
@@ -139,28 +151,36 @@ h4 {
     text-transform: uppercase;
 }
 
-.main-celulosa {
-    background: -webkit-linear-gradient(rgb(3, 29, 2), rgb(69, 225, 7));
+.main-title {
+    font-size: 45px;
+    font-family: 'comic sans';
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.main-title.celulosa {
+    background: -webkit-linear-gradient(rgb(8, 89, 6), rgb(69, 225, 7));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.main-silicio {
-    background: -webkit-linear-gradient(rgb(45, 45, 45), rgb(99, 136, 170));
+.main-title.silicio {
+    background: -webkit-linear-gradient(rgb(108, 108, 108), rgb(99, 136, 170));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.main-baterias {
+.main-title.baterias {
     background: -webkit-linear-gradient(rgb(2, 46, 129), rgb(19, 215, 237));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.main-consultar {
+.main-title.consultar {
     background: -webkit-linear-gradient(rgb(17, 63, 246), rgb(252, 57, 181));
     background-clip: text;
     -webkit-background-clip: text;
