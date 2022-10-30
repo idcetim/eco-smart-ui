@@ -1,5 +1,11 @@
+#vista-lotes-cel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .bt-lotes {
-    background-color: rgb(149, 163, 189);
+    background-color: rgb(172, 201, 255);
     color: black;
     font-weight: bold;
     font-size: 18px;

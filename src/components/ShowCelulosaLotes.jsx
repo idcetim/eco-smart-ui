@@ -2,9 +2,9 @@ import { useState } from 'react';
 import { urlCelOrigen, urlCelProceso, urlCelProducto, urlCelOrigenHash, urlCelProcesosHash, urlCelProductoHash } from '../api/endpoints'
 import { header } from '../api/fetchHeader'
 import TableCelulosaData from './TableCelulosaData'
-
-import "../styles/showLotes.css"
 import { Loading } from './Loading';
+import "../styles/showLotesCodes.css"
+
 
 const ShowCelulosaLotes = ({ lotes }) => {
   const [currentCode, setCurrentCode] = useState(undefined)
@@ -55,13 +55,12 @@ const ShowCelulosaLotes = ({ lotes }) => {
   }
 
   return (
-    <div className="div-bt-lotes">
+    <div id="show-celulosa-lotes">
         <section id="vista-lotes-cel">
           {lotes.map((lote, index) =>
             <button className="bt-lotes" key={index} onClick={() => searchLoteInfo(lote)}>{lote}</button>)}
-          {lotes.length > 0 && <hr />}
         </section>
-
+        {lotes.length > 0 && <hr />}
         <section id="visto-info-lote-cel">
           {productoHash === undefined && currentCode !== undefined && <Loading  text={"Cargando"} />}
           <TableCelulosaData origenData={origenData} procesosData={procesosData} productoData={productoData} codigo={currentCode} origenHash={origenHash} productoHash={productoHash} procesosHash={procesosHash}/>

@@ -30,7 +30,7 @@ const ProductoFinal = () => {
       "porcentaje": porcentajeSusp
     })
     const response = await fetch(urlCelProducto, { method: 'POST', headers: postHeader, body: bodyData, })
-    if(response.ok) {
+    if (response.ok) {
       setHash(await response.json())
     } else {
       alert("Error con el registro")
@@ -39,20 +39,20 @@ const ProductoFinal = () => {
   }
 
   return (
-    <div className='web-wrapper'>
-      <div className='div-button-back'>
-        <BackCelButton />
+    <>
+      <BackCelButton />
+      <div className='web-wrapper'>
+        <h3 className='title-task celulosa'> Registro de características de nanocelulosa </h3>
+        <TextInput type="Código" setter={setCodigo} value={codigo} />
+        <TextInput type="Conductividad iónica" setter={setConductividad} value={conductividad} />
+        <TextInput type="Ancho medio partícula" setter={setAnchoMedio} value={anchoMedio} />
+        <SelectInput options={selectOptions} setter={setSuspension} />
+        {suspension === selectOptions[2] && <TextInput type="Porcentaje suspension" setter={setPorcentajeSusp} value={porcentajeSusp} />}
+        <button className='button-registrar' onClick={registrarHandler} disabled={!codigo || !anchoMedio || !suspension || !conductividad}>Registrar</button>
+        {hash !== undefined && hash.startsWith('0x') && <ShowHash txHash={hash} />}
+        {hash === 'loading' && <Loading text={"Registrando"} />}
       </div>
-      <h3> Registro de características de nanocelulosa </h3>
-      <TextInput type="Código" setter={setCodigo} value={codigo} />
-      <TextInput type="Conductividad iónica" setter={setConductividad} value={conductividad} />
-      <TextInput type="Ancho medio partícula" setter={setAnchoMedio} value = {anchoMedio} />
-      <SelectInput options={selectOptions} setter={setSuspension} />
-      {suspension === selectOptions[2] && <TextInput type="Porcentaje suspension" setter={setPorcentajeSusp}  value={porcentajeSusp}/>}
-      <button className='button-registrar' onClick={registrarHandler} disabled={!codigo || !anchoMedio || !suspension || !conductividad}>Registrar</button>
-      {hash !== undefined && hash.startsWith('0x') && <ShowHash txHash={hash} />}
-      {hash === 'loading' && <Loading text={"Registrando"} />}
-    </div>
+    </>
   )
 }
 
