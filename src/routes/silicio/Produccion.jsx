@@ -96,15 +96,15 @@ const Produccion = () => {
 
       <div className='div-file-title'>
         <label className='file-label-title'>Análisis químico</label>
-        <TextInputFile setter={setChemicalAnalysis} />
+        <TextInputFile setter={setChemicalAnalysis} value={chemicalAnalysis} />
       </div>
       <div className='div-file-title'>
         <label className='file-label-title'>Granulometría</label>
-        <TextInputFile setter={setGranuAnalysis} />
+        <TextInputFile setter={setGranuAnalysis}  value={granuAnalysis}/>
       </div>
       <div className='div-file-title'>
         <label className='file-label-title'>Orden de trabajo</label>
-        <TextInputFile setter={setWorkOrder} />
+        <TextInputFile setter={setWorkOrder} value={workOrder} />
       </div>
 
       <button onClick={clickHandler} className='button-registrar' disabled={buttonDisabledCondition}>Registrar</button>

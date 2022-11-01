@@ -75,7 +75,7 @@ export const Entradas = () => {
       <SelectInput options={selectOptions} setter={setQuality}  value={quality}/>
       <div className='div-file-title'>
         <label className='file-label-title'>Análisis entrada</label>
-        <TextInputFile setter={setAnalysis} />
+        <TextInputFile setter={setAnalysis} value={analysis} />
       </div>
 
       <button onClick={clickHandler} className='button-registrar' disabled={buttonDisabledCondition}>Registrar</button>

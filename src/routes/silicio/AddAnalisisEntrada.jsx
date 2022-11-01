@@ -69,7 +69,7 @@ export const AddAnalisisEntrada = () => {
               : <>
                 <h2 className="title-add-analisis">Añadir análisis del lote <span className="lote-color">{singleLote.Codigo}</span></h2>
                 <div className='div-file-title'>
-                  <TextInputFile setter={setAnalisis} />
+                  <TextInputFile setter={setAnalisis} value={analisis} />
                 </div>
 
                 <button onClick={registrarHandler} className='button-registrar' disabled={!analisis}>Registrar</button>

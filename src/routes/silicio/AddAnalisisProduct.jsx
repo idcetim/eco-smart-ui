@@ -88,7 +88,7 @@ export const AddAnalisisProduct = () => {
               : <>
                 <h2 className="title-add-analisis">Añadir granulometría del lote <span className="lote-color">{singleLote.Codigo}</span></h2>
                 <div className='div-file-title'>
-                  <TextInputFile setter={setAnalisis} />
+                  <TextInputFile setter={setAnalisis} value={analisis} />
                 </div>
                 <button onClick={() => { registrarHandler("granu") }} className='button-registrar' disabled={!analisis}>Registrar</button>
                 <div className="div-register">
@@ -106,7 +106,7 @@ export const AddAnalisisProduct = () => {
               : <>
                 <h2 className="title-add-analisis">Añadir análisis químico del lote <span className="lote-color">{singleLote.Codigo}</span></h2>
                 <div className='div-file-title'>
-                  <TextInputFile setter={setAnalisis} />
+                  <TextInputFile setter={setAnalisis} value={analisis} />
                 </div>
                 <button onClick={() => { registrarHandler("quimico") }} className='bt-registrar' disabled={!analisis}>Registrar</button>
                 <div className="div-register">
@@ -123,7 +123,7 @@ export const AddAnalisisProduct = () => {
               : <>
                 <h2 className="title-add-analisis">Añadir orden de trabajo al lote <span className="lote-color">{singleLote.Codigo}</span></h2>
                 <div className='div-file-title'>
-                  <TextInputFile setter={setAnalisis} />
+                  <TextInputFile setter={setAnalisis} value={analisis} />
                 </div>
                 <button onClick={() => { registrarHandler("orden") }} className='button-registrar' disabled={!analisis}>Registrar</button>
                 <div className="div-register">
