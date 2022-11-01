@@ -21,8 +21,8 @@ export const ShowLotes = ({ type }) => {
 
   return (
     <div className='web-wrapper'>
+      {type === "Product" ? <h2 className='title-task silicio'>Ver Producto final</h2> : <h2 className='title-task silicio'>Ver Lotes de Entrada</h2> }
       <div className='bt-lotes-wrapper'>
-        {type === "Product" ? <h2 className='title-task silicio'>Ver Producto final</h2> : <h2 className='title-task silicio'>Ver Lotes de Entrada</h2> }
         {lotesCode.length > 0
           ? lotesCode.map((lote, index) => <button key={index} className="bt-lotes" onClick={() => setSingleLote(lote)}>{lote}</button>)
           : <Loading text={"Cargando"} />}

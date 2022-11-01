@@ -13,6 +13,7 @@
 
 .table-celulosa a {
     color: white;
+    text-transform: uppercase;
 }
 
 .table-celulosa a:hover {
@@ -24,8 +25,9 @@ td {
     border-collapse: collapse;
     font-family: 'comic-sans';
     font-weight: bold;
-    letter-spacing: 0.7px;
-    padding: 3px;
+    font-size: 18px;
+    letter-spacing: 1.2px;
+    padding: 5px;
     width: 300px;
     padding-left: 8px;
     text-align: center;
@@ -34,7 +36,14 @@ td {
 
 th {
     letter-spacing: 0.7px;
-    padding: 3px;
+    padding: 5px;
     font-family: 'comic-sans';
     font-weight: bold;
+    font-size: 18px;
+}
+
+.color-red {
+    color: rgb(246, 59, 59);
+    font-weight: bold;
+    text-transform: uppercase;
 }

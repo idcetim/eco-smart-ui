@@ -11,6 +11,7 @@ export const SingleLoteInfo = ({ loteCode, type }) => {
 
   useEffect(() => {
     (async function () {
+      setData(null)
       const url = type === "Entry" ? `${entradas}/${loteCode}` : `${produccion}/${loteCode}`
       const data = await fetch(url, header)
       setData(await data.json())
@@ -19,6 +20,7 @@ export const SingleLoteInfo = ({ loteCode, type }) => {
 
   useEffect(() => {
     (async function (){
+      setHashData(null)
       const url = type === "Entry" ? `${entradas}/hash/${loteCode}` : `${produccion}/hash/${loteCode}`
       const data = await fetch(url, header)
       setHashData(await data.json())
