@@ -9,9 +9,9 @@ const TextInputFile = (props) => {
     return (
         <div id="div-input-file">
             <input className="inputfile" type="file" value="" name="file" ref={fileInputRef} onChange={inputValueHandler} />
-            {value === undefined
+            {value === undefined || value === null
             ? <label for="file" class="input-file-btn">Seleccionar archivo</label>
-            : <label for="file" class="input-file-btn">{value.name}</label>
+            : <label for="file" class="input-file-btn">{value?.name}</label>
             }
         </div>
     )
