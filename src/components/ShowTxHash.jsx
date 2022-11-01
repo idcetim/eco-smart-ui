@@ -7,8 +7,8 @@ const ShowTxHash = (props) => {
    
     return (
     <div className='div-showTxHash'>
-      <span className='span-hashTx'> ✅ Registro completado:</span>   
-      <a className='hash-link' href={fantomExplorer} target="_blank" rel="noreferrer">{text}</a> 
+      <span className='span-hashTx'> ✅ Registro completado:</span>
+      <a className='hash-link' href={fantomExplorer} target="_blank" rel="noreferrer">{text}</a>
     </div>
     )
 }
