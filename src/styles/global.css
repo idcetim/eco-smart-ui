@@ -17,7 +17,7 @@
 }
 
 .home-wrapper {
-    margin-top: 40px;
+    margin-top: 30px;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -197,4 +197,29 @@ h4 {
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+.title-solicitantes {
+    color: white;
+    font-weight: bold;
+    font-family: 'comics sans';
+    font-size: 40px;
+}
+
+.solicitantes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+.solicitantes img {
+    margin: 20px;
+    width: 120px;
+    height: 90px;
+}
+
+.solicitantes img:hover {
+    width: 250px;
+    height: 150px;
 }
