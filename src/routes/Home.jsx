@@ -4,9 +4,9 @@ import ProyectInfoModal from "../components/ProyectInfoModal";
 import "../styles/global.css"
 import "../styles/modal.css"
 import gain from '../data/gain.png'
-import ferroglobe from '../data/ferroglobe.png'
+import ferroglobe from '../data/ferroglobe2.png'
 import abcrlabs from '../data/abcrlabs.png'
-import enso from '../data/enso.png'
+import enso from '../data/enso2.png'
 import cetim from '../data/cetim.png'
 import artabro from '../data/artabro.png'
 const Home = () => {
@@ -39,7 +39,6 @@ const Home = () => {
           <a target="_blank" rel="noreferrer" href={"https://ensoinnovation.com/"}><img src={enso} alt="Enso" /></a>
           <a target="_blank" rel="noreferrer" href={"https://www.artabrotech.com/"}><img src={artabro} alt="Artabro" /></a>
           <a target="_blank" rel="noreferrer" href={"https://www.artabrotech.com/"}><img src={abcrlabs} alt="AbcrLabs" /></a>
-          
         </div>
       </section>
     </>

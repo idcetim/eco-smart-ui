@@ -31,12 +31,12 @@
     font-size: 28px
 }
 
-.navLink:active {
-    color: #000000;
+.navLink.active {
+    color: #fde25b;
 }
 
 .navLink:hover {
-    color: rgb(94, 231, 255)
+    color: #fde25b;
 }
 
 .navBtn {
