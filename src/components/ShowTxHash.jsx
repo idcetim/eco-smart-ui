@@ -1,13 +1,10 @@
 import '../styles/showHash.css'
-const ShowTxHash = (props) => {
-    const txHash = props.hash
-    const text = props.text
+const ShowTxHash = ({ txHash, text }) => {
     const fantomExplorer = "https://testnet.ftmscan.com/tx/" + txHash
 
-   
     return (
     <div className='div-showTxHash'>
-      <span className='span-hashTx'> ✅ Registro completado:</span>
+      <span className='span-hashTx'> ✅ Completado:</span>
       <a className='hash-link' href={fantomExplorer} target="_blank" rel="noreferrer">{text}</a>
     </div>
     )

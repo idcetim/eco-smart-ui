@@ -5,7 +5,7 @@ import BackCelButton from '../../components/BackCelButton';
 import { urlCelProceso } from '../../api/endpoints'
 import { postHeader } from '../../api/fetchHeader'
 import ShowTxHash from '../../components/ShowTxHash';
-import { Loading } from '../../components/Loading';
+import LoadingTxHash from '../../components/LoadingTxHash';
 
 import "../../styles/global.css"
 import "../../styles/TextInput.css"
@@ -50,7 +50,7 @@ const Procesos = () => {
           <CheckBox label={"Homogenización"} value={homogenizacion} setChange={setHomogenizacion} />
         <button className='button-registrar' onClick={registrarHandler} disabled={!codigo}>Registrar</button>
         {hash !== undefined && isRegisterOngoing && <ShowTxHash hash={hash} text={"Ver transacción"} />}
-        {hash === undefined && isRegisterOngoing && <Loading text={"Registrando"} />}
+        {hash === undefined && isRegisterOngoing && <LoadingTxHash/>}
       </div>
     </>
   )

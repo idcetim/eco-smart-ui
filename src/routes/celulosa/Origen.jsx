@@ -5,10 +5,10 @@ import BackCelButton from '../../components/BackCelButton';
 import { urlCelOrigen } from '../../api/endpoints'
 import { postHeader } from '../../api/fetchHeader'
 import { ShowHash } from '../../components/ShowHash';
-import { Loading } from '../../components/Loading';
 
 import "../../styles/global.css"
 import "../../styles/TextInput.css"
+import LoadingTxHash from '../../components/LoadingTxHash';
 
 const Origen = () => {
   const [codigo, setCodigo] = useState("")
@@ -64,7 +64,7 @@ const Origen = () => {
         <SelectInput options={selectOptions} setter={setOrigen} />
         <button className='button-registrar' onClick={registrarHandler} disabled={buttonDisabledCondition}>Registrar</button>
         {hash !== undefined && hash.startsWith('0x') && <ShowHash txHash={hash} />}
-        {hash === 'loading' && <Loading text={"Registrando"} />}
+        {hash === 'loading' && <LoadingTxHash />}
         <br />
       </div>
     </>

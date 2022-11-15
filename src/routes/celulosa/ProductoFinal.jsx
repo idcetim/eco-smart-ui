@@ -5,7 +5,7 @@ import { urlCelProducto } from '../../api/endpoints';
 import { postHeader } from '../../api/fetchHeader'
 import { ShowHash } from '../../components/ShowHash';
 import SelectInput from '../../components/SelectInput';
-import { Loading } from '../../components/Loading';
+import LoadingTxHash from '../../components/LoadingTxHash';
 
 import "../../styles/global.css"
 import "../../styles/TextInput.css"
@@ -50,7 +50,7 @@ const ProductoFinal = () => {
         {suspension === selectOptions[2] && <TextInput type="Porcentaje suspension" setter={setPorcentajeSusp} value={porcentajeSusp} />}
         <button className='button-registrar' onClick={registrarHandler} disabled={!codigo || !anchoMedio || !suspension || !conductividad}>Registrar</button>
         {hash !== undefined && hash.startsWith('0x') && <ShowHash txHash={hash} />}
-        {hash === 'loading' && <Loading text={"Registrando"} />}
+        {hash === 'loading' && <LoadingTxHash />}
       </div>
     </>
   )
