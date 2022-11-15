@@ -40,7 +40,7 @@
 }
 
 .rotate-clock:before {
-    content: attr(data-hover);
+    content: attr(data-item);
 }
 
 @keyframes rotation {
