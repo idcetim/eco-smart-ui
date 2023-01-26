@@ -54,11 +54,11 @@ const Home = () => {
       <Grid container spacing={2} sx={{ marginTop: "20px", maxWidth: '500px' }}>
 
         <Grid item xs={12} md={6} sx={{ display: 'flex', justifyContent: 'center' }}>
-          <Button variant="contained" onClick={() => setOpenProyectModal(true)}>Informacion del proyecto</Button>
+          <Button onClick={() => setOpenProyectModal(true)}>Informacion del proyecto</Button>
         </Grid>
 
         <Grid item xs={12} md={6} sx={{ display: 'flex', justifyContent: 'center' }}>
-          <Button variant="contained" onClick={() => setOpenBlockchainModal(true)}>Información blockchain</Button>
+          <Button onClick={() => setOpenBlockchainModal(true)}>Información blockchain</Button>
         </Grid>
       </Grid>
 

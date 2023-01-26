@@ -90,11 +90,6 @@ function NavBar2() {
                                 display: { xs: 'block', md: 'none' },
                             }}
                         >
-                            {/* {pages.map((page) => (
-                                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center">{page}</Typography>
-                                </MenuItem>
-                            ))} */}
 
                             <MenuItem onClick={handleCloseNavMenu}>
                                 <Typography textAlign="center" component={NavLink} style={({ isActive }) => isActive ? {color: 'black'} : null} to='/celulosa' sx={smallScreenLinkStyle}>NanoCelulosa</Typography>
@@ -131,12 +126,6 @@ function NavBar2() {
                     >
                        🏠 Inicio
                     </Typography>
-                    {/* <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }}}>
-                        <Typography textAlign="center" component={NavLink} className='small-navlink' style={({ isActive }) => isActive ? actveStyleSmall : null} to='/celulosa' sx={smallScreenLinkStyle}>NanoCelulosa</Typography>
-                        <Typography textAlign="center" component={NavLink} className='small-navlink' style={({ isActive }) => isActive ? actveStyleSmall : null} to='/sicilio' sx={smallScreenLinkStyle}>NanoSicilio</Typography>
-                        <Typography textAlign="center" component={NavLink} className='small-navlink' style={({ isActive }) => isActive ? actveStyleSmall : null} to='/baterias' sx={smallScreenLinkStyle}>Baterias</Typography>
-                        <Typography textAlign="center" component={NavLink} className='small-navlink' style={({ isActive }) => isActive ? actveStyleSmall : null} to='/consultar' sx={smallScreenLinkStyle}>Consultar</Typography>
-                    </Box> */}
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         {/* <Button component={NavLink} className="navlink" style={({ isActive }) => isActive ? activeStyleBig : null} to='/resumen' sx={{ my: 2, color: 'black', display: 'block' }}>Resumen</Button> */}
