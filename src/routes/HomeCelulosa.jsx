@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "../styles/global.css"
-import { Typography, Box, Button, Dialog, DialogTitle, TextField, DialogContent, DialogActions, FormControlLabel, Checkbox, Select, MenuItem, CircularProgress, Chip } from "@mui/material";
+import { Typography, Box, Button, Dialog, DialogTitle, TextField, DialogContent, DialogActions, FormControlLabel, Checkbox, Select, MenuItem, CircularProgress, Chip, Grid } from "@mui/material";
 import { urlCelConsultaLotes } from "../api/endpoints";
 import { header } from "../api/fetchHeader"
 
@@ -200,13 +200,15 @@ const ModalConsultarLotes = ({ open, close }) => {
     <Dialog open={open} onClose={close}>
       <DialogTitle>Lotes</DialogTitle>
       <DialogContent>
-        <ContenidoModal lotes={lotes} />
+        <Grid container spacing={2}>
+          <ContenidoModal lotes={lotes} />
+        </Grid>
       </DialogContent>
     </Dialog>
   )
 }
 
-const ContenidoModal = ({lotes}) => {
+const ContenidoModal = ({ lotes }) => {
   if (lotes === undefined) {
     return (
       <Box sx={{ width: '250px', height: '300px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
@@ -217,17 +219,19 @@ const ContenidoModal = ({lotes}) => {
 
   if (lotes === null || lotes.length === 0) {
     return (
-      <Box sx={{width: '250px', height: '300px', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+      <Box sx={{ width: '250px', height: '300px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         <div>No hay lotes</div>
       </Box>
     )
   }
 
   return (
-    <Box sx={{width: '250px', height: '300px', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+    <Box sx={{ width: '250px', height: '300px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
       {lotes.map(lote => {
         return (
-          <Chip label={lote} /> 
+          <Grid item={4}>
+            <Chip label={lote} />
+          </Grid>
         )
       })}
     </Box>
