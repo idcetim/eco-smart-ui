@@ -17,6 +17,8 @@ const activeStyleBig = {
     fontWeight: 900
 }
 
+const webFerroglobe = 'https://witty-sand-058c33d03.2.azurestaticapps.net/'
+
 const smallScreenLinkStyle = { color: "black", textDecoration: "none", textTransform: "uppercase", fontSize: "13px", fontWeight: "bold", paddingRight: '10px' }
 
 function NavBar2() {
@@ -92,7 +94,19 @@ function NavBar2() {
                         >
 
                             <MenuItem onClick={handleCloseNavMenu}>
-                                <Typography textAlign="center" component={NavLink} style={({ isActive }) => isActive ? {color: 'black'} : null} to='/celulosa' sx={smallScreenLinkStyle}>NanoCelulosa</Typography>
+                                <Typography 
+                                    textAlign="center" 
+                                    component={NavLink} 
+                                    style={({ isActive }) => isActive ? {color: 'black'} : null} 
+                                    to='/celulosa' 
+                                    onClick={ev => {
+                                        ev.preventDefault()
+                                        window.open(webFerroglobe)
+                                    }} 
+                                    sx={smallScreenLinkStyle}
+                                >
+                                    NanoCelulosa
+                                </Typography>
                             </MenuItem>
 
                             <MenuItem onClick={handleCloseNavMenu}>
@@ -130,7 +144,10 @@ function NavBar2() {
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         {/* <Button component={NavLink} className="navlink" style={({ isActive }) => isActive ? activeStyleBig : null} to='/resumen' sx={{ my: 2, color: 'black', display: 'block' }}>Resumen</Button> */}
                         <Button component={NavLink} className="navlink" style={({ isActive }) => isActive ? activeStyleBig : null} to='/celulosa' sx={{ my: 2, color: 'white', display: 'block' }}>NanoCelulosa</Button>
-                        <Button component={NavLink} className="navlink" style={({ isActive }) => isActive ? activeStyleBig : null} to='/silicio' sx={{ my: 2, color: 'white', display: 'block' }}>NanoSilicio</Button>
+                        <Button component={NavLink} className="navlink" style={({ isActive }) => isActive ? activeStyleBig : null} onClick={ev => {
+                            ev.preventDefault()
+                            window.open(webFerroglobe)
+                        }} to='nanosilicio' sx={{ my: 2, color: 'white', display: 'block' }}>NanoSilicio</Button>
                         <Button component={NavLink} className="navlink" style={({ isActive }) => isActive ? activeStyleBig : null} to='/baterias' sx={{ my: 2, color: 'white', display: 'block' }}>Baterias</Button>
                         <Button component={NavLink} className="navlink" style={({ isActive }) => isActive ? activeStyleBig : null} to="/consultar" sx={{ my: 2, color: 'white', display: 'block'}}>Consultar</Button>
                     </Box>
