@@ -4,7 +4,7 @@ import "../styles/global.css"
 import { Typography, Box, Button, Dialog, DialogTitle, TextField, DialogContent, DialogActions, FormControlLabel, Checkbox, Select, MenuItem, CircularProgress, Chip, Grid } from "@mui/material";
 import { urlCelConsultaLotes } from "../api/endpoints";
 import { header } from "../api/fetchHeader"
-import { urlCelOrigen, urlCelProceso } from '../api/endpoints'
+import { urlCelOrigen, urlCelProceso, urlCelProducto } from '../api/endpoints'
 import toast, { Toaster } from 'react-hot-toast';
 import { postHeader } from '../api/fetchHeader'
 
@@ -186,11 +186,38 @@ const formatos = ["Seca", "Suspensión"]
 const ModalNanocelulosa = ({ open, close }) => {
   const [inputs, setInputs] = useState({
     codigo: "",
-    conductividadIonica: "",
-    anchoMedioParticula: "",
-    formato: formatos[0],
+    conductividad: "",
+    anchoMedio: "",
+    suspension: formatos[0],
     porcentajeSuspension: null
   })
+
+  const registrarCallback = async () => {
+    const promise = registrarHandler()
+
+    toast.promise(promise, {
+      loading: 'Registrando características nanocelulosa',
+      success: 'Registro finalizado',
+      error: 'Error en el registro'
+    }, {
+      style: {
+        minWidth: '250px'
+      },
+      success: {
+        duration: 4000,
+        icon: '✅'
+      }
+    })
+  }
+
+  const registrarHandler = async () => {
+    const bodyData = JSON.stringify(inputs)
+    const response = await fetch(urlCelProducto, {method: 'POST', headers: postHeader, body: bodyData})
+
+    if (!response.ok) {
+      throw new Error()
+    }
+  }
 
   return (
     <Dialog open={open} onClose={close}>
@@ -210,32 +237,32 @@ const ModalNanocelulosa = ({ open, close }) => {
           <TextField
             type="text"
             fullWidth
-            value={inputs.conductividadIonica}
+            value={inputs.conductividad}
             label="Conductividad iónica"
             sx={{ marginTop: "10px" }}
-            onChange={ev => setInputs({ ...inputs, conductividadIonica: ev.target.value })}
+            onChange={ev => setInputs({ ...inputs, conductividad: ev.target.value })}
           />
 
           <TextField
             type="text"
             fullWidth
-            value={inputs.anchoMedioParticula}
+            value={inputs.anchoMedio}
             label="Ancho medio partícula"
             sx={{ marginTop: "10px" }}
-            onChange={ev => setInputs({ ...inputs, anchoMedioParticula: ev.target.value })}
+            onChange={ev => setInputs({ ...inputs, anchoMedio: ev.target.value })}
           />
 
           <Select
             fullWidth
-            value={inputs.formato}
+            value={inputs.suspension}
             sx={{ marginTop: "10px" }}
-            onChange={ev => setInputs({ ...inputs, formato: ev.target.value })}
+            onChange={ev => setInputs({ ...inputs, suspension: ev.target.value })}
           >
             <MenuItem value={formatos[0]}>{formatos[0]}</MenuItem>
             <MenuItem value={formatos[1]}>{formatos[1]}</MenuItem>
           </Select>
 
-          {inputs.formato === formatos[1] ?
+          {inputs.suspension === formatos[1] ?
             <TextField
               type="text"
               label="Porcentaje suspensión"
@@ -248,7 +275,7 @@ const ModalNanocelulosa = ({ open, close }) => {
 
           <DialogActions sx={{ marginTop: '20px' }}>
             <Button onClick={close}>Cancelar</Button>
-            <Button onClick={close}>Registrar</Button>
+            <Button onClick={registrarCallback}>Registrar</Button>
           </DialogActions>
         </DialogContent>
       </Box>
