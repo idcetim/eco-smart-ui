@@ -4,6 +4,9 @@ import "../styles/global.css"
 import { Typography, Box, Button, Dialog, DialogTitle, TextField, DialogContent, DialogActions, FormControlLabel, Checkbox, Select, MenuItem, CircularProgress, Chip, Grid } from "@mui/material";
 import { urlCelConsultaLotes } from "../api/endpoints";
 import { header } from "../api/fetchHeader"
+import { urlCelOrigen } from '../api/endpoints'
+import toast, { Toaster } from 'react-hot-toast';
+import { postHeader } from '../api/fetchHeader'
 
 const origenes = ["Abeto", "Pino", "Eucalipto"]
 
@@ -12,9 +15,44 @@ const ModalOrigen = ({ open, close }) => {
     codigo: "",
     celulosa: null,
     hemicelulosa: null,
-    lignitia: null,
+    lignina: null,
     origen: origenes[0]
   })
+
+  const registrarCallback = async () => {
+    const promise = registrarHandler()
+
+    toast.promise(promise, {
+      loading: 'Registrando origen',
+      success: 'Registro finalizado',
+      error: 'Error en el registro'
+    }, {
+      style: {
+        minWidth: '250px'
+      },
+      success: {
+        duration: 4000,
+        icon: '✅'
+      }
+    })
+  }
+
+  const registrarHandler = async () => {
+    const bodyData = JSON.stringify(inputs)
+
+    const response = await fetch(urlCelOrigen, { method: 'POST', headers: postHeader, body: bodyData, })
+    
+    if (response.ok) {
+      let hash = await response.json()
+    } 
+    else {
+      throw new Error(`
+        Error registrando información del lote ${inputs.codigo}.
+        Revisa que ese lote no haya sido registrado`
+      )
+    }
+
+  }
 
   return (
     <Dialog open={open} onClose={close}>
@@ -51,7 +89,7 @@ const ModalOrigen = ({ open, close }) => {
           <TextField
             type="number"
             fullWidth
-            value={inputs.lignitia}
+            value={inputs.lignina}
             label="Lignina %"
             sx={{ marginTop: '10px' }}
             onChange={ev => setInputs({ ...inputs, origen: ev.target.value })}
@@ -59,7 +97,7 @@ const ModalOrigen = ({ open, close }) => {
 
           <DialogActions sx={{ marginTop: '20px' }}>
             <Button onClick={close}>Cancelar</Button>
-            <Button onClick={close}>Registrar</Button>
+            <Button onClick={registrarCallback}>Registrar</Button>
           </DialogActions>
         </DialogContent>
       </Box>
@@ -269,6 +307,8 @@ const HomeCelulosa = () => {
 
   return (
     <Box sx={{ paddingTop: "40px", display: "flex", flexDirection: "column", alignItems: "center", width: '90%', marginLeft: '5%' }}>
+      <Toaster />
+      
       <Typography variant="h3" sx={{ textAlign: 'center', color: '#3f51b5' }}>Nanocelulosa</Typography>
       <Typography variant="h5" sx={{ marginTop: '40px' }}>Registro de información</Typography>
 
