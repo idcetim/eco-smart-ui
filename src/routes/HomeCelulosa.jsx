@@ -4,7 +4,7 @@ import "../styles/global.css"
 import { Typography, Box, Button, Dialog, DialogTitle, TextField, DialogContent, DialogActions, FormControlLabel, Checkbox, Select, MenuItem, CircularProgress, Chip, Grid } from "@mui/material";
 import { urlCelConsultaLotes } from "../api/endpoints";
 import { header } from "../api/fetchHeader"
-import { urlCelOrigen } from '../api/endpoints'
+import { urlCelOrigen, urlCelProceso } from '../api/endpoints'
 import toast, { Toaster } from 'react-hot-toast';
 import { postHeader } from '../api/fetchHeader'
 
@@ -114,6 +114,40 @@ const ModalProcesos = ({ open, close }) => {
     homogenizacion: false
   })
 
+  const registrarCallback = async () => {
+    const promise = registrarHandler()
+
+    toast.promise(promise, {
+      loading: 'Registrando proceso',
+      success: 'Registro finalizado',
+      error: 'Error en el registro'
+    }, {
+      style: {
+        minWidth: '250px'
+      },
+      success: {
+        duration: 4000,
+        icon: '✅'
+      }
+    })
+  }
+
+  const registrarHandler = async () => {
+    const bodyData = JSON.stringify({
+      "codigo": inputs.codigo,
+      "mecanico": inputs.pretratamientoMecanico ? "1" : "0",
+      "enzimatico": inputs.pretratamientoEnzimatico ? "1" : "0",
+      "quimico": inputs.pretratamientoQuimico ? "1" : "0",
+      "homogenizacion": inputs.homogenizacion ? "1" : "0"
+    })
+    const response = await fetch(urlCelProceso, { method: 'POST', headers: postHeader, body: bodyData, })
+    // setHash(await response.json())
+
+    if (!response.ok) {
+      throw new Error()
+    }
+  }
+
   return (
     <Dialog open={open} onClose={close}>
       <Box sx={{ width: { xs: '300px', md: '400px' } }}>
@@ -139,7 +173,7 @@ const ModalProcesos = ({ open, close }) => {
 
           <DialogActions sx={{ marginTop: '20px' }}>
             <Button onClick={close}>Cancelar</Button>
-            <Button onClick={close}>Registrar</Button>
+            <Button onClick={registrarCallback}>Registrar</Button>
           </DialogActions>
         </DialogContent>
       </Box>
