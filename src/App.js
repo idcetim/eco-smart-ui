@@ -18,6 +18,7 @@ import { VerStockProduccion } from "./routes/silicio/VerStockProduccion";
 import { ThemeProvider, createTheme } from "@mui/material";
 import NavBar2 from "./routes/NavBar2"
 import "./styles/global.css"
+import { QueryClient, QueryClientProvider } from 'react-query'
 
 const theme = createTheme({
     typography: {
@@ -27,38 +28,42 @@ const theme = createTheme({
     }
 })
 
+const queryClient = new QueryClient()
+
 function App() {
     return (<div id="home">
-        <ThemeProvider theme={theme}>
-            <BrowserRouter >
-                <div >
-                    {/* <NavBar /> */}
-                    <NavBar2 />
+        <QueryClientProvider client={queryClient}>
+            <ThemeProvider theme={theme}>
+                <BrowserRouter >
+                    <div >
+                        {/* <NavBar /> */}
+                        <NavBar2 />
 
-                    <Routes >
-                        <Route path="/" element={< Home />} />
-                        <Route path="/celulosa" element={< HomeCelulosa />} />
-                        <Route path="/celulosa/origen/*" element={< Origen />} />
-                        <Route path="/celulosa/procesos/*" element={< Procesos />} />
-                        <Route path="/celulosa/producto/*" element={< ProductoFinal />} />
-                        {/* <Route path="/celulosa/consulta/*" element={< ConsultarCelulosa />} /> */}
-                        <Route path="/celulosa/consulta/lotes/" element={< ConsultarLotesCel />} />
-                        <Route path="/silicio" element={< HomeSilicio />} />
-                        <Route path="/silicio/entradas/*" element={< Entradas />} />
-                        <Route path="/silicio/entradas/analisis/*" element={< AddAnalisisEntrada />} />
-                        <Route path="/silicio/produccion/*" element={< Produccion />} />
-                        <Route path="/silicio/produccion/analisis/*" element={< AddAnalisisProduct />} />
-                        <Route path="/silicio/verentradas" element={< VerStockEntradas />} />
-                        <Route path="/silicio/verproduccion" element={< VerStockProduccion />} />
-                        {/* <Route path="/silicio/consulta/*" element={< ConsultarLoteSilicio />} />
+                        <Routes >
+                            <Route path="/" element={< Home />} />
+                            <Route path="/celulosa" element={< HomeCelulosa />} />
+                            <Route path="/celulosa/origen/*" element={< Origen />} />
+                            <Route path="/celulosa/procesos/*" element={< Procesos />} />
+                            <Route path="/celulosa/producto/*" element={< ProductoFinal />} />
+                            {/* <Route path="/celulosa/consulta/*" element={< ConsultarCelulosa />} /> */}
+                            <Route path="/celulosa/consulta/lotes/" element={< ConsultarLotesCel />} />
+                            <Route path="/silicio" element={< HomeSilicio />} />
+                            <Route path="/silicio/entradas/*" element={< Entradas />} />
+                            <Route path="/silicio/entradas/analisis/*" element={< AddAnalisisEntrada />} />
+                            <Route path="/silicio/produccion/*" element={< Produccion />} />
+                            <Route path="/silicio/produccion/analisis/*" element={< AddAnalisisProduct />} />
+                            <Route path="/silicio/verentradas" element={< VerStockEntradas />} />
+                            <Route path="/silicio/verproduccion" element={< VerStockProduccion />} />
+                            {/* <Route path="/silicio/consulta/*" element={< ConsultarLoteSilicio />} />
                 <Route path="/silicio/consulta/lotes/*" element={< ConsultarTodosSilicio />} /> */}
-                        <Route path="/baterias" element={< HomeBaterias />} />
-                        <Route path="/consultar" element={< Consultar />} />
+                            <Route path="/baterias" element={< HomeBaterias />} />
+                            <Route path="/consultar" element={< Consultar />} />
 
-                    </Routes>
-                </div>
-            </BrowserRouter>
-        </ThemeProvider>
+                        </Routes>
+                    </div>
+                </BrowserRouter>
+            </ThemeProvider>
+        </QueryClientProvider>
     </div>
     );
 }
