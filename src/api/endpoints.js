@@ -1,9 +1,9 @@
 export const url = 'https://server-ecosmartbatt.azurewebsites.net/'
     //export const url = "http://localhost:5000/"
-export const urlFunctions = process.env.REACT_APP_API_ENDPOINT
+export const urlFunctions = process.env.REACT_APP_API_ENDPOINT ?? "https://ferroglobe.azurewebsites.net/api/"
 
 
-console.log(urlFunctions)
+console.log(process.env.REACT_APP_API_ENDPOINT)
 
 export const urlsBaterias = {
     registrar: `${urlFunctions}RegistrarBateria`,
