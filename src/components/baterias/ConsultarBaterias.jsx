@@ -13,11 +13,13 @@ import {
     CardMedia,
     Box
 } from "@mui/material"
-import { urlsBaterias } from '../../api/endpoints';
+import { urlFunctions, urlsBaterias } from '../../api/endpoints';
 
 const ConsultarBaterias = () => {
     const [codigoBuscado, setCodigoBuscado] = useState("")
     const [bateria, setBateria] = useState(undefined)
+
+    console.log(urlFunctions)
 
     const buscarBateria = async () => {
         let response = await fetch(`${urlsBaterias.getBateria}?codigoBateria=${codigoBuscado}`)
