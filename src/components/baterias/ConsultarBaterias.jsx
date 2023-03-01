@@ -11,7 +11,8 @@ import {
     TableContainer,
     Paper,
     CardMedia,
-    Box
+    Box,
+    Grid
 } from "@mui/material"
 import { urlsBaterias } from '../../api/endpoints';
 
@@ -43,12 +44,12 @@ const ConsultarBaterias = () => {
                 </IconButton>
             </Box>
 
-            <Box sx={{ width: '100%' }}>
+            <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', paddingTop: '50px' }}>
                 {bateria === undefined ?
                     <Box></Box>
                     :
                     bateria === null ?
-                        <Box sx={{paddingTop: '50px', width: '100%', textAlign: 'center'}}>La bateria no existe</Box>
+                        <Box sx={{ width: '100%', textAlign: 'center' }}>La bateria no existe</Box>
                         :
                         <DashboardBateria bateria={bateria} />
                 }
@@ -126,27 +127,35 @@ const DashboardBateria = ({ bateria }) => {
             <CardMedia
                 component="img"
                 src={bateria?.imagenRendimiento}
+                sx={{width: '400px'}}
             />
         </Box>
     )
 
     return (
-        <Box sx={{ width: '100%', marginTop: '100px', display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
-            <Especificaciones />
-            <ImagenRendimiento />
+        <Grid container spacing={2} sx={{width: '1000px', maxWidth: '90%'}}>
+            <Grid item xs={12} md={6} sx={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                <Especificaciones />
+            </Grid>
 
-            <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+            <Grid item xs={12} md={6}>
+                <ImagenRendimiento sx={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}/>
+            </Grid>
+
+            <Grid item xs={12} md={6} sx={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                 <Box sx={{ width: '400px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                     <h2>Materiales tinta</h2>
                     <Materiales materiales={bateria?.materialesTinta} />
                 </Box>
+            </Grid>
 
+            <Grid item xs={12} md={6} sx={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                 <Box sx={{ width: '400px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                     <h2>Materiales electrolito</h2>
                     <Materiales materiales={bateria?.materialesElectrolito} />
                 </Box>
-            </Box>
-        </Box>
+            </Grid>
+        </Grid>
     )
 }
 
