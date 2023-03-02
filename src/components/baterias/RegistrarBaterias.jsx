@@ -58,149 +58,169 @@ const RegistrarBaterias = () => {
 
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 4, width: '500px', maxWidth: '90%' }}>
-            <Grid item xs={12} sm={6}>
-                <TextField
-                    required
-                    fullWidth
-                    type="text"
-                    margin="none"
-                    name="codigo"
-                    label="Código"
-                    value={batterySpecs.codigo ?? ''}
-                    onChange={(e) => {
-                        setBatterySpecs({
-                            ...batterySpecs,
-                            codigo: e.target.value
-                        })
-                    }}
-                    sx={{ mt: 2 }}
-                />
-
-                <TextField
-                    required
-                    fullWidth
-                    id="date"
-                    label="Date"
-                    type="date"
-                    value={batterySpecs.fecha?.toISOString().slice(0, 10) ?? ''}
-                    onChange={(ev) => {
-                        setBatterySpecs({
-                            ...batterySpecs,
-                            fecha: new Date(ev.target.value)
-                        })
-                    }}
-                    InputLabelProps={{
-                        shrink: true,
-                    }}
-                    sx={{ mt: 2 }}
-                />
-
-                <TextField
-                    required
-                    fullWidth
-                    type="number"
-                    margin="none"
-                    name="capacidad"
-                    label="Capacidad"
-                    value={batterySpecs.capacidad ?? ''}
-                    onChange={(e) => {
-                        setBatterySpecs({
-                            ...batterySpecs,
-                            capacidad: e.target.value
-                        })
-                    }}
-                    sx={{ mt: 2 }}
-                />
-
-                <TextField
-                    required
-                    fullWidth
-                    type="number"
-                    margin="none"
-                    name="voltaje"
-                    label="Voltaje"
-                    value={batterySpecs.voltaje ?? ''}
-                    onChange={(e) => {
-                        setBatterySpecs({
-                            ...batterySpecs,
-                            voltaje: e.target.value
-                        })
-                    }}
-                    sx={{ mt: 2 }}
-                />
-
-                <TextField
-                    required
-                    fullWidth
-                    type="number"
-                    margin="none"
-                    name="peso"
-                    label="Peso"
-                    value={batterySpecs.peso ?? ''}
-                    onChange={(e) => {
-                        setBatterySpecs({
-                            ...batterySpecs,
-                            peso: e.target.value
-                        })
-                    }}
-                    sx={{ mt: 2 }}
-                />
-
-                <TextField
-                    required
-                    fullWidth
-                    type="number"
-                    margin="none"
-                    name="densidadEnergetica"
-                    label="Densidad energetica"
-                    value={batterySpecs.densidadEnergetica ?? ''}
-                    onChange={(e) => {
-                        setBatterySpecs({
-                            ...batterySpecs,
-                            densidadEnergetica: e.target.value
-                        })
-                    }}
-                    sx={{ mt: 2 }}
-                />
-
-                <InputLabel sx={{ marginTop: "20px" }}>Imagen rendimiento</InputLabel>
-                <input
-                    type='file'
-                    onChange={ev => {
-                        const file = ev.target.files[0]
-
-                        const reader = new FileReader()
-
-                        reader.addEventListener('load', () => {
+            <Grid container spacing={2}>
+                <Grid item xs={12} md={6}>
+                    <TextField
+                        required
+                        fullWidth
+                        type="text"
+                        margin="none"
+                        name="codigo"
+                        label="Código"
+                        value={batterySpecs.codigo ?? ''}
+                        onChange={(e) => {
                             setBatterySpecs({
                                 ...batterySpecs,
-                                imagenRendimiento: reader.result
+                                codigo: e.target.value
                             })
+                        }}
+                        sx={{ mt: 2 }}
+                    />
+                </Grid>
+
+                <Grid item xs={12} md={6}>
+                    <TextField
+                        required
+                        fullWidth
+                        id="date"
+                        label="Date"
+                        type="date"
+                        value={batterySpecs.fecha?.toISOString().slice(0, 10) ?? ''}
+                        onChange={(ev) => {
+                            setBatterySpecs({
+                                ...batterySpecs,
+                                fecha: new Date(ev.target.value)
+                            })
+                        }}
+                        InputLabelProps={{
+                            shrink: true,
+                        }}
+                        sx={{ mt: 2 }}
+                    />
+                </Grid>
+
+                <Grid item xs={12} md={6}>
+                    <TextField
+                        required
+                        fullWidth
+                        type="number"
+                        margin="none"
+                        name="capacidad"
+                        label="Capacidad"
+                        value={batterySpecs.capacidad ?? ''}
+                        onChange={(e) => {
+                            setBatterySpecs({
+                                ...batterySpecs,
+                                capacidad: e.target.value
+                            })
+                        }}
+                        sx={{ mt: 2 }}
+                    />
+                </Grid>
+
+                <Grid item xs={12} md={6}>
+                    <TextField
+                        required
+                        fullWidth
+                        type="number"
+                        margin="none"
+                        name="voltaje"
+                        label="Voltaje"
+                        value={batterySpecs.voltaje ?? ''}
+                        onChange={(e) => {
+                            setBatterySpecs({
+                                ...batterySpecs,
+                                voltaje: e.target.value
+                            })
+                        }}
+                        sx={{ mt: 2 }}
+                    />
+                </Grid>
+
+                <Grid item xs={12} md={6}>
+                    <TextField
+                        required
+                        fullWidth
+                        type="number"
+                        margin="none"
+                        name="peso"
+                        label="Peso"
+                        value={batterySpecs.peso ?? ''}
+                        onChange={(e) => {
+                            setBatterySpecs({
+                                ...batterySpecs,
+                                peso: e.target.value
+                            })
+                        }}
+                        sx={{ mt: 2 }}
+                    />
+                </Grid>
+
+                <Grid item xs={12} md={6}>
+                    <TextField
+                        required
+                        fullWidth
+                        type="number"
+                        margin="none"
+                        name="densidadEnergetica"
+                        label="Densidad energetica"
+                        value={batterySpecs.densidadEnergetica ?? ''}
+                        onChange={(e) => {
+                            setBatterySpecs({
+                                ...batterySpecs,
+                                densidadEnergetica: e.target.value
+                            })
+                        }}
+                        sx={{ mt: 2 }}
+                    />
+                </Grid>
+
+                <Grid item xs={12} md={6}>
+                    <InputLabel sx={{ marginTop: "20px" }}>Imagen rendimiento</InputLabel>
+                    <input
+                        type='file'
+                        onChange={ev => {
+                            const file = ev.target.files[0]
+
+                            const reader = new FileReader()
+
+                            reader.addEventListener('load', () => {
+                                setBatterySpecs({
+                                    ...batterySpecs,
+                                    imagenRendimiento: reader.result
+                                })
+                            })
+
+                            reader.readAsDataURL(file)
+                        }}
+                    />
+                </Grid>
+
+                <Grid item xs={12}>
+                    <InputLabel sx={{ marginTop: "20px" }}>Materiales tinta</InputLabel>
+                    <RegistroMateriales materiales={batterySpecs?.materialesTinta} setMateriales={newMateriales => {
+                        setBatterySpecs({
+                            ...batterySpecs,
+                            materialesTinta: newMateriales
                         })
+                    }} />
+                </Grid>
 
-                        reader.readAsDataURL(file)
-                    }}
-                />
+                <Grid item xs={12}>
+                    <InputLabel sx={{ marginTop: "20px" }}>Materiales electrolito</InputLabel>
+                    <RegistroMateriales materiales={batterySpecs?.materialesElectrolito} setMateriales={newMateriales => {
+                        setBatterySpecs({
+                            ...batterySpecs,
+                            materialesElectrolito: newMateriales
+                        })
+                    }} />
+                </Grid>
 
-                <InputLabel sx={{ marginTop: "20px" }}>Materiales tinta</InputLabel>
-                <RegistroMateriales materiales={batterySpecs?.materialesTinta} setMateriales={newMateriales => {
-                    setBatterySpecs({
-                        ...batterySpecs,
-                        materialesTinta: newMateriales
-                    })
-                }} />
-
-                <InputLabel sx={{ marginTop: "20px" }}>Materiales electrolito</InputLabel>
-                <RegistroMateriales materiales={batterySpecs?.materialesElectrolito} setMateriales={newMateriales => {
-                    setBatterySpecs({
-                        ...batterySpecs,
-                        materialesElectrolito: newMateriales
-                    })
-                }} />
-
-                <Button type="submit" variant="contained" sx={{ mt: 2 }} onClick={ev => handleSubmit(ev)}>
-                    Registrar Lote
-                </Button>
+                <Grid item xs={12}>
+                    <Button type="submit" variant="contained" sx={{ mt: 2 }} onClick={ev => handleSubmit(ev)}>
+                        Registrar Lote
+                    </Button>
+                </Grid>
             </Grid>
 
             <Toaster />
