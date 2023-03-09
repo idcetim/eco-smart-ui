@@ -116,10 +116,6 @@ function NavBar2() {
                             <MenuItem onClick={handleCloseNavMenu}>
                                 <Typography textAlign="center" component={NavLink} style={({ isActive }) => isActive ? {color: 'black'} : null} to='/baterias' sx={smallScreenLinkStyle}>Baterias</Typography>
                             </MenuItem>
-
-                            <MenuItem onClick={handleCloseNavMenu}>
-                                <Typography textAlign="center" component={NavLink} style={({ isActive }) => isActive ? {color: 'black'} : null} to='/consultar' sx={smallScreenLinkStyle}>Consultar</Typography>
-                            </MenuItem>
                         </Menu>
                     </Box>
                     <Typography
@@ -149,7 +145,6 @@ function NavBar2() {
                             window.open(webFerroglobe)
                         }} to='nanosilicio' sx={{ my: 2, color: 'white', display: 'block' }}>NanoSilicio</Button>
                         <Button component={NavLink} className="navlink" style={({ isActive }) => isActive ? activeStyleBig : null} to='/baterias' sx={{ my: 2, color: 'white', display: 'block' }}>Baterias</Button>
-                        <Button component={NavLink} className="navlink" style={({ isActive }) => isActive ? activeStyleBig : null} to="/consultar" sx={{ my: 2, color: 'white', display: 'block'}}>Consultar</Button>
                     </Box>
                 </Toolbar>
             </Container>

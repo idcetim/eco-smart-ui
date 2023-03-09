@@ -4,7 +4,6 @@ import Home from './routes/Home'
 import HomeCelulosa from './routes/HomeCelulosa'
 import HomeSilicio from './routes/HomeSilicio'
 import HomeBaterias from './routes/HomeBaterias'
-import Consultar from './routes/Consultar'
 import Origen from "./routes/celulosa/Origen";
 import Procesos from "./routes/celulosa/Procesos";
 import ProductoFinal from "./routes/celulosa/ProductoFinal";
@@ -19,6 +18,7 @@ import { ThemeProvider, createTheme } from "@mui/material";
 import NavBar2 from "./routes/NavBar2"
 import "./styles/global.css"
 import { QueryClient, QueryClientProvider } from 'react-query'
+import HomeCelulosa2 from "./routes/HomeCelulosa2";
 
 const theme = createTheme({
     typography: {
@@ -57,8 +57,7 @@ function App() {
                             {/* <Route path="/silicio/consulta/*" element={< ConsultarLoteSilicio />} />
                 <Route path="/silicio/consulta/lotes/*" element={< ConsultarTodosSilicio />} /> */}
                             <Route path="/baterias" element={< HomeBaterias />} />
-                            <Route path="/consultar" element={< Consultar />} />
-
+                            <Route path="/celulosa2" element={<HomeCelulosa2 />} />
                         </Routes>
                     </div>
                 </BrowserRouter>
