@@ -13,6 +13,8 @@ import {
     MenuItem,
     Select
 } from '@mui/material'
+import { Web3Storage } from "web3.storage";
+import { NFTStorage } from "nft.storage";
 
 const RegistrarBaterias = () => {
     const [batterySpecs, setBatterySpecs] = useState({
@@ -22,7 +24,7 @@ const RegistrarBaterias = () => {
         voltaje: '',
         peso: '',
         densidadEnergetica: '',
-        imagenRendimiento: 'aaa',
+        imagenRendimiento: '',
         stateOfHealth: '',
         materialesTinta: [{ name: '', code: '', origin: '' }],
         materialesElectrolito: [{ name: '', code: '', origin: '' }],
@@ -30,9 +32,21 @@ const RegistrarBaterias = () => {
     });
 
     const saveBattery = async () => {
+        const bateria = {...batterySpecs}
+
+        if (bateria.imagenRendimiento && bateria.imagenRendimiento !== "") {
+            const client = new Web3Storage({token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDg1MjAxRjA1MmFmZGNCYzU5RjE0MDFjYjQwRjlCN0U5NTlmMDZlYzYiLCJpc3MiOiJ3ZWIzLXN0b3JhZ2UiLCJpYXQiOjE2Nzg3MDYxOTMxNzMsIm5hbWUiOiJFY28tU21hcnQtQmF0dCJ9.RQPbOcOd01bwUV6xKVw4Kvta6O5WaB1qxnPzNBQQ9UY"})
+
+            const blob = new Blob([bateria.imagenRendimiento])
+
+            const { car } = await NFTStorage.encodeBlob(blob)
+
+            bateria.imagenRendimiento = await client.putCar(car)
+        }
+
         let response = await fetch(urlsBaterias.registrar, {
             method: 'POST',
-            body: JSON.stringify(batterySpecs)
+            body: JSON.stringify(bateria)
         })
 
         if (!response.ok) {

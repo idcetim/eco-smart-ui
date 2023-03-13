@@ -27,7 +27,14 @@ const ConsultarBaterias = () => {
         let response = await fetch(`${urlsBaterias.getBateria}?codigoBateria=${codigoBuscado}`)
 
         if (response.ok) {
-            setBateria(await response.json())
+            const bateria = await response.json()
+
+            
+            if (bateria.imagenRendimiento && bateria.imagenRendimiento !== "") {
+                bateria.imagenRendimiento = await (await fetch(`https://${bateria.imagenRendimiento}.ipfs.w3s.link/`)).text()
+            }
+
+            setBateria(bateria)
         }
     }
 
