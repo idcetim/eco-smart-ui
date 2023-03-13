@@ -14,7 +14,8 @@ export const urlsNanocelulosa = {
     registrarProducto: `${urlFunctions}BkNanocelulosaAddProductoFinal`,
     getOrigen: `${urlFunctions}BkNanocelulosaGetOrigen`,
     getProceso: `${urlFunctions}BkNanocelulosaGetProceso`,
-    getProducto: `${urlFunctions}BkNanocelulosaGetProducto`
+    getProducto: `${urlFunctions}BkNanocelulosaGetProducto`,
+    getProductoNanosilicio: `${urlFunctions}GetProductoBlockchain`
 }
 
 export const urlCelOrigen = url + 'celulosa/origen/'

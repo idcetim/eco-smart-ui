@@ -8,13 +8,25 @@ import {
     Button,
     TextField,
     IconButton,
-    InputLabel
+    InputLabel,
+    FormControl,
+    MenuItem,
+    Select
 } from '@mui/material'
 
 const RegistrarBaterias = () => {
     const [batterySpecs, setBatterySpecs] = useState({
+        codigo: '',
+        fecha: undefined,
+        capacidad: '',
+        voltaje: '',
+        peso: '',
+        densidadEnergetica: '',
+        imagenRendimiento: 'aaa',
+        stateOfHealth: '',
         materialesTinta: [{ name: '', code: '', origin: '' }],
-        materialesElectrolito: [{ name: '', code: '', origin: '' }]
+        materialesElectrolito: [{ name: '', code: '', origin: '' }],
+        materilesSilicioONanocelulosa: [{ tipo: 'nanocelulosa', codigo: '' }]
     });
 
     const saveBattery = async () => {
@@ -176,6 +188,25 @@ const RegistrarBaterias = () => {
                 </Grid>
 
                 <Grid item xs={12} md={6}>
+                    <TextField
+                        required
+                        fullWidth
+                        type="number"
+                        margin="none"
+                        name="stateOfHealth"
+                        label="State of health"
+                        value={batterySpecs.stateOfHealth ?? ''}
+                        onChange={(e) => {
+                            setBatterySpecs({
+                                ...batterySpecs,
+                                stateOfHealth: e.target.value
+                            })
+                        }}
+                        sx={{ mt: 2 }}
+                    />
+                </Grid>
+
+                <Grid item xs={12} md={6}>
                     <InputLabel sx={{ marginTop: "20px" }}>Imagen rendimiento</InputLabel>
                     <input
                         type='file'
@@ -194,6 +225,16 @@ const RegistrarBaterias = () => {
                             reader.readAsDataURL(file)
                         }}
                     />
+                </Grid>
+
+                <Grid item sx={12}>
+                    <InputLabel sx={{ marginTop: "20px" }}>Nanocelulosa y nanosilicio</InputLabel>
+                    <RegistroSilicioYCelulosa materiales={batterySpecs?.materilesSilicioONanocelulosa} setMateriales={newMateriales => {
+                        setBatterySpecs({
+                            ...batterySpecs,
+                            materilesSilicioONanocelulosa: newMateriales
+                        })
+                    }} />
                 </Grid>
 
                 <Grid item xs={12}>
@@ -238,7 +279,6 @@ const Material = ({
         onChange(name, value);
     };
 
-    
     return (
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mt: 2 }}>
             <TextField
@@ -278,6 +318,45 @@ const Material = ({
     );
 };
 
+const CelulosaYSilicio = ({
+    value,
+    onChange,
+    onDelete
+}) => {
+    const handleChange = e => {
+        const { name, value } = e.target
+        onChange(name, value)
+    }
+
+    return (
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mt: 2 }}>
+            <FormControl>
+                <InputLabel>Tipo</InputLabel>
+                <Select
+                    value={value.tipo}
+                    name="tipo"
+                    label="Tipo"
+                    onChange={handleChange}
+                >
+                    <MenuItem value={'nanocelulosa'}>Nanocelulosa</MenuItem>
+                    <MenuItem value={'nanosilicio'}>Nanosilicio</MenuItem>
+                </Select>
+            </FormControl>
+
+            <TextField
+                name="codigo"
+                label="Codigo"
+                value={value.codigo}
+                onChange={handleChange}
+            />
+
+            <IconButton onClick={onDelete}>
+                <DeleteIcon />
+            </IconButton>
+        </Box>
+    )
+}
+
 const RegistroMateriales = ({
     materiales,
     setMateriales
@@ -316,6 +395,49 @@ const RegistroMateriales = ({
 
             <Button startIcon={<AddIcon />} variant="outlined" onClick={handleAddMaterial} sx={{ mt: 2 }}>
                 Añadir materia prima
+            </Button>
+        </Box>
+    )
+}
+
+const RegistroSilicioYCelulosa = ({
+    materiales,
+    setMateriales
+}) => {
+    const handleAddMaterial = () => {
+        let newMateriales = [...materiales ?? []]
+        newMateriales.push({ tipo: 'nanocelulosa', code: '' })
+
+        setMateriales(newMateriales)
+    }
+
+    const handleUpdateMaterial = (index, name, value) => {
+        let newMateriales = [...materiales ?? []]
+        newMateriales[index][name] = value
+
+        setMateriales(newMateriales)
+    }
+
+    const handleDeleteMaterial = (index) => {
+        let newMateriales = [...materiales ?? []]
+        newMateriales.splice(index, 1)
+
+        setMateriales(newMateriales)
+    }
+
+    return (
+        <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+            {materiales?.map((material, index) => (
+                <CelulosaYSilicio
+                    key={index}
+                    value={material ?? ''}
+                    onChange={(name, value) => handleUpdateMaterial(index, name, value)}
+                    onDelete={() => handleDeleteMaterial(index)}
+                />
+            ))}
+
+            <Button startIcon={<AddIcon />} variant="outlined" onClick={handleAddMaterial} sx={{ mt: 2 }}>
+                Añadir material
             </Button>
         </Box>
     )
